@@ -1,2 +1,1 @@
-package Zootopia;public class ZooFantastique {
-}
+package Zootopia;
