@@ -109,8 +109,8 @@ class Voliere extends Enclos {
 
 // Classe Aquarium
 class Aquarium extends Enclos {
-    private double profondeur;
-    private double salinite;
+    private final double profondeur;
+    private final double salinite;
 
     public Aquarium(String nom, double superficie, int capaciteMax, double profondeur, double salinite) {
         super(nom, superficie, capaciteMax);
