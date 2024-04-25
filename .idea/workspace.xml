@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zootopia/Creature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zootopia/Enclosure.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zootopia/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zootopia/MainCreature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zootopia/MainZookeeper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zootopia/MaitreDeZooFantastique.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zootopia/ZooFantastique.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +38,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2fRsa2QTEY4BcbNL0xZZLYzu2il" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -109,7 +118,8 @@
       <workItem from="1713971755198" duration="2173000" />
       <workItem from="1713974530601" duration="1059000" />
       <workItem from="1713975755358" duration="926000" />
-      <workItem from="1714027529656" duration="1959000" />
+      <workItem from="1714027529656" duration="3718000" />
+      <workItem from="1714036771696" duration="2763000" />
     </task>
     <servers />
   </component>
