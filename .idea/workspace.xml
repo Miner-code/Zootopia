@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zootopia/Creature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zootopia/Enclosure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zootopia/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zootopia/MainCreature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zootopia/MainZookeeper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zootopia/MaitreDeZooFantastique.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zootopia/ZooFantastique.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
