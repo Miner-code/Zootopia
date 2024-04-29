@@ -13,8 +13,39 @@ abstract class Life {
         this.species = species;
     }
 
-    abstract void scream();
-    abstract void gettingOld();
-    abstract void sleeping();
+    public void setSex(boolean sex) {
+        this.sex = sex;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public boolean isSex() {
+        return sex;
+    }
+//abstract void scream();
+    //abstract void gettingOld();
+    //abstract void sleeping();
 
 }

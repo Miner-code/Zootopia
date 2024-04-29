@@ -1,27 +1,24 @@
 package Life;
 
-abstract class Creature {
+import Life.Hungry;
+
+public class Creature extends Life  {
     public double size;
-    public boolean hungry;
     public boolean health;
     public double weight;
+    public Hungry hungry;
 
-    public Creature(double size, boolean hungry, boolean health, double weight) {
+    public Creature(String name, boolean sex, int age, String species, double size, boolean health, double weight) {
+        super(name, sex, age, species);
         this.size = size;
-        this.hungry = hungry;
         this.health = health;
         this.weight = weight;
+        this.hungry = new Hungry(4);
     }
 
-    public void eat(String name){
-        this.hungry = true;
-        System.out.println(name + " a mangé");
+    public Hungry getHungry() {
+        return hungry;
     }
-    public void needEat(String name){
-        this.hungry = false;
-        System.out.println(name + " BESOIN MANGER !!!!");
-    }
-    abstract void cure();
 
     public double getSize() {
         return size;
@@ -33,10 +30,6 @@ abstract class Creature {
 
     public boolean isHealth() {
         return health;
-    }
-
-    public boolean isHungry() {
-        return hungry;
     }
 
     public void setSize(double size) {
@@ -51,7 +44,9 @@ abstract class Creature {
         this.health = health;
     }
 
-    public void setHungry(boolean hungry) {
-        this.hungry = hungry;
+
+    public Hungry setHungry(String Hungry) {
+        return hungry;
     }
+
 }
