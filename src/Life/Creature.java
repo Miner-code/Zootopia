@@ -1,57 +1,66 @@
 package Life;
 
-abstract class Creature {
-    public double size;
-    public boolean hungry;
-    public boolean health;
-    public double weight;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Creature(double size, boolean hungry, boolean health, double weight) {
-        this.size = size;
-        this.hungry = hungry;
-        this.health = health;
-        this.weight = weight;
+class Creature {
+    String nom;
+    String sexe;
+    double poids;
+    double taille;
+    int age;
+    int indicateurFaim;
+    boolean indicateurSommeil;
+    int indicateurSanté;
+
+    public Creature(String nom, String sexe, double poids, double taille, int age) {
+        this.nom = nom;
+        this.sexe = sexe;
+        this.poids = poids;
+        this.taille = taille;
+        this.age = age;
+        this.indicateurFaim = 50;
+        this.indicateurSommeil = false;
+        this.indicateurSanté = 100;
     }
 
-    public void eat(String name){
-        this.hungry = true;
-        System.out.println(name + " a mangé");
-    }
-    public void needEat(String name){
-        this.hungry = false;
-        System.out.println(name + " BESOIN MANGER !!!!");
-    }
-    abstract void cure();
-
-    public double getSize() {
-        return size;
+    void manger() {
+        if (!this.indicateurSommeil) {
+            this.indicateurFaim -= 10;
+            System.out.println(this.nom + " mange.");
+        } else {
+            System.out.println(this.nom + " est endormi, il ne peut pas manger.");
+        }
     }
 
-    public double getWeight() {
-        return weight;
+    void émettreUnSon() {
+        System.out.println(this.nom + " émet un son.");
     }
 
-    public boolean isHealth() {
-        return health;
+    void êtreSoigné() {
+        this.indicateurSanté = 100;
+        System.out.println(this.nom + " a été soigné.");
     }
 
-    public boolean isHungry() {
-        return hungry;
+    void sEndormir() {
+        this.indicateurSommeil = true;
+        System.out.println(this.nom + " s'endort.");
     }
 
-    public void setSize(double size) {
-        this.size = size;
+    void seRéveiller() {
+        this.indicateurSommeil = false;
+        System.out.println(this.nom + " se réveille.");
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    void vieillir() {
+        this.age++;
+        System.out.println(this.nom + " vieillit d'une année.");
+        if (this.age >= 10) {
+            System.out.println(this.nom + " est mort de vieillesse.");
+        }
     }
 
-    public void setHealth(boolean health) {
-        this.health = health;
-    }
-
-    public void setHungry(boolean hungry) {
-        this.hungry = hungry;
+    void mourir() {
+        System.out.println(this.nom + " est mort.");
     }
 }

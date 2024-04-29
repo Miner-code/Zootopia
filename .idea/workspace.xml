@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Life/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Life/Life.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Zoo" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -40,11 +47,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Life.Main.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.MainCreature.executor": "Run",
+    "Application.ZooGame.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Zoo",
+    "git-widget-placeholder": "Hungry",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -56,7 +65,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.MainCreature">
+  <component name="RunManager" selected="Application.ZooGame">
+    <configuration name="Life.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Life.Main" />
+      <module name="Zootopia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Zootopia.Main" />
       <module name="Zootopia" />
@@ -83,10 +105,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ZooGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Life.ZooGame" />
+      <module name="Zootopia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Life.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainCreature" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ZooGame" />
+        <item itemvalue="Application.Life.Main" />
         <item itemvalue="Application.MainCreature" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainCreature" />
@@ -117,6 +152,9 @@
       <workItem from="1714027529656" duration="3718000" />
       <workItem from="1714036771696" duration="5040000" />
       <workItem from="1714115204853" duration="2060000" />
+      <workItem from="1714373777223" duration="2580000" />
+      <workItem from="1714376391827" duration="11000" />
+      <workItem from="1714376611308" duration="8371000" />
     </task>
     <servers />
   </component>
