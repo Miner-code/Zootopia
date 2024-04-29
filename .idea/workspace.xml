@@ -6,8 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Life/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Life/Life.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Aquarium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclos/Aquarium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Enclos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclos/Enclos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Life/Life.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/MaitreDeZooFantastique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/MaitreDeZooFantastique.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Marin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Type/Marin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Ovipare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Ovipare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Rebirth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Rebirth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Terrestre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Type/Terrestre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Vivipare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Vivipare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Volant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Type/Volant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Voliere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclos/Voliere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/ZooFantastique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/ZooFantastique.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/ZooGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/ZooGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,33 +57,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Life.Main.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainCreature.executor": "Run",
-    "Application.ZooGame.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Hungry",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/hugov/InstitutG4/IdeaProjects/Zootopia/src/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Life.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainCreature.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ZooGame.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Hungry&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/hugov/InstitutG4/IdeaProjects/Zootopia/src/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.ZooGame">
     <configuration name="Life.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Life.Main" />
       <module name="Zootopia" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Life.*" />
+          <option name="PATTERN" value="Zoo.Life.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,11 +118,11 @@
       </method>
     </configuration>
     <configuration name="ZooGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Life.ZooGame" />
+      <option name="MAIN_CLASS_NAME" value="Zoo.Master.ZooGame" />
       <module name="Zootopia" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Life.*" />
+          <option name="PATTERN" value="Zoo.Life.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,7 +166,8 @@
       <workItem from="1714115204853" duration="2060000" />
       <workItem from="1714373777223" duration="2580000" />
       <workItem from="1714376391827" duration="11000" />
-      <workItem from="1714376611308" duration="8371000" />
+      <workItem from="1714376611308" duration="9325000" />
+      <workItem from="1714394248253" duration="1462000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,6 @@
-package Life;
+package Zoo.Creature.Birth;
+
+import Zoo.Creature.Creature;
 
 class Rebirth extends Creature {
     Rebirth(String nom, String sexe, double poids, double taille, int age) {
@@ -6,6 +8,6 @@ class Rebirth extends Creature {
     }
 
     void renaitre() {
-        System.out.println(this.nom + " est rené.");
+        System.out.println(this.nom + " est ramené à la vie.");
     }
 }

@@ -1,5 +1,14 @@
 // ZooGame.java
-package Life;
+package Zoo.Master;
+
+
+import Zoo.Creature.*;
+import Zoo.Creature.Birth.Ovipare;
+import Zoo.Creature.Birth.Vivipare;
+import Zoo.Creature.Type.Marin;
+import Zoo.Creature.Type.Terrestre;
+import Zoo.Creature.Type.Volant;
+import Zoo.Enclos.*;
 
 public class ZooGame {
     public static void main(String[] args) {

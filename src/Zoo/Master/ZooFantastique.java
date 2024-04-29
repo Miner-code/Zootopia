@@ -1,4 +1,7 @@
-package Life;
+package Zoo.Master;
+
+import Zoo.Creature.Creature;
+import Zoo.Enclos.Enclos;
 
 import java.util.ArrayList;
 import java.util.List;

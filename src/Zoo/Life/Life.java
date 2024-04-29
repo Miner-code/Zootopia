@@ -1,4 +1,4 @@
-package Life;
+package Zoo.Life;
 
 abstract class Life {
     public String name;

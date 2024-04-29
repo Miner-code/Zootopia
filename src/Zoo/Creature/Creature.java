@@ -1,11 +1,8 @@
-package Life;
+package Zoo.Creature;
 
-import java.util.ArrayList;
-import java.util.List;
-
-class Creature {
-    String nom;
-    String sexe;
+public class Creature {
+    public String nom;
+    protected String sexe;
     double poids;
     double taille;
     int age;

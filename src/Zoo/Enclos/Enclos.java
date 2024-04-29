@@ -1,14 +1,14 @@
-package Life;
+package Zoo.Enclos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Enclos {
-    String nom;
+public class Enclos {
+    public String nom;
     double superficie;
     int nombreMaxCreatures;
-    int nombreCreaturesPresentes;
-    List<String> creaturesPresentes;
+    public int nombreCreaturesPresentes;
+    public List<String> creaturesPresentes;
     String degreDeProprete;
 
     public Enclos(String nom, double superficie, int nombreMaxCreatures) {
@@ -20,7 +20,7 @@ class Enclos {
         this.degreDeProprete = "correct";
     }
 
-    void afficherCaracteristiques() {
+    public void afficherCaracteristiques() {
         System.out.println("Enclos : " + this.nom);
         System.out.println("Superficie : " + this.superficie);
         System.out.println("Nombre maximum de créatures : " + this.nombreMaxCreatures);
@@ -29,7 +29,7 @@ class Enclos {
         System.out.println("Degré de propreté : " + this.degreDeProprete);
     }
 
-    void ajouterCreature(String creatureNom) {
+    public void ajouterCreature(String creatureNom) {
         if (this.nombreCreaturesPresentes < this.nombreMaxCreatures) {
             this.creaturesPresentes.add(creatureNom);
             this.nombreCreaturesPresentes++;
@@ -39,7 +39,7 @@ class Enclos {
         }
     }
 
-    void enleverCreature(String creatureNom) {
+    public void enleverCreature(String creatureNom) {
         if (this.creaturesPresentes.contains(creatureNom)) {
             this.creaturesPresentes.remove(creatureNom);
             this.nombreCreaturesPresentes--;
@@ -49,13 +49,13 @@ class Enclos {
         }
     }
 
-    void nourrirCreatures() {
+    public void nourrirCreatures() {
         for (String creatureNom : this.creaturesPresentes) {
             System.out.println(creatureNom + " a été nourri.");
         }
     }
 
-    void entretien() {
+    public void entretien() {
         if (this.degreDeProprete.equals("mauvais")) {
             this.degreDeProprete = "correct";
             System.out.println("L'enclos " + this.nom + " a été nettoyé.");

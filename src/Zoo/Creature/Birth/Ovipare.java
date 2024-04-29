@@ -1,7 +1,9 @@
-package Life;
+package Zoo.Creature.Birth;
 
-class Ovipare extends Creature {
-    Ovipare(String nom, String sexe, double poids, double taille, int age) {
+import Zoo.Creature.Creature;
+
+public class Ovipare extends Creature {
+    public Ovipare(String nom, String sexe, double poids, double taille, int age) {
         super(nom, sexe, poids, taille, age);
     }
 

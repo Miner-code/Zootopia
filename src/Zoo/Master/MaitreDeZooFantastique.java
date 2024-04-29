@@ -1,4 +1,6 @@
-package Life;
+package Zoo.Master;
+
+import Zoo.Enclos.Enclos;
 
 class MaitreDeZooFantastique {
     String nom;

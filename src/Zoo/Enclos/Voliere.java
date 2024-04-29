@@ -1,6 +1,6 @@
-package Life;
+package Zoo.Enclos;
 
-class Voliere extends Enclos {
+public class Voliere extends Enclos {
     double hauteur;
 
     public Voliere(String nom, double superficie, int nombreMaxCreatures, double hauteur) {
@@ -9,7 +9,7 @@ class Voliere extends Enclos {
     }
 
     @Override
-    void afficherCaracteristiques() {
+    public void afficherCaracteristiques() {
         super.afficherCaracteristiques();
         System.out.println("Hauteur : " + this.hauteur);
     }

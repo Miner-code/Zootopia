@@ -1,6 +1,6 @@
-package Life;
+package Zoo.Enclos;
 
-class Aquarium extends Enclos {
+public class Aquarium extends Enclos {
     double profondeurDuBassin;
     double saliniteDeLEau;
 
@@ -11,7 +11,7 @@ class Aquarium extends Enclos {
     }
 
     @Override
-    void afficherCaracteristiques() {
+    public void afficherCaracteristiques() {
         super.afficherCaracteristiques();
         System.out.println("Profondeur du bassin : " + this.profondeurDuBassin);
         System.out.println("Salinité de l'eau : " + this.saliniteDeLEau);
