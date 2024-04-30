@@ -1,63 +1,76 @@
 package Zoo.Creature;
+import Zoo.Life.Life;
 
-public class Creature {
-    public String nom;
-    protected String sexe;
-    double poids;
-    double taille;
-    int age;
-    int indicateurFaim;
-    boolean indicateurSommeil;
-    int indicateurSanté;
+public class Creature extends Life  {
+    public double size;
+    public boolean health;
+    public double weight;
+    public Hungry hungry;
+    public Slept slept;
 
-    public Creature(String nom, String sexe, double poids, double taille, int age) {
-        this.nom = nom;
-        this.sexe = sexe;
-        this.poids = poids;
-        this.taille = taille;
-        this.age = age;
-        this.indicateurFaim = 50;
-        this.indicateurSommeil = false;
-        this.indicateurSanté = 100;
+    public Creature(String name, boolean sex, int age, String species, double size, boolean health, double weight) {
+        super(name, sex, age, species);
+        this.size = size;
+        this.health = health;
+        this.weight = weight;
+        this.hungry = new Hungry(1);
+        this.slept = new Slept(3,3);
     }
 
-    void manger() {
-        if (!this.indicateurSommeil) {
-            this.indicateurFaim -= 10;
-            System.out.println(this.nom + " mange.");
-        } else {
-            System.out.println(this.nom + " est endormi, il ne peut pas manger.");
-        }
+    public Hungry getHungry() {
+        return hungry;
     }
 
-    void émettreUnSon() {
-        System.out.println(this.nom + " émet un son.");
+    public Slept getSlept() {
+        return slept;
     }
 
-    void êtreSoigné() {
-        this.indicateurSanté = 100;
-        System.out.println(this.nom + " a été soigné.");
+    public double getSize() {
+        return size;
     }
 
-    void sEndormir() {
-        this.indicateurSommeil = true;
-        System.out.println(this.nom + " s'endort.");
+    public double getWeight() {
+        return weight;
     }
 
-    void seRéveiller() {
-        this.indicateurSommeil = false;
-        System.out.println(this.nom + " se réveille.");
+    public boolean isHealth() {
+        return health;
     }
 
-    void vieillir() {
-        this.age++;
-        System.out.println(this.nom + " vieillit d'une année.");
-        if (this.age >= 10) {
-            System.out.println(this.nom + " est mort de vieillesse.");
-        }
+    public void setSize(double size) {
+        this.size = size;
     }
 
-    void mourir() {
-        System.out.println(this.nom + " est mort.");
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
+
+    public void setHealth(boolean health) {
+        this.health = health;
+    }
+
+    @Override
+    protected void scream() {
+
+    }
+
+    @Override
+    protected void gettingOld() {
+
+    }
+
+    @Override
+    protected void sleeping() {
+
+    }
+
+
+    public Slept setSlept(String Slept) {
+        return slept;
+    }
+
+    public Hungry setHungry(String Hungry) {
+        return hungry;
+    }
+
 }
