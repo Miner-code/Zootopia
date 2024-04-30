@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/IHM/Images/bg-zoo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IHM/Images/button-pause-down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IHM/Images/button-pause-up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IHM/Images/creature.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IHM/Images/food.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IHM/Images/gold.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IHM/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IHM/MainGamePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IHM/UI/Buttons/ButtonMarket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Creature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Life/Life.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +51,15 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.IHM.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.MainCreature.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fred&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/f.florkowski/IdeaProjects&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -56,7 +69,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.MainCreature">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Zootopia.Main" />
       <module name="Zootopia" />
@@ -113,6 +126,8 @@
       <workItem from="1713975755358" duration="926000" />
       <workItem from="1714027529656" duration="3718000" />
       <workItem from="1714036771696" duration="2763000" />
+      <workItem from="1714381610511" duration="1005000" />
+      <workItem from="1714478024120" duration="233000" />
     </task>
     <servers />
   </component>
