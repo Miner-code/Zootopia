@@ -19,4 +19,7 @@ public class Hungry {
     public void setEat(int eat) {
         this.eat = eat;
     }
+
+
+
 }

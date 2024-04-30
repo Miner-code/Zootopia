@@ -7,17 +7,23 @@ public class Creature extends Life  {
     public boolean health;
     public double weight;
     public Hungry hungry;
+    public Slept slept;
 
     public Creature(String name, boolean sex, int age, String species, double size, boolean health, double weight) {
         super(name, sex, age, species);
         this.size = size;
         this.health = health;
         this.weight = weight;
-        this.hungry = new Hungry(4);
+        this.hungry = new Hungry(1);
+        this.slept = new Slept(3,3);
     }
 
     public Hungry getHungry() {
         return hungry;
+    }
+
+    public Slept getSlept() {
+        return slept;
     }
 
     public double getSize() {
@@ -44,6 +50,10 @@ public class Creature extends Life  {
         this.health = health;
     }
 
+
+    public Slept setSlept(String Slept) {
+        return slept;
+    }
 
     public Hungry setHungry(String Hungry) {
         return hungry;

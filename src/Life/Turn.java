@@ -8,8 +8,11 @@ public class Turn {
 
         // Pour chaque créature faire l'itération suivante
         for (Creature creature : creatures) {
-            // Appeller la function makeHungry avec comme paramètre la créature
-            makeHungry(creature);
+            // Appeler la function makeHungry avec comme paramètre la créature
+            //makeHungry(creature);
+
+            // Appeler la function makeSlept avec comme paramètre la créature
+            makeSlept(creature);
         }
     }
 
@@ -19,6 +22,15 @@ public class Turn {
             System.out.println(creature.getName() + " a faim");
         }
         System.out.println(creature.getName());
+        System.out.println(creature.getHungry().getEat());
+    }
+
+    public void makeSlept(Creature creature) {
+        creature.getSlept().setCntSleep(creature.getSlept().getSleepDuration() - 1);
+        if (creature.getSlept().getSleepDuration() <= 0){
+            System.out.println(creature.getName() + " a besoin de dormir");
+        }
+        System.out.println(creature.getName() + " a besoin de dormir dans : " + creature.getSlept().getSleepDuration() + " tours");
     }
 
 }
