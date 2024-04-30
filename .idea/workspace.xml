@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Ovipare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Ovipare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Life/Life.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Master/ZooGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/ZooGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +50,7 @@
     "Application.Life.Main.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.MainCreature.executor": "Run",
+    "Application.StartGame.executor": "Run",
     "Application.ZooGame.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -72,7 +72,7 @@
       <recent name="C:\Users\louka\IdeaProjects\Zootopia\src\Zoo\Creature" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ZooGame">
+  <component name="RunManager">
     <configuration name="Life.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Life.Main" />
       <module name="Zootopia" />
