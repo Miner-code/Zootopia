@@ -1,6 +1,8 @@
 package Zoo.Creature;
 
-public class Creature {
+import Zoo.Life.*;
+
+public class Creature extends Life {
     public String nom;
     protected String sexe;
     double poids;
@@ -8,9 +10,10 @@ public class Creature {
     int age;
     int indicateurFaim;
     boolean indicateurSommeil;
-    int indicateurSanté;
+    int indicateurSante;
 
     public Creature(String nom, String sexe, double poids, double taille, int age) {
+        super("", false, 0, "");
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;
@@ -18,7 +21,7 @@ public class Creature {
         this.age = age;
         this.indicateurFaim = 50;
         this.indicateurSommeil = false;
-        this.indicateurSanté = 100;
+        this.indicateurSante = 100;
     }
 
     void manger() {
@@ -30,12 +33,12 @@ public class Creature {
         }
     }
 
-    void émettreUnSon() {
+    void emettreUnSon() {
         System.out.println(this.nom + " émet un son.");
     }
 
-    void êtreSoigné() {
-        this.indicateurSanté = 100;
+    void etreSoigne() {
+        this.indicateurSante = 100;
         System.out.println(this.nom + " a été soigné.");
     }
 
@@ -44,7 +47,7 @@ public class Creature {
         System.out.println(this.nom + " s'endort.");
     }
 
-    void seRéveiller() {
+    void seReveiller() {
         this.indicateurSommeil = false;
         System.out.println(this.nom + " se réveille.");
     }
@@ -59,5 +62,20 @@ public class Creature {
 
     void mourir() {
         System.out.println(this.nom + " est mort.");
+    }
+
+    @Override
+    protected void scream() {
+
+    }
+
+    @Override
+    protected void gettingOld() {
+
+    }
+
+    @Override
+    protected void sleeping() {
+
     }
 }

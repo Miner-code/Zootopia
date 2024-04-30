@@ -1,6 +1,6 @@
 package Zoo.Life;
 
-abstract class Life {
+public abstract class Life {
     public String name;
     public boolean sex;
     public int age;
@@ -13,7 +13,7 @@ abstract class Life {
         this.species = species;
     }
 
-    abstract void scream();
-    abstract void gettingOld();
-    abstract void sleeping();
+    protected abstract void scream();
+    protected abstract void gettingOld();
+    protected abstract void sleeping();
 }

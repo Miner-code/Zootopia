@@ -1,6 +1,4 @@
-// ZooGame.java
 package Zoo.Master;
-
 
 import Zoo.Creature.*;
 import Zoo.Creature.Birth.Ovipare;
@@ -45,6 +43,10 @@ public class ZooGame {
         voliere1.ajouterCreature(phenix.nom);
         aquarium1.ajouterCreature(kraken.nom);
         aquarium1.ajouterCreature(sirene.nom);
+
+        // Level up de l'enclos 1
+        enclos1.levelUp();
+        voliere1.levelUp();
 
         // Affichage du nombre total de créatures dans le zoo
         zooFantastique.afficherNombreCreatures();

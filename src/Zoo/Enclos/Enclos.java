@@ -10,6 +10,7 @@ public class Enclos {
     public int nombreCreaturesPresentes;
     public List<String> creaturesPresentes;
     String degreDeProprete;
+    int level;
 
     public Enclos(String nom, double superficie, int nombreMaxCreatures) {
         this.nom = nom;
@@ -18,6 +19,7 @@ public class Enclos {
         this.nombreCreaturesPresentes = 0;
         this.creaturesPresentes = new ArrayList<>();
         this.degreDeProprete = "correct";
+        this.level = 1;
     }
 
     public void afficherCaracteristiques() {
@@ -64,6 +66,16 @@ public class Enclos {
             System.out.println("L'enclos " + this.nom + " a été bien nettoyé.");
         } else {
             System.out.println("L'enclos " + this.nom + " est déjà propre.");
+        }
+    }
+
+    public void levelUp() {
+        if (this.level < 3) {
+            this.nombreMaxCreatures++;
+            this.level++;
+            System.out.println("L'enclos" + this.nom + " est passé au niveau " + this.level + ".");
+        } else {
+            System.out.println("L'enclos " + this.nom + " est déjà au niveau maximal.");
         }
     }
 }

@@ -6,20 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Aquarium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclos/Aquarium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Enclos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclos/Enclos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Life/Life.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/MaitreDeZooFantastique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/MaitreDeZooFantastique.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Marin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Type/Marin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Ovipare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Ovipare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Rebirth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Rebirth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Terrestre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Type/Terrestre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Vivipare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Vivipare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Volant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Type/Volant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/Voliere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclos/Voliere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/ZooFantastique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/ZooFantastique.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Life/ZooGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/ZooGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Enclos/Enclos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclos/Enclos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Life/Life.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Master/ZooGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/ZooGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Zoo" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -133,10 +123,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.ZooGame" />
-        <item itemvalue="Application.Life.Main" />
         <item itemvalue="Application.MainCreature" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainCreature" />
+        <item itemvalue="Application.Life.Main" />
+        <item itemvalue="Application.ZooGame" />
       </list>
     </recent_temporary>
   </component>
