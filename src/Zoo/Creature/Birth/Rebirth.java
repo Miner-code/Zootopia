@@ -3,11 +3,11 @@
 //import Zoo.Creature.Creature;
 //
 //class Rebirth extends Creature {
-//    Rebirth(String nom, String sexe, double poids, double taille, int age) {
-//        super(nom, sexe, poids, taille, age);
+//    Rebirth(String name, String sex, double weight, double height, int age) {
+//        super(name, sex, weight, height, age);
 //    }
 //
-//    void renaitre() {
+//    void reborn() {
 //        System.out.println(this.nom + " est ramené à la vie.");
 //    }
 //}
