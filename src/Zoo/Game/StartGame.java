@@ -15,13 +15,18 @@ public class StartGame {
 
         // Initialisation du scanner pour pouvoir lire dans le terminal
         Scanner scanner = new Scanner(System.in);
-        // Lire la prochaine ligne du terminal
-        String line = scanner.nextLine();
+        int i = 0;
 
-        //Si la prochaine ligne st égale a "next" passer au tour suivant en appellant la class Turn avec comme paramètre toutes les créatures existants
-        if(line.equals("next")) {
-            Turn turn = new Turn(arrayCreatures);
+        while (i < i+1) {
+            i++;
+            // Lire la prochaine ligne du terminal
+            String line = scanner.nextLine();
+
+            //Si la prochaine ligne st égale a "next" passer au tour suivant en appellant la class Turn avec comme paramètre toutes les créatures existants
+            if(line.equals("next")) {
+                Turn turn = new Turn(arrayCreatures);
+            }
+
         }
-
     }
 }
