@@ -2,12 +2,12 @@
 //
 //import Zoo.Creature.Creature;
 //
-//public class Terrestre extends Creature {
-//    public Terrestre(String nom, String sexe, double poids, double taille, int age) {
-//        super(nom, sexe, poids, taille, age);
+//public class Terrestrial extends Creature {
+//    public Terrestrial(String name, String sex, double weight, double size, int age) {
+//        super(name, sex, weight, size, age);
 //    }
 //
-//    void courir() {
-//        System.out.println(this.nom + " court.");
+//    void run() {
+//        System.out.println(this.name + " is running.");
 //    }
 //}

@@ -2,12 +2,12 @@
 
 //import Zoo.Creature.Creature;
 
-//public class Volant extends Creature {
-//    public Volant(String nom, String sexe, double poids, double taille, int age) {
-//        super(nom, sexe, poids, taille, age);
+//public class Aerial extends Creature {
+//    public Aerial(String name, String sex, double weight, double size, int age) {
+//        super(name, sex, weight, size, age);
 //    }
 
-//    void voler() {
-//        System.out.println(this.nom + " vole.");
+//    void fly() {
+//        System.out.println(this.name + " is flying.");
 //    }
 //}

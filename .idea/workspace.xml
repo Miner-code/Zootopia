@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Zoo/Enclosure/Aquarium.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Zoo/Enclosure/Aviary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Zoo/Enclosure/Enclosure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Zoo/Master/FantasticZoo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Zoo/Master/FantasticZooKeeper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2024_14_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2024_14_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Ovipare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Ovipare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Rebirth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Rebirth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Vivipare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Birth/Vivipare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Enclos/Aquarium.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Enclos/Enclos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Enclos/Voliere.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Master/MaitreDeZooFantastique.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Master/ZooFantastique.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Master/ZooGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/ZooGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,29 +44,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Life.Main.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainCreature.executor": "Run",
-    "Application.StartGame.executor": "Run",
-    "Application.ZooGame.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/hugov/IdeaProjects/Zootopia",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/hugov/InstitutG4/IdeaProjects/Zootopia/src/Main.java",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Life.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainCreature.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StartGame.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ZooGame.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hugov/IdeaProjects/Zootopia&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/hugov/InstitutG4/IdeaProjects/Zootopia/src/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\louka\IdeaProjects\Zootopia\src\Zoo\Game" />
@@ -138,6 +123,7 @@
       <workItem from="1714394248253" duration="1462000" />
       <workItem from="1714559337612" duration="4486000" />
       <workItem from="1714638395698" duration="4413000" />
+      <workItem from="1714643173804" duration="920000" />
     </task>
     <servers />
   </component>
