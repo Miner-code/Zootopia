@@ -48,4 +48,5 @@ public abstract class Life {
     public void setSex(boolean sex) {
         this.sex = sex;
     }
+
 }
