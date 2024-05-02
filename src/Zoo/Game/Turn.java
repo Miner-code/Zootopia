@@ -27,11 +27,15 @@ public class Turn {
     }
 
     public void makeSlept(Creature creature) {
-        creature.getSlept().setCntSleep(creature.getSlept().getSleepDuration() - 1);
-        if (creature.getSlept().getSleepDuration() <= 0){
-            System.out.println(creature.getName() + " a besoin de dormir");
+        creature.getSlept().setCntSleep(creature.getSlept().getCntSleep() - 1);
+        if (creature.getSlept().getCntSleep() <= 0){
+            System.out.println(creature.getName() + " dort");
+        }else if (creature.getSlept().getCntSleep() == creature.getSlept().getSleepDuration()){
+            System.out.println(creature.getName() + " se réveille");
+        }else{
+            System.out.println(creature.getName() + " a besoin de dormir dans : " + creature.getSlept().getCntSleep() + " tours");
         }
-        System.out.println(creature.getName() + " a besoin de dormir dans : " + creature.getSlept().getSleepDuration() + " tours");
+
     }
 
 }
