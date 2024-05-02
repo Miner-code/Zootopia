@@ -2,14 +2,14 @@
 //
 //import Zoo.Creature.Creature;
 //
-//public class Vivipare extends Creature {
-//    public Vivipare(String nom, String sexe, double poids, double taille, int age) {
-//        super(nom, sexe, poids, taille, age);
+//public class Viviparous extends Creature {
+//    public Viviparous(String name, String sex, double weight, double height, int age) {
+//        super(name, sex, weight, height, age);
 //    }
 //
-//    void mettreBas() {
-//        if (this.sexe.equals("Femelle")) {
-//            System.out.println(this.nom + " a mis bas.");
+//    void giveBirth() {
+//        if (this.sex.equals("Female")) {
+//             System.out.println(this.nom + " a mis bas.");
 //        } else {
 //            System.out.println("Les mâles ne peuvent pas mettre bas.");
 //        }
