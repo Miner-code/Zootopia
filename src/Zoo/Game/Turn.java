@@ -1,24 +1,17 @@
 package Zoo.Game;
-import java.util.*;
+
+import java.util.List;
 import Zoo.Creature.*;
+import Zoo.Enclosure.Enclosure;
 
 public class Turn {
 
-    // Turn a besoins de a liste des créatures existant
-    public Turn(List<Creature> creatures) {
-
-        // Pour chaque créature faire l'itération suivante
-        for (Creature creature : creatures) {
-            // Appeler la function makeHungry avec comme paramètre la créature
-            //makeHungry(creature);
-
-            // Appeler la function makeSlept avec comme paramètre la créature
-            makeSlept(creature);
-        }
+    public Turn(List<Creature> creatures, Enclosure enclosure) {
+        this.takeTurn(creatures, enclosure);
     }
 
-    public void makeHungry(Creature creature) {
-        creature.getHungry().setEat(creature.getHungry().getEat()-1);
+    private void makeHungry(Creature creature) {
+        creature.getHungry().setEat(creature.getHungry().getEat() - 1);
         if (creature.getHungry().getEat() == 0) {
             System.out.println(creature.getName() + " a faim");
         }
@@ -26,16 +19,27 @@ public class Turn {
         System.out.println(creature.getHungry().getEat());
     }
 
-    public void makeSlept(Creature creature) {
+    private void makeSlept(Creature creature) {
         creature.getSlept().setCntSleep(creature.getSlept().getCntSleep() - 1);
-        if (creature.getSlept().getCntSleep() <= 0){
+        if (creature.getSlept().getCntSleep() <= 0) {
             System.out.println(creature.getName() + " dort");
-        }else if (creature.getSlept().getCntSleep() == creature.getSlept().getSleepDuration()){
+        } else if (creature.getSlept().getCntSleep() == creature.getSlept().getSleepDuration()) {
             System.out.println(creature.getName() + " se réveille");
-        }else{
+        } else {
             System.out.println(creature.getName() + " a besoin de dormir dans : " + creature.getSlept().getCntSleep() + " tours");
         }
-
     }
 
+    public void takeTurn(List<Creature> creatures, Enclosure enclosure) {
+        for (Creature creature : creatures) {
+            makeHungry(creature);
+            makeSlept(creature);
+        }
+        enclosure.degradeCleanliness();
+        enclosure.levelUp();
+        enclosure.displayCharacteristics();
+        enclosure.addCreature("New Creature");
+        enclosure.removeCreature("Existing Creature");
+        enclosure.maintenance();
+    }
 }

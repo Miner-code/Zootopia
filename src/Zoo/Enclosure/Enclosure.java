@@ -11,6 +11,7 @@ public class Enclosure {
     public List<String> creaturesPresent;
     String cleanlinessDegree;
     int level;
+    private int turnsSinceLastClean;
 
     public Enclosure(String name, double area, int maxNumberOfCreatures) {
         this.name = name;
@@ -20,6 +21,7 @@ public class Enclosure {
         this.creaturesPresent = new ArrayList<>();
         this.cleanlinessDegree = "correct";
         this.level = 1;
+        this.turnsSinceLastClean = 0;
     }
 
     public void displayCharacteristics() {
@@ -54,6 +56,24 @@ public class Enclosure {
     public void feedCreatures() {
         for (String creatureName : this.creaturesPresent) {
             System.out.println(creatureName + " has been fed.");
+        }
+    }
+
+    public void degradeCleanliness() {
+        this.turnsSinceLastClean++;
+
+        if (this.turnsSinceLastClean >= 10) {
+            if (this.cleanlinessDegree.equals("good")) {
+                this.cleanlinessDegree = "correct";
+                System.out.println("Enclosure " + this.name + " cleanliness degraded to correct.");
+            } else if (this.cleanlinessDegree.equals("correct")) {
+                this.cleanlinessDegree = "poor";
+                System.out.println("Enclosure " + this.name + " cleanliness degraded to poor.");
+            } else {
+                System.out.println("Enclosure " + this.name + " cleanliness is already poor.");
+            }
+
+            this.turnsSinceLastClean = 0; // Reset turn counter after degradation
         }
     }
 
