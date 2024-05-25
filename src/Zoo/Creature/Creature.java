@@ -3,18 +3,18 @@ import Zoo.Life.Life;
 
 public class Creature extends Life  {
     public double size;
-    public boolean health;
     public double weight;
     public Hungry hungry;
     public Slept slept;
+    public Health health;
 
-    public Creature(String name, boolean sex, int age, String species, double size, boolean health, double weight) {
+    public Creature(String name, boolean sex, int age, String species, double size,double weight, Hungry hungry,Slept slept, Health health) {
         super(name, sex, age, species);
         this.size = size;
-        this.health = health;
         this.weight = weight;
-        this.hungry = new Hungry(1);
-        this.slept = new Slept(3,3);
+        this.hungry = hungry;
+        this.slept = slept;
+        this.health = health;
     }
 
     public Hungry getHungry() {
@@ -25,6 +25,10 @@ public class Creature extends Life  {
         return slept;
     }
 
+    public Health getHealth() {
+        return health;
+    }
+
     public double getSize() {
         return size;
     }
@@ -33,9 +37,7 @@ public class Creature extends Life  {
         return weight;
     }
 
-    public boolean isHealth() {
-        return health;
-    }
+
 
     public void setSize(double size) {
         this.size = size;
@@ -45,9 +47,7 @@ public class Creature extends Life  {
         this.weight = weight;
     }
 
-    public void setHealth(boolean health) {
-        this.health = health;
-    }
+
 
     @Override
     protected void scream() {

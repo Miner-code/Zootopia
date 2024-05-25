@@ -3,15 +3,23 @@ package IHM.UI.Panels;
 import IHM.Content.Drawers.ImagePanel;
 import IHM.UI.ZooGridElement.EmptyZone;
 import IHM.UI.ZooGridElement.Enclosure;
+import Zoo.Creature.Creature;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
+import Zoo.Game.Turn;
+
 
 public class MainPanel extends JPanel {
 
     private SidePanel sidePanel;
 
-    public MainPanel(SidePanel sidePanel) {
+
+    public MainPanel(SidePanel sidePanel, List<Creature> creatures) {
         this.sidePanel = sidePanel;
 
         // Obtenir la taille de l'écran
@@ -41,11 +49,11 @@ public class MainPanel extends JPanel {
             Enclosure enclosure = new Enclosure(0, "enclosure" + i, sidePanel);
             gridPanel.add(enclosure);
         }
+        gridPanel.add(addNextTurn(creatures));
+        gridPanel.add(new EmptyZone());
+        gridPanel.add(new EmptyZone());
+        gridPanel.add(new EmptyZone());
 
-        gridPanel.add(new EmptyZone());
-        gridPanel.add(new EmptyZone());
-        gridPanel.add(new EmptyZone());
-        gridPanel.add(addNextTurn());
 
         gridPanel.setBounds(50, 50, (mainPanelWidth - 100), (screenHeight - 100)); // Position et taille du deuxième calque
         layeredPane.add(gridPanel, JLayeredPane.PALETTE_LAYER);
@@ -60,10 +68,20 @@ public class MainPanel extends JPanel {
         add(layeredPane, BorderLayout.CENTER);
     }
 
-    public JPanel addNextTurn() {
+    public JPanel addNextTurn(List<Creature> creatures) {
         JPanel nextTurn = new JPanel(new BorderLayout());
         nextTurn.setBackground(Color.GRAY);
         nextTurn.add(new JLabel("Next Turn"), BorderLayout.WEST);
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println("Tour suivant");
+                new Turn(creatures);
+            }
+
+        });
+
         return nextTurn;
     }
 }

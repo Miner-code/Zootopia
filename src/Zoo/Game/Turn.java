@@ -6,40 +6,26 @@ import Zoo.Enclosure.Enclosure;
 
 public class Turn {
 
-    public Turn(List<Creature> creatures, Enclosure enclosure) {
-        this.takeTurn(creatures, enclosure);
+    public Turn(List<Creature> creatures) {
+        this.takeTurn(creatures);
     }
 
-    private void makeHungry(Creature creature) {
-        creature.getHungry().setEat(creature.getHungry().getEat() - 1);
-        if (creature.getHungry().getEat() == 0) {
-            System.out.println(creature.getName() + " a faim");
-        }
-        System.out.println(creature.getName());
-        System.out.println(creature.getHungry().getEat());
-    }
 
-    private void makeSlept(Creature creature) {
-        creature.getSlept().setCntSleep(creature.getSlept().getCntSleep() - 1);
-        if (creature.getSlept().getCntSleep() <= 0) {
-            System.out.println(creature.getName() + " dort");
-        } else if (creature.getSlept().getCntSleep() == creature.getSlept().getSleepDuration()) {
-            System.out.println(creature.getName() + " se réveille");
-        } else {
-            System.out.println(creature.getName() + " a besoin de dormir dans : " + creature.getSlept().getCntSleep() + " tours");
-        }
-    }
 
-    public void takeTurn(List<Creature> creatures, Enclosure enclosure) {
+
+
+    public void takeTurn(List<Creature> creatures) {
         for (Creature creature : creatures) {
-            makeHungry(creature);
-            makeSlept(creature);
+            Hungry.makeHungry(creature);
+            Slept.makeSlept(creature);
+            Health.getSick(creature);
         }
-        enclosure.degradeCleanliness();
-        enclosure.levelUp();
-        enclosure.displayCharacteristics();
-        enclosure.addCreature("New Creature");
-        enclosure.removeCreature("Existing Creature");
-        enclosure.maintenance();
+        System.out.println("Fin Tour");
+        //enclosure.degradeCleanliness();
+        //enclosure.levelUp();
+        //enclosure.displayCharacteristics();
+        //enclosure.addCreature("New Creature");
+        //enclosure.removeCreature("Existing Creature");
+        //enclosure.maintenance();
     }
 }
