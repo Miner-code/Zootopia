@@ -1,12 +1,15 @@
 package Zoo.Life;
 
+import Zoo.Creature.Action.Health;
+import Zoo.Creature.Species.Species;
+
 public abstract class Life {
     public String name;
     public boolean sex;
     public int age;
-    public String species;
+    public Species species;
 
-    public Life(String name, boolean sex, int age, String species) {
+    public Life(String name, boolean sex, int age, Species species) {
         this.name = name;
         this.sex = sex;
         this.age = age;
@@ -21,9 +24,6 @@ public abstract class Life {
         return name;
     }
 
-    public String getSpecies() {
-        return species;
-    }
 
     public boolean isSex() {
         return sex;
@@ -33,13 +33,14 @@ public abstract class Life {
         return age;
     }
 
+    public Species getSpecies() {
+        return species;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
-    }
 
     public void setAge(int age) {
         this.age = age;

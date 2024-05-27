@@ -1,7 +1,10 @@
-package Zoo.Creature;
+package Zoo.Creature.Action;
+
+import Zoo.Creature.Creature;
 
 import java.util.Scanner;
 import java.util.List;
+import static Zoo.Creature.Action.Health.removeHP;
 
 public class Hungry {
     public int eat ;
@@ -23,12 +26,17 @@ public class Hungry {
         this.eat = eat;
     }
 
-    public static void makeHungry(Creature creature) {
-        creature.getHungry().setEat(creature.getHungry().getEat() - 1);
-        if (creature.getHungry().getEat() == 0) {
-            System.out.println(creature.getName() + " a faim");
+    public static void makeHungry(Creature creature, List<Creature> creatures) {
+        if (creature.getName() != null){
+            creature.getHungry().setEat(creature.getHungry().getEat() - 1);
+            if (creature.getHungry().getEat() <= 0) {
+                System.out.println(creature.getName() + " a faim");
+                removeHP(creature,creatures);
+                return;
+            }
+            System.out.println(creature.getName() + " a " + creature.getHungry().getEat() + " de nourriture ");
         }
-        System.out.println(creature.getName() + " a " + creature.getHungry().getEat() + " de nourriture ");
+
     }
 
     public static void eatCreature(List<Creature> creatures,   Scanner scanner) {

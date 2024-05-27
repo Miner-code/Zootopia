@@ -1,9 +1,12 @@
 import IHM.MainGamePanel;
 import Zoo.Creature.Creature;
-import Zoo.Creature.Health;
-import Zoo.Creature.Hungry;
-import Zoo.Creature.Slept;
-import Zoo.Enclosure.Enclosure;
+import Zoo.Creature.Action.Health;
+import Zoo.Creature.Action.Hungry;
+import Zoo.Creature.Action.Slept;
+import Zoo.Creature.Species.Dragon;
+import Zoo.Creature.Species.Kraken;
+import Zoo.Creature.Type.*;
+
 import Zoo.Game.Turn;
 
 import java.util.ArrayList;
@@ -16,11 +19,12 @@ public class Start {
         List<Creature> arrayCreatures = new ArrayList<>();
         //Enclosure enclosure = new Enclosure("Example Enclosure", 100, 5);
 
-        for (int i = 0; i < 10; i++) {
-            Creature licorne = new Creature("Creature" + i, true, 15, "licorne", 1.50, 30, new Hungry(3), new Slept(5,3),new Health(5));
+        for (int i = 0; i < 1; i++) {
+            Creature licorne = new Creature("Creature" + i, true, 15, new Kraken(), 1.50, 30, new Hungry(3), new Slept(5,3),new Health(5));
             arrayCreatures.add(licorne);
         }
-
+        Creature pumbaa = new Creature("pumbaa", true, 15, new Dragon(), 1.50, 30, new Hungry(3), new Slept(5,3),new Health(5));
+        arrayCreatures.add(pumbaa);
         new MainGamePanel(arrayCreatures);
         Scanner scanner = new Scanner(System.in);
 
@@ -31,7 +35,7 @@ public class Start {
             String line = scanner.nextLine();
 
             switch (line) {
-                case "next" -> {
+                case "n" -> {
                     new Turn(arrayCreatures);
                     // Call Enclosure methods to display characteristics and maintenance
                     //enclosure.displayCharacteristics();

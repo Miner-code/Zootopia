@@ -1,5 +1,13 @@
 package Zoo.Creature;
+import Zoo.Creature.Action.Health;
+import Zoo.Creature.Action.Hungry;
+import Zoo.Creature.Action.Slept;
+import Zoo.Creature.Species.Dragon;
+import Zoo.Creature.Species.Species;
+import Zoo.Creature.Type.Type;
 import Zoo.Life.Life;
+
+import java.util.List;
 
 public class Creature extends Life  {
     public double size;
@@ -8,7 +16,7 @@ public class Creature extends Life  {
     public Slept slept;
     public Health health;
 
-    public Creature(String name, boolean sex, int age, String species, double size,double weight, Hungry hungry,Slept slept, Health health) {
+    public Creature(String name, boolean sex, int age, Species species, double size, double weight, Hungry hungry, Slept slept, Health health) {
         super(name, sex, age, species);
         this.size = size;
         this.weight = weight;
@@ -28,6 +36,7 @@ public class Creature extends Life  {
     public Health getHealth() {
         return health;
     }
+
 
     public double getSize() {
         return size;
@@ -64,13 +73,9 @@ public class Creature extends Life  {
 
     }
 
-
-    public Slept setSlept(String Slept) {
-        return slept;
-    }
-
-    public Hungry setHungry(String Hungry) {
-        return hungry;
+    public static void die(Creature creature, List<Creature> creatures) {
+        System.out.println("La créature " + creature.getName() + " est morte" );
+        creatures.remove(creature);
     }
 
 }
