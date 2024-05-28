@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2024_14_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2024_14_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Start.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Action/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Action/Health.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Action/Hungry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Action/Hungry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Action/Slept.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Action/Slept.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Nymph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Nymph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Pheonix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Pheonix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Unicorn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Unicorn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Werewolf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Type/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Type/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Life/Life.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +156,7 @@
       <workItem from="1715970694458" duration="2113000" />
       <workItem from="1715974371069" duration="931000" />
       <workItem from="1716482299202" duration="2452000" />
-      <workItem from="1716889370864" duration="10672000" />
+      <workItem from="1716889370864" duration="11459000" />
     </task>
     <servers />
   </component>
