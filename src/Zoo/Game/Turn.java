@@ -1,7 +1,7 @@
 package Zoo.Game;
 
 import java.util.List;
-import Zoo.Creature.*;
+import Zoo.Creature.Creature;
 import Zoo.Enclosure.Enclosure;
 
 public class Turn {
@@ -36,10 +36,6 @@ public class Turn {
             makeSlept(creature);
         }
         enclosure.degradeCleanliness();
-        enclosure.levelUp();
         enclosure.displayCharacteristics();
-        enclosure.addCreature("New Creature");
-        enclosure.removeCreature("Existing Creature");
-        enclosure.maintenance();
     }
 }
