@@ -1,8 +1,11 @@
 package IHM.UI.Panels;
 
 import IHM.Content.Drawers.ImagePanel;
+import IHM.UI.ZooElement.Creature;
+import IHM.UI.ZooElement.CreatureType;
 import IHM.UI.ZooGridElement.EmptyZone;
 import IHM.UI.ZooGridElement.Enclosure;
+
 import Zoo.Creature.Creature;
 
 import javax.swing.*;
@@ -14,39 +17,45 @@ import java.util.List;
 import Zoo.Game.Turn;
 
 
+import IHM.Content.Drawers.ImageButton;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Random;
+
+
 public class MainPanel extends JPanel {
 
     private SidePanel sidePanel;
+    private Random random;
 
 
     public MainPanel(SidePanel sidePanel, List<Creature> creatures) {
         this.sidePanel = sidePanel;
+        this.random = new Random();
 
-        // Obtenir la taille de l'écran
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int screenWidth = (int) screenSize.getWidth();
         int mainPanelWidth = (int) (screenWidth * 0.65);
         int screenHeight = (int) screenSize.getHeight();
 
-        // Création du panel principal
         setLayout(new BorderLayout());
 
-        // Création du JLayeredPane pour superposer les calques
         JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setPreferredSize(new Dimension(mainPanelWidth, screenHeight)); // Définissez la taille selon vos besoins
+        layeredPane.setPreferredSize(new Dimension(mainPanelWidth, screenHeight));
 
-        // Ajoutez le premier calque avec l'image de fond
         ImagePanel backgroundPanel = new ImagePanel("/IHM/Content/Images/bg-zoo-bottom.png");
-        backgroundPanel.setBounds(0, 0, mainPanelWidth, screenHeight); // Position et taille du fond
+        backgroundPanel.setBounds(0, 0, mainPanelWidth, screenHeight);
         backgroundPanel.setOpaque(false);
         layeredPane.add(backgroundPanel, JLayeredPane.DEFAULT_LAYER);
 
-        // Ajout des enclosures au deuxième calque
-        JPanel gridPanel = new JPanel(new GridLayout(4, 4, 50, 50)); // Utilise GridLayout avec espacement horizontal et vertical de 40 pixels
+        JPanel gridPanel = new JPanel(new GridLayout(4, 4, 50, 50));
         gridPanel.setOpaque(false);
 
         for (int i = 1; i <= 12; i++) {
-            Enclosure enclosure = new Enclosure(0, "enclosure" + i, sidePanel);
+            Enclosure enclosure = new Enclosure(0, "Enclosure " + i, sidePanel);
+            enclosure.addCreature(new Creature("Creature " + (i * 2 - 1), CreatureType.getRandomType()));
+            enclosure.addCreature(new Creature("Creature " + (i * 2), CreatureType.getRandomType()));
             gridPanel.add(enclosure);
         }
         gridPanel.add(addNextTurn(creatures));
@@ -55,33 +64,26 @@ public class MainPanel extends JPanel {
         gridPanel.add(new EmptyZone());
 
 
-        gridPanel.setBounds(50, 50, (mainPanelWidth - 100), (screenHeight - 100)); // Position et taille du deuxième calque
+        gridPanel.setBounds(50, 50, (mainPanelWidth - 100), (screenHeight - 100));
         layeredPane.add(gridPanel, JLayeredPane.PALETTE_LAYER);
 
-        // Ajoutez le troisième calque avec l'image supérieure
         ImagePanel topPanel = new ImagePanel("/IHM/Content/Images/bg-zoo-top.png");
         topPanel.setOpaque(false);
-        topPanel.setBounds(0, 0, mainPanelWidth, screenHeight); // Position et taille de l'autre image
+        topPanel.setBounds(0, 0, mainPanelWidth, screenHeight);
         layeredPane.add(topPanel, JLayeredPane.POPUP_LAYER);
 
-        // Ajoutez le JLayeredPane au panel principal
         add(layeredPane, BorderLayout.CENTER);
     }
 
     public JPanel addNextTurn(List<Creature> creatures) {
         JPanel nextTurn = new JPanel(new BorderLayout());
         nextTurn.setBackground(Color.GRAY);
-        nextTurn.add(new JLabel("Next Turn"), BorderLayout.WEST);
 
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                System.out.println("Tour suivant");
-                new Turn(creatures);
-            }
 
-        });
+        ImageButton nextTurnButton = new ImageButton("/IHM/Content/Images/Buttons/button-next-turn.png");
+        nextTurnButton.addActionListener(e -> System.out.println("passage au jour suivant"));
 
+        nextTurn.add(nextTurnButton, BorderLayout.CENTER);
         return nextTurn;
     }
 }

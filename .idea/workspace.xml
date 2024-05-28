@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -25,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="fred" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +59,9 @@
     &quot;git-widget-placeholder&quot;: &quot;correction&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+
     &quot;last_opened_file_path&quot;: &quot;C:/Users/louka/IdeaProjects/td2&quot;,
+
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -68,6 +73,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\f.florkowski\IdeaProjects\Zootopia\src\IHM\Content\Images\Creatures" />
+      <recent name="C:\Users\f.florkowski\IdeaProjects\Zootopia\src\IHM\Content\Images" />
+      <recent name="C:\Users\f.florkowski\IdeaProjects\Zootopia\src\IHM\Content\Images\Buttons" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\louka\IdeaProjects\Zootopia\src\Zoo\Game" />
       <recent name="C:\Users\louka\IdeaProjects\Zootopia\src\Zoo\Creature" />
@@ -76,7 +86,10 @@
       <recent name="Zoo.Creature.Species" />
     </key>
   </component>
+
   <component name="RunManager" selected="Application.Start">
+
+
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="IHM.Main" />
       <module name="Zootopia" />
@@ -90,6 +103,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Start" />
       <module name="Zootopia" />
@@ -97,6 +111,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="StartGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Zoo.Game.StartGame" />
       <module name="Zootopia" />
@@ -112,8 +127,10 @@
     </configuration>
     <recent_temporary>
       <list>
+
         <item itemvalue="Application.Start" />
         <item itemvalue="Application.Main" />
+
         <item itemvalue="Application.StartGame" />
       </list>
     </recent_temporary>
@@ -148,6 +165,7 @@
       <workItem from="1714394248253" duration="1462000" />
       <workItem from="1714559337612" duration="4486000" />
       <workItem from="1714638395698" duration="4413000" />
+
       <workItem from="1714643173804" duration="15697000" />
       <workItem from="1715713570726" duration="7493000" />
       <workItem from="1715801427703" duration="3879000" />
@@ -157,10 +175,22 @@
       <workItem from="1715974371069" duration="931000" />
       <workItem from="1716482299202" duration="2452000" />
       <workItem from="1716889370864" duration="11459000" />
+
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
