@@ -1,101 +1,124 @@
 package Zoo.Enclosure;
 
+import Zoo.Creature.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Enclosure {
-    public String name;
-    double area;
-    int maxNumberOfCreatures;
-    public int numberOfCreaturesPresent;
-    public List<String> creaturesPresent;
-    String cleanlinessDegree;
-    int level;
-    private int turnsSinceLastClean;
+    public final String name;
+    private final int size;
+    private int level;
+    private double cleanliness;
+    private int maxCreatures;
+    private final List<Creature> creatures;
+    private final List<String> creaturesPresent;
+    private int numberOfCreaturesPresent;
 
-    public Enclosure(String name, double area, int maxNumberOfCreatures) {
+    public Enclosure(String name, int size) {
         this.name = name;
-        this.area = area;
-        this.maxNumberOfCreatures = maxNumberOfCreatures;
-        this.numberOfCreaturesPresent = 0;
-        this.creaturesPresent = new ArrayList<>();
-        this.cleanlinessDegree = "correct";
+        this.size = size;
         this.level = 1;
-        this.turnsSinceLastClean = 0;
+        this.cleanliness = 100;
+        this.creatures = new ArrayList<>();
+        this.creaturesPresent = new ArrayList<>();
+        this.maxCreatures = 1;
     }
 
-    public void displayCharacteristics() {
-        System.out.println("Enclosure: " + this.name);
-        System.out.println("Area: " + this.area);
-        System.out.println("Maximum number of creatures: " + this.maxNumberOfCreatures);
-        System.out.println("Number of creatures present: " + this.numberOfCreaturesPresent);
-        System.out.println("Creatures present: " + String.join(", ", this.creaturesPresent));
-        System.out.println("Cleanliness degree: " + this.cleanlinessDegree);
+    public String getName() {
+        return this.name;
     }
 
-    public void addCreature(String creatureName) {
-        if (this.numberOfCreaturesPresent < this.maxNumberOfCreatures) {
-            this.creaturesPresent.add(creatureName);
-            this.numberOfCreaturesPresent++;
-            System.out.println(creatureName + " has been added to enclosure " + this.name + ".");
-        } else {
-            System.out.println("The enclosure is full, you cannot add more creatures.");
-        }
+    public List<Creature> getCreatures() {
+        return this.creatures;
     }
 
-    public void removeCreature(String creatureName) {
-        if (this.creaturesPresent.contains(creatureName)) {
-            this.creaturesPresent.remove(creatureName);
-            this.numberOfCreaturesPresent--;
-            System.out.println(creatureName + " has been removed from enclosure " + this.name + ".");
-        } else {
-            System.out.println(creatureName + " is not in this enclosure.");
-        }
+    public int getNumberOfCreaturesPresent() {
+        return creatures.size();
     }
 
     public void feedCreatures() {
-        for (String creatureName : this.creaturesPresent) {
-            System.out.println(creatureName + " has been fed.");
-        }
+        // Implémentez la logique pour nourrir les créatures ici
     }
 
-    public void degradeCleanliness() {
-        this.turnsSinceLastClean++;
+    public List<String> getCreaturesPresent() {
+        return creaturesPresent;
+    }
 
-        if (this.turnsSinceLastClean >= 10) {
-            if (this.cleanlinessDegree.equals("good")) {
-                this.cleanlinessDegree = "correct";
-                System.out.println("Enclosure " + this.name + " cleanliness degraded to correct.");
-            } else if (this.cleanlinessDegree.equals("correct")) {
-                this.cleanlinessDegree = "poor";
-                System.out.println("Enclosure " + this.name + " cleanliness degraded to poor.");
-            } else {
-                System.out.println("Enclosure " + this.name + " cleanliness is already poor.");
-            }
-
-            this.turnsSinceLastClean = 0; // Reset turn counter after degradation
+    public void levelUp() {
+        if (level < 3) {
+            level++;
+            maxCreatures++;
+            System.out.println("Enclosure leveled up to level " + level + " with max capacity " + maxCreatures + "!");
+        } else {
+            System.out.println("Enclosure has reached the maximum level!");
         }
     }
 
     public void maintenance() {
-        if (this.cleanlinessDegree.equals("poor")) {
-            this.cleanlinessDegree = "correct";
-            System.out.println("Enclosure " + this.name + " has been cleaned.");
-        } else if (this.cleanlinessDegree.equals("correct")) {
-            this.cleanlinessDegree = "good";
-            System.out.println("Enclosure " + this.name + " has been well cleaned.");
-        } else {
-            System.out.println("Enclosure " + this.name + " is already clean.");
+        cleanliness -= 10;
+        if (cleanliness <= 0) {
+            cleanliness = 0;
+            System.out.println("Enclosure needs cleaning!");
+            cleanEnclosure();
         }
     }
 
-    public void levelUp() {
-        if (this.level < 3) {
-            this.maxNumberOfCreatures++;
-            this.level++;
-            System.out.println("Enclosure " + this.name + " has leveled up to level " + this.level + ".");
+    public void cleanEnclosure() {
+        cleanliness = 100;
+        System.out.println("Enclosure cleaned!");
+    }
+
+    public boolean addCreature(Creature creature) {
+        if (creature instanceof Unicorn || creature instanceof Werewolf || creature instanceof Nymph || creature instanceof Dragon) {
+            if (creatures.isEmpty() || creatures.get(0).getClass().equals(creature.getClass())) {
+                if (creatures.size() < maxCreatures) {
+                    creatures.add(creature);
+                    creaturesPresent.add(creature.getName());
+                    System.out.println(creature.getName() + " added to the enclosure!");
+                    return true;
+                } else {
+                    System.out.println("Enclosure is full!");
+                }
+            } else {
+                System.out.println("Cannot add creature. Enclosure already has a different species.");
+            }
         } else {
-            System.out.println("Enclosure " + this.name + " is already at maximum level.");
+            System.out.println("This type of creature cannot be added to this enclosure.");
+        }
+        return false;
+    }
+
+    public boolean removeCreature(String creatureName) {
+        for (Creature creature : creatures) {
+            if (creature.getName().equals(creatureName)) {
+                creatures.remove(creature);
+                creaturesPresent.remove(creatureName);
+                System.out.println(creatureName + " removed from the enclosure!");
+                return true;
+            }
+        }
+        System.out.println(creatureName + " not found in the enclosure!");
+        return false;
+    }
+
+    public void displayCharacteristics() {
+        System.out.println("Enclosure: " + name);
+        System.out.println("Size: " + size);
+        System.out.println("Level: " + level);
+        System.out.println("Cleanliness: " + cleanliness + "%");
+        System.out.println("Max Creatures: " + maxCreatures);
+        System.out.println("Current Creatures:");
+        for (Creature creature : creatures) {
+            System.out.println("- " + creature.getName());
+        }
+    }
+
+    public void degradeCleanliness() {
+        cleanliness -= 10;
+        if (cleanliness <= 0) {
+            cleanliness = 0;
+            System.out.println("Enclosure needs cleaning!");
         }
     }
 }
