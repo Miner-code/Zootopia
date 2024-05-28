@@ -3,41 +3,54 @@ package Zoo.Master;
 import Zoo.Creature.Creature;
 import Zoo.Enclosure.Enclosure;
 
-import java.util.ArrayList;
-import java.util.List;
-
-class FantasticZoo {
+public class FantasticZooKeeper {
     String name;
-    FantasticZooKeeper fantasticZooKeeper;
-    int maxNumberOfEnclosures;
-    List<Enclosure> existingEnclosures;
+    String sex;
+    int age;
 
-    public FantasticZoo(String name, FantasticZooKeeper fantasticZooKeeper, int maxNumberOfEnclosures) {
+    public FantasticZooKeeper(String name, String sex, int age) {
         this.name = name;
-        this.fantasticZooKeeper = fantasticZooKeeper;
-        this.maxNumberOfEnclosures = maxNumberOfEnclosures;
-        this.existingEnclosures = new ArrayList<>();
+        this.sex = sex;
+        this.age = age;
     }
 
-    void displayTotalCreatureCount() {
-        int totalCreatureCount = this.existingEnclosures.stream().mapToInt(enclosure -> enclosure.numberOfCreaturesPresent).sum();
-        System.out.println("Total number of creatures in the zoo: " + totalCreatureCount);
+    void inspectEnclosure(Enclosure enclosure) {
+        enclosure.displayCharacteristics();
     }
 
-    void displayEnclosureCreatures() {
-        for (Enclosure enclosure : this.existingEnclosures) {
-            enclosure.displayCharacteristics();
-        }
+    void cleanEnclosure(Enclosure enclosure) {
+        enclosure.cleanEnclosure();
     }
 
-    void mainMethod() {
-        for (Enclosure enclosure : this.existingEnclosures) {
-            for (String creatureName : enclosure.creaturesPresent) {
-                Creature creature = null; // Placeholder to get the creature object corresponding to creatureName
-                // Randomly modify the state of the creature
-                // Randomly modify the state of the enclosure
-                // Call methods of the fantastic zookeeper based on the actions to perform
+    void feedCreaturesInEnclosure(Enclosure enclosure) {
+        enclosure.feedCreatures();
+    }
+
+    public void transferCreature(String creatureName, Enclosure sourceEnclosure, Enclosure destinationEnclosure) {
+        Creature creatureToTransfer = null;
+        for (Creature creature : sourceEnclosure.getCreatures()) {
+            if (creature.getName().equals(creatureName)) {
+                creatureToTransfer = creature;
+                break;
             }
+        }
+
+        if (creatureToTransfer != null) {
+            if (destinationEnclosure.getCreatures().isEmpty() || destinationEnclosure.getCreatures().get(0).getSpecies().equals(creatureToTransfer.getSpecies())) {
+                if (sourceEnclosure.removeCreature(creatureName)) {
+                    if (destinationEnclosure.addCreature(creatureToTransfer)) {
+                        System.out.println(creatureToTransfer.getName() + " has been transferred from " + sourceEnclosure.getName() + " to " + destinationEnclosure.getName() + ".");
+                    } else {
+                        System.out.println("Failed to add " + creatureToTransfer.getName() + " to " + destinationEnclosure.getName() + ".");
+                    }
+                } else {
+                    System.out.println("Failed to remove " + creatureToTransfer.getName() + " from " + sourceEnclosure.getName() + ".");
+                }
+            } else {
+                System.out.println("Cannot transfer creature. Destination enclosure already has a different species.");
+            }
+        } else {
+            System.out.println(creatureName + " is not in enclosure " + sourceEnclosure.getName() + ".");
         }
     }
 }
