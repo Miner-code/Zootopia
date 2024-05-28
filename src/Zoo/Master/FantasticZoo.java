@@ -1,37 +1,43 @@
 package Zoo.Master;
 
+import Zoo.Creature.Creature;
 import Zoo.Enclosure.Enclosure;
 
-class FantasticZooKeeper {
+import java.util.ArrayList;
+import java.util.List;
+
+public class FantasticZoo {
     String name;
-    String sex;
-    int age;
+    FantasticZooKeeper fantasticZooKeeper;
+    int maxNumberOfEnclosures;
+    List<Enclosure> existingEnclosures;
 
-    public FantasticZooKeeper(String name, String sex, int age) {
+    public FantasticZoo(String name, FantasticZooKeeper fantasticZooKeeper, int maxNumberOfEnclosures) {
         this.name = name;
-        this.sex = sex;
-        this.age = age;
+        this.fantasticZooKeeper = fantasticZooKeeper;
+        this.maxNumberOfEnclosures = maxNumberOfEnclosures;
+        this.existingEnclosures = new ArrayList<>();
     }
 
-    void inspectEnclosure(Enclosure enclosure) {
-        enclosure.displayCharacteristics();
+    void displayTotalCreatureCount() {
+        int totalCreatureCount = this.existingEnclosures.stream().mapToInt(Enclosure::getNumberOfCreaturesPresent).sum();
+        System.out.println("Total number of creatures in the zoo: " + totalCreatureCount);
     }
 
-    void cleanEnclosure(Enclosure enclosure) {
-        enclosure.maintenance();
+    void displayEnclosureCreatures() {
+        for (Enclosure enclosure : this.existingEnclosures) {
+            enclosure.displayCharacteristics();
+        }
     }
 
-    void feedCreaturesInEnclosure(Enclosure enclosure) {
-        enclosure.feedCreatures();
-    }
-
-    void transferCreature(String creatureName, Enclosure sourceEnclosure, Enclosure destinationEnclosure) {
-        if (sourceEnclosure.creaturesPresent.contains(creatureName)) {
-            sourceEnclosure.removeCreature(creatureName);
-            destinationEnclosure.addCreature(creatureName);
-            System.out.println(creatureName + " has been transferred from " + sourceEnclosure.name + " to " + destinationEnclosure.name + ".");
-        } else {
-            System.out.println(creatureName + " is not in enclosure " + sourceEnclosure.name + ".");
+    void mainMethod() {
+        for (Enclosure enclosure : this.existingEnclosures) {
+            for (String creatureName : enclosure.getCreaturesPresent()) {
+                Creature creature = null; // Placeholder to get the creature object corresponding to creatureName
+                // Randomly modify the state of the creature
+                // Randomly modify the state of the enclosure
+                // Call methods of the fantastic zookeeper based on the actions to perform
+            }
         }
     }
 }
