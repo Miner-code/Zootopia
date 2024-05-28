@@ -5,18 +5,32 @@ import IHM.UI.ZooElement.Creature;
 import IHM.UI.ZooElement.CreatureType;
 import IHM.UI.ZooGridElement.EmptyZone;
 import IHM.UI.ZooGridElement.Enclosure;
+
+import Zoo.Creature.Creature;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
+import Zoo.Game.Turn;
+
+
 import IHM.Content.Drawers.ImageButton;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
+
 public class MainPanel extends JPanel {
 
     private SidePanel sidePanel;
     private Random random;
 
-    public MainPanel(SidePanel sidePanel) {
+
+    public MainPanel(SidePanel sidePanel, List<Creature> creatures) {
         this.sidePanel = sidePanel;
         this.random = new Random();
 
@@ -44,11 +58,11 @@ public class MainPanel extends JPanel {
             enclosure.addCreature(new Creature("Creature " + (i * 2), CreatureType.getRandomType()));
             gridPanel.add(enclosure);
         }
+        gridPanel.add(addNextTurn(creatures));
+        gridPanel.add(new EmptyZone());
+        gridPanel.add(new EmptyZone());
+        gridPanel.add(new EmptyZone());
 
-        gridPanel.add(new EmptyZone());
-        gridPanel.add(new EmptyZone());
-        gridPanel.add(new EmptyZone());
-        gridPanel.add(addNextTurn());
 
         gridPanel.setBounds(50, 50, (mainPanelWidth - 100), (screenHeight - 100));
         layeredPane.add(gridPanel, JLayeredPane.PALETTE_LAYER);
@@ -61,9 +75,10 @@ public class MainPanel extends JPanel {
         add(layeredPane, BorderLayout.CENTER);
     }
 
-    public JPanel addNextTurn() {
+    public JPanel addNextTurn(List<Creature> creatures) {
         JPanel nextTurn = new JPanel(new BorderLayout());
         nextTurn.setBackground(Color.GRAY);
+
 
         ImageButton nextTurnButton = new ImageButton("/IHM/Content/Images/Buttons/button-next-turn.png");
         nextTurnButton.addActionListener(e -> System.out.println("passage au jour suivant"));

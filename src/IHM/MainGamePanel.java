@@ -1,22 +1,24 @@
 package IHM;
 
 import IHM.UI.Panels.*;
+import Zoo.Creature.Creature;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class MainGamePanel extends JFrame {
 
     private SidePanel sidePanel;
 
-    public MainGamePanel() {
+    public MainGamePanel(List<Creature> arrayCreatures) {
         setTitle("ZooTopia");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Maximiser la fenêtre
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setUndecorated(true);
+        setUndecorated(false);//Loukas a changé la taille pour coder, remettre a la bonne taille !!!!
 
         //------------------------------------------------------------
 
@@ -28,7 +30,7 @@ public class MainGamePanel extends JFrame {
         JPanel gamePanel = new JPanel(new GridBagLayout());
 
         sidePanel = new SidePanel(this);
-        JPanel mainPanel = new MainPanel(sidePanel);
+        JPanel mainPanel = new MainPanel(sidePanel,arrayCreatures);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
