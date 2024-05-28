@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Enclosure/Enclosure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclosure/Enclosure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Game/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Game/StartGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_05_2024_11_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_05_2024_11_54__Changes_.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +143,6 @@
       <workItem from="1714394248253" duration="1462000" />
       <workItem from="1714559337612" duration="4486000" />
       <workItem from="1714638395698" duration="4413000" />
-
       <workItem from="1714643173804" duration="920000" />
       <workItem from="1715594370807" duration="17000" />
       <workItem from="1715625112251" duration="1592000" />
@@ -159,7 +154,6 @@
       <workItem from="1715970892208" duration="695000" />
       <workItem from="1716899480302" duration="2568000" />
       <workItem from="1716912167656" duration="1150000" />
-
     </task>
     <servers />
   </component>
