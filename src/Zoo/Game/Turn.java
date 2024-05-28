@@ -6,6 +6,7 @@ import Zoo.Creature.Action.Health;
 import Zoo.Creature.Action.Hungry;
 import Zoo.Creature.Action.Slept;
 import Zoo.Creature.Type.Type;
+import Zoo.Life.Life;
 
 public class Turn {
 
@@ -22,10 +23,8 @@ public class Turn {
             Hungry.makeHungry(creature, creatures);
             Slept.makeSlept(creature);
             Health.getSick(creature, creatures);
-            System.out.println(creature.getSpecies().getType().getTypeName());
-            System.out.println(creature.getSpecies().getScpeciesName());
             Type.makeAction(creature);
-
+            Life.getOlder(creature,creatures);
         }
         System.out.println("Fin Tour");
         //enclosure.degradeCleanliness();

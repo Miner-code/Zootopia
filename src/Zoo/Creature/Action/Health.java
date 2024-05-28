@@ -30,6 +30,13 @@ public class Health extends Thread {
 
     public void setSick(int sick) { this.sick = sick; }
 
+    @Override
+    public String toString() {
+        return "Health{" +
+                "health=" + health +
+                ", sick=" + sick +
+                '}';
+    }
 
     public static void getSick(Creature creature, List<Creature> creatures) {
 
@@ -39,7 +46,7 @@ public class Health extends Thread {
             if (creature.getHealth().getSick() != 1){
                 // Génération d'un nombre entre 0.0 et 1.0
                 double number = Math.random();
-                if (number < 0.9) {
+                if (number < 0.1) {
                     // Mettre la crature malade
                     creature.getHealth().setSick(1);
                     // Afficher que la créature est malade
@@ -58,7 +65,7 @@ public class Health extends Thread {
         creature.getHealth().setHealth(creature.getHealth().getHealth()-1);
         // Si le nombre de hp de la créature est différent de 0 alors afficher le nombre d'hp restant
         if (creature.getHealth().getHealth() != 0){
-            System.out.println("La créature " + creature.getName() + " a " + creature.getHealth().getHealth() + " point de vie" );
+            //System.out.println("La créature " + creature.getName() + " a " + creature.getHealth().getHealth() + " point de vie" );
         }
         // Sinon appeler la function qui fait mourrir la créature
         else{

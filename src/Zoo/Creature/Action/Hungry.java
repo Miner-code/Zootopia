@@ -26,6 +26,13 @@ public class Hungry {
         this.eat = eat;
     }
 
+    @Override
+    public String toString() {
+        return "Hungry{" +
+                "eat=" + eat +
+                '}';
+    }
+
     public static void makeHungry(Creature creature, List<Creature> creatures) {
         if (creature.getName() != null){
             creature.getHungry().setEat(creature.getHungry().getEat() - 1);
@@ -34,32 +41,13 @@ public class Hungry {
                 removeHP(creature,creatures);
                 return;
             }
-            System.out.println(creature.getName() + " a " + creature.getHungry().getEat() + " de nourriture ");
+            //System.out.println(creature.getName() + " a " + creature.getHungry().getEat() + " de nourriture ");
         }
 
     }
 
     public static void eatCreature(List<Creature> creatures,   Scanner scanner) {
-        // Afficher la liste des créatures existantes
-        System.out.println("Liste des créatures disponibles :");
-        for (Creature creature : creatures) {
-            System.out.println(creature.getName());
-        }
-
-        // Permettre à l'utilisateur de choisir quelle créature nourrir
-        System.out.print("Entrez le nom de la créature à nourrir : ");
-        String creatureName = scanner.nextLine();
-
-        // Chercher la créature dans la liste des créatures
-        Creature selectedCreature = null;
-        for (Creature creature : creatures) {
-            if (creature.getName().equalsIgnoreCase(creatureName)) {
-                selectedCreature = creature;
-                // Arrêter la recherche dès que la créature est trouvée
-                break;
-            }
-        }
-
+        Creature selectedCreature = Creature.searchCreature(creatures,scanner,"Liste des créatures disponibles :","Entrez le nom de la créature à nourrir : ");
         if (selectedCreature != null) {
             // Si une créature est trouvée, la nourrir
             selectedCreature.getHungry().setEat(selectedCreature.getHungry().getEat() + 4);

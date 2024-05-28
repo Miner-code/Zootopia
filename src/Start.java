@@ -20,10 +20,10 @@ public class Start {
         //Enclosure enclosure = new Enclosure("Example Enclosure", 100, 5);
 
         for (int i = 0; i < 1; i++) {
-            Creature licorne = new Creature("Creature" + i, true, 15, new Kraken(), 1.50, 30, new Hungry(3), new Slept(5,3),new Health(5));
+            Creature licorne = new Creature("Creature" + i, true, 15, new Kraken(), 1.50, 30, new Hungry(8), new Slept(5,3),new Health(5));
             arrayCreatures.add(licorne);
         }
-        Creature pumbaa = new Creature("pumbaa", true, 15, new Dragon(), 1.50, 30, new Hungry(3), new Slept(5,3),new Health(5));
+        Creature pumbaa = new Creature("pumbaa", true, 15, new Dragon(), 1.50, 30, new Hungry(4), new Slept(5,3),new Health(15));
         arrayCreatures.add(pumbaa);
         new MainGamePanel(arrayCreatures);
         Scanner scanner = new Scanner(System.in);
@@ -50,7 +50,12 @@ public class Start {
                 case "RTD" -> {
                     Health.removeTheDisease(arrayCreatures,scanner);
                 }
-                
+                case "creature" -> {
+                    Creature.seeCreature(arrayCreatures,scanner);
+                }
+                case "nc" -> {
+                    Creature.newCreature(arrayCreatures,scanner);
+                }
                 //case "level up" -> {
                 //    // Player chooses to level up the enclosure
                 //    enclosure.levelUp();

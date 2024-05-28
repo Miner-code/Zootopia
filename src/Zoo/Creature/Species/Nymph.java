@@ -1,6 +1,5 @@
 package Zoo.Creature.Species;
 import Zoo.Creature.Type.Earthly;
-import Zoo.Creature.Type.Swimmer;
 import Zoo.Creature.Type.Type;
 
 public class Nymph extends Species {

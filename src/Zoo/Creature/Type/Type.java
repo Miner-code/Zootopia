@@ -2,6 +2,9 @@ package Zoo.Creature.Type;
 
 import Zoo.Creature.Creature;
 import Zoo.Creature.Type.*;
+
+import javax.swing.*;
+
 public abstract class Type {
     private String typeName;
 
@@ -21,8 +24,12 @@ public abstract class Type {
     public static void makeAction(Creature creature) {
         // Si la créature existe
         if (creature.getName() != null){
+
             double number = Math.random();
-            if (number < 0.9) {
+            if(number > 0.9){
+                makeShout(creature);
+            }
+            if (number < 0.1) {
                 switch (creature.getSpecies().getType().getTypeName()) {
                     case "Flying":
                         Flying.fly(creature);
@@ -36,9 +43,8 @@ public abstract class Type {
                 }
             }
         }
-
-
-
     }
-
+    public static void makeShout(Creature creature) {
+        System.out.println(creature.getName() + " WAAAW" );
+    }
 }

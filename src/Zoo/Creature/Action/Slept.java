@@ -51,6 +51,16 @@ public class Slept {
         this.sleepDuration = sleepDuration;
     }
 
+    @Override
+    public String toString() {
+        return "Slept{" +
+                "cntTurnBeforeSleep=" + cntTurnBeforeSleep +
+                ", needSleep=" + needSleep +
+                ", sleepDuration=" + sleepDuration +
+                ", timeSleeping=" + timeSleeping +
+                '}';
+    }
+
     public static void makeSlept(Creature creature) {
         // Vérifier si la créature existe
         if(creature.getName() != null){
@@ -75,7 +85,7 @@ public class Slept {
 
             }// Sinon afficher quand la créature aura besoin de dormir
             else{
-                System.out.println(creature.getName() + " a besoin de dormir dans : " + (creature.getSlept().getNeedSleep() - creature.getSlept().getCntTurnBeforeSleep() )+ " tours");
+                //System.out.println(creature.getName() + " a besoin de dormir dans : " + (creature.getSlept().getNeedSleep() - creature.getSlept().getCntTurnBeforeSleep() )+ " tours");
                 creature.getSlept().setCntTurnBeforeSleep(creature.getSlept().getCntTurnBeforeSleep() + 1);
             }
         }
