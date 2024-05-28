@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2024_14_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2024_14_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/Content/Images/bg-side.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/Content/Images/bg-side.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/Panels/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/Panels/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/Panels/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/Panels/SidePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/Enclosure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/Enclosure.java" afterDir="false" />
-    </list>
+    <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,7 +151,7 @@
       <workItem from="1715963958561" duration="6083000" />
       <workItem from="1715970892208" duration="695000" />
       <workItem from="1716899480302" duration="2568000" />
-      <workItem from="1716912167656" duration="313000" />
+      <workItem from="1716912167656" duration="1150000" />
     </task>
     <servers />
   </component>
