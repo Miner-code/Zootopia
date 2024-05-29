@@ -5,7 +5,7 @@ import IHM.MainGamePanel;
 import IHM.UI.Buttons.ButtonClear;
 import IHM.UI.Buttons.ButtonClose;
 import IHM.UI.Buttons.ButtonUpgrade;
-import IHM.UI.ZooElement.Creature;
+import IHM.UI.ZooElement.CreatureImg;
 
 import javax.swing.*;
 import java.awt.*;
@@ -154,16 +154,16 @@ public class SidePanel extends JPanel {
     }
 
     // Méthode pour mettre à jour les informations de l'enclos affichées dans le SidePanel
-    public void updateInfo(String name, int level, List<Creature> creatures) {
+    public void updateInfo(String name, int level, List<CreatureImg> creatureImgs) {
         SwingUtilities.invokeLater(() -> {
             enclosureNameLabel.setText(name);
             levelLabel.setText("Level: " + level);
             creaturesListPanel.removeAll();
-            for (Creature creature : creatures) {
+            for (CreatureImg creatureImg : creatureImgs) {
                 JPanel creaturePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
                 creaturePanel.setOpaque(false);
-                JLabel creatureImageLabel = new JLabel(creature.getImageIcon());
-                JLabel creatureNameLabel = new JLabel(creature.getName());
+                JLabel creatureImageLabel = new JLabel(creatureImg.getImageIcon());
+                JLabel creatureNameLabel = new JLabel(creatureImg.getName());
                 creatureNameLabel.setFont(new Font("Arial", Font.PLAIN, 18)); // Taille et style de police pour les noms de créatures
                 creatureNameLabel.setForeground(Color.WHITE); // Couleur des noms de créatures
                 creaturePanel.add(creatureImageLabel);

@@ -102,11 +102,14 @@ public class Creature extends Life  {
 
         // Permettre à l'utilisateur de choisir quelle créature sélectionner
         System.out.print(message2);
-        String creatureName = scanner.nextLine();
 
+        String creatureName = scanner.nextLine();//scanner.nextLine()
+        System.out.println(creatureName);
         // Chercher la créature dans la liste des créatures
+
         Creature selectedCreature = null;
         for (Creature creature : creatures) {
+            System.out.println(creature.getName());
             if (creature.getName().equalsIgnoreCase(creatureName)) {
                 selectedCreature = creature;
                 break;
@@ -134,7 +137,10 @@ public class Creature extends Life  {
         }
 
     }
+    public static void test(List<Creature> creatures,Scanner scanner){
 
+        System.out.println('B');
+    }
     public static void newCreature(List<Creature> creatures, Scanner scanner) {
         System.out.println("Entre le nom de la créature");
         String creatureName = scanner.nextLine();

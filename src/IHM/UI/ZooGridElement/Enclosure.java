@@ -9,13 +9,18 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 import IHM.Content.Drawers.ImagePanel;
 import IHM.UI.Panels.SidePanel;
-import IHM.UI.ZooElement.Creature;
+import IHM.UI.ZooElement.CreatureImg;
+import Zoo.Creature.Creature;
+
+import static Zoo.Creature.Creature.searchCreature;
+import static Zoo.Creature.Creature.seeCreature;
 
 public class Enclosure extends JPanel {
-    private List<Creature> creatures;
+    private List<CreatureImg> creatureImgs;
     private JPanel creaturePanel;
     private MutableInteger currentLevel;
     private String enclosureName;
@@ -23,11 +28,11 @@ public class Enclosure extends JPanel {
     private Random random;
     private boolean isInitialized;
 
-    public Enclosure(Integer level, String name, SidePanel sidePanel) {
+    public Enclosure(Integer level, String name, SidePanel sidePanel,List<Creature> creatures) {
         this.currentLevel = new MutableInteger(level);
         this.enclosureName = name;
         this.sidePanel = sidePanel;
-        this.creatures = new ArrayList<>();
+        this.creatureImgs = new ArrayList<>();
         this.random = new Random();
         this.isInitialized = false;
 
@@ -50,9 +55,9 @@ public class Enclosure extends JPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                for (Creature creature : creatures) {
-                    ImageIcon imageIcon = creature.getImageIcon();
-                    Point position = creature.getPosition();
+                for (CreatureImg creatureImg : creatureImgs) {
+                    ImageIcon imageIcon = creatureImg.getImageIcon();
+                    Point position = creatureImg.getPosition();
                     g.drawImage(imageIcon.getImage(), position.x, position.y, null);
                 }
             }
@@ -64,9 +69,12 @@ public class Enclosure extends JPanel {
 
         addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
                 currentLevel.increment();
-                sidePanel.updateInfo(enclosureName, currentLevel.getValue(), creatures);
+                sidePanel.updateInfo(enclosureName, currentLevel.getValue(), creatureImgs);
+                System.out.println("hello world");
+                Scanner scanner = new Scanner(System.in);
+                seeCreature(creatures,scanner);
             }
         });
 
@@ -82,38 +90,38 @@ public class Enclosure extends JPanel {
     }
 
     private void initializeCreatures() {
-        for (Creature creature : creatures) {
+        for (CreatureImg creatureImg : creatureImgs) {
             int panelWidth = creaturePanel.getWidth();
             int panelHeight = creaturePanel.getHeight();
-            int imageWidth = creature.getImageIcon().getIconWidth();
-            int imageHeight = creature.getImageIcon().getIconHeight();
+            int imageWidth = creatureImg.getImageIcon().getIconWidth();
+            int imageHeight = creatureImg.getImageIcon().getIconHeight();
 
             int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
             int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
 
-            creature.setPosition(x, y);
+            creatureImg.setPosition(x, y);
         }
         updateCreaturePanel();
     }
 
-    public void addCreature(Creature creature) {
-        creatures.add(creature);
+    public void addCreature(CreatureImg creatureImg) {
+        creatureImgs.add(creatureImg);
         if (isInitialized) {
             int panelWidth = creaturePanel.getWidth();
             int panelHeight = creaturePanel.getHeight();
-            int imageWidth = creature.getImageIcon().getIconWidth();
-            int imageHeight = creature.getImageIcon().getIconHeight();
+            int imageWidth = creatureImg.getImageIcon().getIconWidth();
+            int imageHeight = creatureImg.getImageIcon().getIconHeight();
 
             int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
             int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
 
-            creature.setPosition(x, y);
+            creatureImg.setPosition(x, y);
             updateCreaturePanel();
         }
     }
 
-    public void removeCreature(Creature creature) {
-        creatures.remove(creature);
+    public void removeCreature(CreatureImg creatureImg) {
+        creatureImgs.remove(creatureImg);
         updateCreaturePanel();
     }
 

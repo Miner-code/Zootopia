@@ -18,7 +18,7 @@ public class MainGamePanel extends JFrame {
 
         // Maximiser la fenêtre
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setUndecorated(false);//Loukas a changé la taille pour coder, remettre a la bonne taille !!!!
+        setUndecorated(true);//Loukas a changé la taille pour coder, remettre a la bonne taille !!!!
 
         //------------------------------------------------------------
 

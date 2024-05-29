@@ -1,26 +1,20 @@
 package IHM.UI.Panels;
 
 import IHM.Content.Drawers.ImagePanel;
-import IHM.UI.ZooElement.Creature;
+import IHM.UI.ZooElement.CreatureImg;
 import IHM.UI.ZooElement.CreatureType;
 import IHM.UI.ZooGridElement.EmptyZone;
 import IHM.UI.ZooGridElement.Enclosure;
 
-import Zoo.Creature.Creature;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.List;
-import Zoo.Game.Turn;
 
 
 import IHM.Content.Drawers.ImageButton;
+import Zoo.Creature.Creature;
+import Zoo.Game.Turn;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.Random;
 
 
@@ -53,9 +47,9 @@ public class MainPanel extends JPanel {
         gridPanel.setOpaque(false);
 
         for (int i = 1; i <= 12; i++) {
-            Enclosure enclosure = new Enclosure(0, "Enclosure " + i, sidePanel);
-            enclosure.addCreature(new Creature("Creature " + (i * 2 - 1), CreatureType.getRandomType()));
-            enclosure.addCreature(new Creature("Creature " + (i * 2), CreatureType.getRandomType()));
+            Enclosure enclosure = new Enclosure(0, "Enclosure " + i, sidePanel,creatures);
+            enclosure.addCreature(new CreatureImg("Creature " + (i * 2 - 1), CreatureType.getRandomType()));
+            enclosure.addCreature(new CreatureImg("Creature " + (i * 2), CreatureType.getRandomType()));
             gridPanel.add(enclosure);
         }
         gridPanel.add(addNextTurn(creatures));
@@ -81,9 +75,12 @@ public class MainPanel extends JPanel {
 
 
         ImageButton nextTurnButton = new ImageButton("/IHM/Content/Images/Buttons/button-next-turn.png");
-        nextTurnButton.addActionListener(e -> System.out.println("passage au jour suivant"));
+        nextTurnButton.addActionListener(e ->
+                new Turn(creatures)
+        );
 
         nextTurn.add(nextTurnButton, BorderLayout.CENTER);
+
         return nextTurn;
     }
 }
