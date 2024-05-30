@@ -6,6 +6,7 @@ import IHM.UI.Buttons.ButtonClear;
 import IHM.UI.Buttons.ButtonClose;
 import IHM.UI.Buttons.ButtonUpgrade;
 import IHM.UI.ZooElement.CreatureImg;
+import IHM.UI.ZooGridElement.EnclosureIHM;
 
 import javax.swing.*;
 import java.awt.*;
@@ -158,7 +159,9 @@ public class SidePanel extends JPanel {
         SwingUtilities.invokeLater(() -> {
             enclosureNameLabel.setText(name);
             levelLabel.setText("Level: " + level);
+
             creaturesListPanel.removeAll();
+
             for (CreatureImg creatureImg : creatureImgs) {
                 JPanel creaturePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
                 creaturePanel.setOpaque(false);

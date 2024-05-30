@@ -1,6 +1,9 @@
 package Zoo.Creature.Type;
 
 import Zoo.Creature.Creature;
+import Zoo.Creature.Species.Dragon;
+import Zoo.Creature.Species.Kraken;
+import Zoo.Creature.Species.Megalodon;
 import Zoo.Creature.Type.*;
 
 import javax.swing.*;
@@ -29,17 +32,14 @@ public abstract class Type {
             if(number > 0.9){
                 makeShout(creature);
             }
-            if (number < 0.1) {
-                switch (creature.getSpecies().getType().getTypeName()) {
-                    case "Flying":
-                        Flying.fly(creature);
-                        break;
-                    case "Earthly":
-                        Earthly.run(creature);
-                        break;
-                    case "Swimmer":
-                        Swimmer.swim(creature);
-                        break;
+            if (number < 0.15) {
+                Type type = creature.getType();
+                if (type instanceof Flying) {
+                    ((Flying) type).fly(creature);
+                } else if (type instanceof Swimmer) {
+                    ((Swimmer) type).swim(creature);
+                } else if (type instanceof Earthly) {
+                    ((Earthly) type).run(creature);
                 }
             }
         }

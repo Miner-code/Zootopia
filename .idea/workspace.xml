@@ -5,15 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_05_2024_11_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_05_2024_11_54__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Phoenix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IHM/MainGamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/MainGamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IHM/UI/Panels/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/Panels/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IHM/UI/Panels/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/Panels/SidePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/ZooElement/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/ZooElement/CreatureImg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/Enclosure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/Enclosure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/Enclosure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/EnclosureIHM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Start.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Dragon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Kraken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Kraken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Megalodon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Megalodon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Mermaid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Mermaid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Nymph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Nymph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Pheonix.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Unicorn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Unicorn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Species/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Species/Werewolf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Type/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Type/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Widget/Widget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Widget/Widget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Enclosure/Aquarium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclosure/Aquarium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Enclosure/Aviary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclosure/Aviary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Enclosure/Enclosure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Enclosure/Enclosure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Life/Life.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Master/FantasticZoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/FantasticZoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo/Master/FantasticZooKeeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Master/FantasticZooKeeper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +78,10 @@
     "Application.ZooGame.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "fusion",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/louka/IdeaProjects/td2",
+    "last_opened_file_path": "E:/Code/Ecole/Zootopia",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -171,6 +187,11 @@
       <workItem from="1715974371069" duration="931000" />
       <workItem from="1716482299202" duration="2452000" />
       <workItem from="1716889370864" duration="11459000" />
+      <workItem from="1716988704557" duration="9086000" />
+      <workItem from="1717015672874" duration="470000" />
+      <workItem from="1717021057002" duration="4140000" />
+      <workItem from="1717073487716" duration="4688000" />
+      <workItem from="1717081802903" duration="8424000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 package IHM;
 
 import IHM.UI.Panels.*;
+import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Creature;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ public class MainGamePanel extends JFrame {
 
     private SidePanel sidePanel;
 
-    public MainGamePanel(List<Creature> arrayCreatures) {
+    public MainGamePanel(List<Creature> arrayCreatures, List<EnclosureIHM> enclosureIHMS) {
         setTitle("ZooTopia");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,7 +31,7 @@ public class MainGamePanel extends JFrame {
         JPanel gamePanel = new JPanel(new GridBagLayout());
 
         sidePanel = new SidePanel(this);
-        JPanel mainPanel = new MainPanel(sidePanel,arrayCreatures);
+        JPanel mainPanel = new MainPanel(sidePanel,arrayCreatures,enclosureIHMS);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
@@ -54,6 +55,8 @@ public class MainGamePanel extends JFrame {
 
         // Rendre la fenêtre visible après avoir ajouté tous les composants
         setVisible(true);
+
+
     }
 
 }

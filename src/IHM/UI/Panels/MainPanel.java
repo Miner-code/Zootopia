@@ -4,7 +4,7 @@ import IHM.Content.Drawers.ImagePanel;
 import IHM.UI.ZooElement.CreatureImg;
 import IHM.UI.ZooElement.CreatureType;
 import IHM.UI.ZooGridElement.EmptyZone;
-import IHM.UI.ZooGridElement.Enclosure;
+import IHM.UI.ZooGridElement.EnclosureIHM;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +13,7 @@ import java.util.List;
 
 import IHM.Content.Drawers.ImageButton;
 import Zoo.Creature.Creature;
+import Zoo.Enclosure.Enclosure;
 import Zoo.Game.Turn;
 
 import java.util.Random;
@@ -24,7 +25,7 @@ public class MainPanel extends JPanel {
     private Random random;
 
 
-    public MainPanel(SidePanel sidePanel, List<Creature> creatures) {
+    public MainPanel(SidePanel sidePanel, List<Creature> creatures, List<EnclosureIHM> enclosureIHMS) {
         this.sidePanel = sidePanel;
         this.random = new Random();
 
@@ -46,13 +47,15 @@ public class MainPanel extends JPanel {
         JPanel gridPanel = new JPanel(new GridLayout(4, 4, 50, 50));
         gridPanel.setOpaque(false);
 
+        // Ajouter 4 enclos a IHM et créer  4instance EnclosureIMH qui appellera enclosur
         for (int i = 1; i <= 12; i++) {
-            Enclosure enclosure = new Enclosure(0, "Enclosure " + i, sidePanel,creatures);
-            enclosure.addCreature(new CreatureImg("Creature " + (i * 2 - 1), CreatureType.getRandomType()));
-            enclosure.addCreature(new CreatureImg("Creature " + (i * 2), CreatureType.getRandomType()));
-            gridPanel.add(enclosure);
+
+            EnclosureIHM enclosureIHM = new EnclosureIHM(0, "Enclos" + i, sidePanel);
+            enclosureIHMS.add(enclosureIHM);
+            gridPanel.add(enclosureIHM);
         }
-        gridPanel.add(addNextTurn(creatures));
+
+        gridPanel.add(addNextTurn(creatures, enclosureIHMS));
         gridPanel.add(new EmptyZone());
         gridPanel.add(new EmptyZone());
         gridPanel.add(new EmptyZone());
@@ -69,14 +72,14 @@ public class MainPanel extends JPanel {
         add(layeredPane, BorderLayout.CENTER);
     }
 
-    public JPanel addNextTurn(List<Creature> creatures) {
+    public JPanel addNextTurn(List<Creature> creatures,List<EnclosureIHM> enclosureIHMS) {
         JPanel nextTurn = new JPanel(new BorderLayout());
         nextTurn.setBackground(Color.GRAY);
 
 
         ImageButton nextTurnButton = new ImageButton("/IHM/Content/Images/Buttons/button-next-turn.png");
         nextTurnButton.addActionListener(e ->
-                new Turn(creatures)
+                new Turn(creatures,enclosureIHMS)
         );
 
         nextTurn.add(nextTurnButton, BorderLayout.CENTER);

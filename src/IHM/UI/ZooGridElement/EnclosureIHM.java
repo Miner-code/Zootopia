@@ -9,32 +9,30 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 import IHM.Content.Drawers.ImagePanel;
 import IHM.UI.Panels.SidePanel;
 import IHM.UI.ZooElement.CreatureImg;
 import Zoo.Creature.Creature;
+import Zoo.Enclosure.Enclosure;
 
-import static Zoo.Creature.Creature.searchCreature;
-import static Zoo.Creature.Creature.seeCreature;
-
-public class Enclosure extends JPanel {
-    private List<CreatureImg> creatureImgs;
-    private JPanel creaturePanel;
-    private MutableInteger currentLevel;
-    private String enclosureName;
+public class EnclosureIHM extends JPanel {
+    private final List<CreatureImg> creatureImgs;
+    private final JPanel creaturePanel;
+    private final MutableInteger currentLevel;
+    private final String enclosureName;
     private SidePanel sidePanel;
-    private Random random;
     private boolean isInitialized;
+    private final Enclosure enclosure;
 
-    public Enclosure(Integer level, String name, SidePanel sidePanel,List<Creature> creatures) {
+    public EnclosureIHM(Integer level, String name,SidePanel sidePanel) {//, SidePanel sidePanel
         this.currentLevel = new MutableInteger(level);
         this.enclosureName = name;
         this.sidePanel = sidePanel;
         this.creatureImgs = new ArrayList<>();
-        this.random = new Random();
+        Random random = new Random();
         this.isInitialized = false;
+        this.enclosure = new Enclosure(name);
 
         setLayout(new BorderLayout());
         ImagePanel imagePanel = new ImagePanel("/IHM/Content/Images/enclosure-earth.png");
@@ -72,53 +70,53 @@ public class Enclosure extends JPanel {
             public void mousePressed(MouseEvent e) {
                 currentLevel.increment();
                 sidePanel.updateInfo(enclosureName, currentLevel.getValue(), creatureImgs);
-                System.out.println("hello world");
-                Scanner scanner = new Scanner(System.in);
-                seeCreature(creatures,scanner);
+                System.out.println(enclosure.toString());
             }
         });
 
-        addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                if (!isInitialized) {
-                    isInitialized = true;
-                    initializeCreatures();
-                }
-            }
-        });
+        //addComponentListener(new ComponentAdapter() {
+        //    @Override
+        //    public void componentResized(ComponentEvent e) {
+        //        if (!isInitialized) {
+        //            isInitialized = true;
+        //            initializeCreatures();
+        //        }
+        //    }
+        //});
     }
-
-    private void initializeCreatures() {
-        for (CreatureImg creatureImg : creatureImgs) {
-            int panelWidth = creaturePanel.getWidth();
-            int panelHeight = creaturePanel.getHeight();
-            int imageWidth = creatureImg.getImageIcon().getIconWidth();
-            int imageHeight = creatureImg.getImageIcon().getIconHeight();
-
-            int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
-            int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
-
-            creatureImg.setPosition(x, y);
-        }
-        updateCreaturePanel();
+    public Enclosure getEnclosure(){
+        return enclosure;
     }
-
-    public void addCreature(CreatureImg creatureImg) {
-        creatureImgs.add(creatureImg);
-        if (isInitialized) {
-            int panelWidth = creaturePanel.getWidth();
-            int panelHeight = creaturePanel.getHeight();
-            int imageWidth = creatureImg.getImageIcon().getIconWidth();
-            int imageHeight = creatureImg.getImageIcon().getIconHeight();
-
-            int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
-            int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
-
-            creatureImg.setPosition(x, y);
-            updateCreaturePanel();
-        }
-    }
+    //private void initializeCreatures() {
+    //    for (CreatureImg creatureImg : creatureImgs) {
+    //        int panelWidth = creaturePanel.getWidth();
+    //        int panelHeight = creaturePanel.getHeight();
+    //        int imageWidth = creatureImg.getImageIcon().getIconWidth();
+    //        int imageHeight = creatureImg.getImageIcon().getIconHeight();
+//
+    //        int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
+    //        int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
+//
+    //        creatureImg.setPosition(x, y);
+    //    }
+    //    updateCreaturePanel();
+    //}
+//
+    //public void addCreature(CreatureImg creatureImg) {
+    //    creatureImgs.add(creatureImg);
+    //    if (isInitialized) {
+    //        int panelWidth = creaturePanel.getWidth();
+    //        int panelHeight = creaturePanel.getHeight();
+    //        int imageWidth = creatureImg.getImageIcon().getIconWidth();
+    //        int imageHeight = creatureImg.getImageIcon().getIconHeight();
+//
+    //        int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
+    //        int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
+//
+    //        creatureImg.setPosition(x, y);
+    //        updateCreaturePanel();
+    //    }
+    //}
 
     public void removeCreature(CreatureImg creatureImg) {
         creatureImgs.remove(creatureImg);
