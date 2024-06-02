@@ -1,5 +1,7 @@
 package IHM.UI.Buttons;
 
+import Zoo.Enclosure.Enclosure;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -8,7 +10,7 @@ import java.util.Objects;
 
 public class ButtonUpgrade extends JButton {
 
-    public ButtonUpgrade() {
+    public ButtonUpgrade(Enclosure enclosure) {
         // Charger l'image originale
         ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-upgrade-up.png")));
 
@@ -32,11 +34,11 @@ public class ButtonUpgrade extends JButton {
             @Override
             public void mousePressed(MouseEvent e) {
                 setIcon(scaledPressedIcon); // Changer l'image du bouton lors du clic gauche enfoncé
-                System.out.println("Pressed market button");
+                Enclosure.levelUp(enclosure);
             }
             public void mouseReleased(MouseEvent e) {
                 setIcon(scaledIcon); // Changer l'image du bouton lors du clic gauche enfoncé
-                System.out.println("Pressed market button");
+
             }
         });
     }

@@ -104,13 +104,16 @@ public class Health extends Thread {
             }
             if (selectedCreature != null) {
                 // Soigner la créature
-                selectedCreature.getHealth().setSick(0);
-                System.out.println("La créature " + selectedCreature.getName() + " a été soigné ");
-            }
 
+                disease(selectedCreature);
+            }
         }else{
             System.out.print("Aucune créature n'est disponible ");
         }
+    }
 
+    public static void disease(Creature creature){
+        creature.getHealth().setSick(0);
+        System.out.println("La créature " + creature.getName() + " a été soigné ");
     }
 }

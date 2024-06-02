@@ -100,13 +100,13 @@ public class Enclosure {
         return creaturesPresent;
     }
 
-    public void levelUp() {
-        if (level < 3) {
-            level++;
-            maxCreatures++;
-            System.out.println("Enclosure leveled up to level " + level + " with max capacity " + maxCreatures + "!");
+    public static void levelUp(Enclosure enclosure) {
+        if (enclosure.getLevel() < 3) {
+            enclosure.setLevel(enclosure.getLevel()+1);
+            enclosure.setMaxCreatures(enclosure.getMaxCreatures()+1);
+            System.out.println("L'enclos pas au level " + enclosure.getLevel() + " et augmente sa capacité à " + enclosure.getMaxCreatures() + "!");
         } else {
-            System.out.println("Enclosure has reached the maximum level!");
+            System.out.println("L'enclos est au niveau maximal");
         }
     }
 
@@ -132,9 +132,9 @@ public class Enclosure {
                 case "transfert" ->{
                     transfer(selectEnclosure,scanner,enclosureIHMS);
                 }
-                case "clean" -> {
-                    cleanEnclosure(selectEnclosure);
-                }
+                //case "clean" -> {
+                //    cleanEnclosure(selectEnclosure);
+                //}
                 default -> {
                     System.out.println("vous êtes sortie des options d'enclos");
                 }
@@ -235,9 +235,9 @@ public class Enclosure {
             return false;
         }
     }
-    public static  void cleanEnclosure(EnclosureIHM enclosureIHM) {
-        enclosureIHM.getEnclosure().setCleanliness(100);
-        System.out.println(enclosureIHM.getEnclosure().getName() + " est nettoyé ");
+    public static  void cleanEnclosure(Enclosure enclosure) {
+        enclosure.setCleanliness(100);
+        System.out.println(enclosure.getName() + " est nettoyé ");
     }
     public static void transfer(EnclosureIHM enclosureIHM,Scanner scanner,List<EnclosureIHM> enclosureIHMS){
         // Créer une liste pour stocker les créatures présente dans l'enclos
@@ -249,7 +249,14 @@ public class Enclosure {
     }
 
     public static void makeTransfer(Creature creature, EnclosureIHM enclosureIHMSource,EnclosureIHM enclosureIHMDestination){
-        enclosureIHMSource.getEnclosure().removeCreature(creature);
-        enclosureIHMDestination.getEnclosure().getCreaturesPresent().add(creature);
+        // Si l'enclos source n'est pas null cela veux dire que on fais un transfert d'un enclos a vers b
+        if (enclosureIHMSource != null){
+            enclosureIHMSource.getEnclosure().removeCreature(creature);
+            enclosureIHMDestination.getEnclosure().getCreaturesPresent().add(creature);
+        }// Si l'enclos est null alors on ajoute juste une créature a l'enclos de destination
+        else{
+            enclosureIHMDestination.getEnclosure().getCreaturesPresent().add(creature);
+        }
     }
+
 }

@@ -53,6 +53,15 @@ public class MainPanel extends JPanel {
             EnclosureIHM enclosureIHM = new EnclosureIHM(0, "Enclos" + i, sidePanel);
             enclosureIHMS.add(enclosureIHM);
             gridPanel.add(enclosureIHM);
+
+            // ajouter les créature a l'enclos
+            if (i-1 < creatures.size() && creatures.get(i-1) != null) {
+                Creature creature = creatures.get(i-1);
+                // Transfère la créature à l'enclos
+                Enclosure.makeTransfer(creature, null, enclosureIHM);
+            }
+
+
         }
 
         gridPanel.add(addNextTurn(creatures, enclosureIHMS));

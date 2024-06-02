@@ -124,17 +124,18 @@ public class Slept {
             }
             // Si la créature existe
             if (selectedCreature != null) {
-                // Faire dormir la créature
-                selectedCreature.getSlept().setCntTurnBeforeSleep(selectedCreature.getSlept().getNeedSleep());
-                // Choisir la durée du sommeille
-                selectedCreature.getSlept().setTimeSleeping(selectedCreature.getSlept().getSleepDuration() - 2);
-                System.out.println("La créature " + selectedCreature.getName() + " a été endormie pour 2 tours ");
+              sleep(selectedCreature);
             }
         }else{
             System.out.print("Aucune créature n'est disponible ");
         }
-
-
+    }
+    public static void sleep(Creature creature){
+        // Faire dormir la créature
+        creature.getSlept().setCntTurnBeforeSleep(creature.getSlept().getNeedSleep());
+        // Choisir la durée du sommeille
+        creature.getSlept().setTimeSleeping(creature.getSlept().getSleepDuration() - 2);
+        System.out.println("La créature " + creature.getName() + " a été endormie pour 2 tours ");
     }
 
 }

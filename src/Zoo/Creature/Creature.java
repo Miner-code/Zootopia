@@ -82,17 +82,17 @@ public abstract  class Creature extends Life  {
 
     @Override
     public String toString() {
-        return "Creature{" +
-                "size=" + size +
-                ", weight=" + weight +
-                ", hungry=" + hungry +
-                ", slept=" + slept +
-                ", health=" + health +
-                ", species=" + species +
-                ", age=" + age +
-                ", sex=" + sex +
-                ", name='" + name + '\'' +
-                '}';
+        return
+                "\n\tsize=" + size +
+                ", \n\tweight=" + weight +
+                ", \n\thungry=" + hungry +
+                ", \n\tslept=" + slept +
+                ", \n\thealth=" + health +
+                ", \n\tspecies=" + species +
+                ", \n\tage=" + age +
+                ", \n\tsex=" + sex +
+                ", \n\tname='" + name + '\''
+                ;
     }
 
     public static Creature searchCreature(List<Creature> creatures, Scanner scanner, String message1, String message2){

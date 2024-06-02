@@ -2,8 +2,6 @@ package IHM.UI.ZooGridElement;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -13,7 +11,6 @@ import java.util.Random;
 import IHM.Content.Drawers.ImagePanel;
 import IHM.UI.Panels.SidePanel;
 import IHM.UI.ZooElement.CreatureImg;
-import Zoo.Creature.Creature;
 import Zoo.Enclosure.Enclosure;
 
 public class EnclosureIHM extends JPanel {
@@ -68,9 +65,11 @@ public class EnclosureIHM extends JPanel {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                currentLevel.increment();
-                sidePanel.updateInfo(enclosureName, currentLevel.getValue(), creatureImgs);
-                System.out.println(enclosure.toString());
+                System.out.println("Voici les détailles de l'enclos " + enclosureName);
+                sidePanel.updateInfo(enclosure.getName(),enclosure.getLevel(), enclosure.getCreaturesPresent(), enclosure);
+                System.out.println("Saleté : " + enclosure.getCleanliness());
+                System.out.println("Level : " + enclosure.getLevel() );
+                System.out.println("Créature présent : " + enclosure.getCreaturesPresent().size() +" / " + enclosure.getMaxCreatures()  );
             }
         });
 
@@ -87,36 +86,36 @@ public class EnclosureIHM extends JPanel {
     public Enclosure getEnclosure(){
         return enclosure;
     }
-    //private void initializeCreatures() {
-    //    for (CreatureImg creatureImg : creatureImgs) {
-    //        int panelWidth = creaturePanel.getWidth();
-    //        int panelHeight = creaturePanel.getHeight();
-    //        int imageWidth = creatureImg.getImageIcon().getIconWidth();
-    //        int imageHeight = creatureImg.getImageIcon().getIconHeight();
-//
-    //        int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
-    //        int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
-//
-    //        creatureImg.setPosition(x, y);
-    //    }
-    //    updateCreaturePanel();
-    //}
-//
-    //public void addCreature(CreatureImg creatureImg) {
-    //    creatureImgs.add(creatureImg);
-    //    if (isInitialized) {
-    //        int panelWidth = creaturePanel.getWidth();
-    //        int panelHeight = creaturePanel.getHeight();
-    //        int imageWidth = creatureImg.getImageIcon().getIconWidth();
-    //        int imageHeight = creatureImg.getImageIcon().getIconHeight();
-//
-    //        int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
-    //        int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
-//
-    //        creatureImg.setPosition(x, y);
-    //        updateCreaturePanel();
-    //    }
-    //}
+    private void initializeCreatures(Random random) {
+        for (CreatureImg creatureImg : creatureImgs) {
+            int panelWidth = creaturePanel.getWidth();
+            int panelHeight = creaturePanel.getHeight();
+            int imageWidth = creatureImg.getImageIcon().getIconWidth();
+            int imageHeight = creatureImg.getImageIcon().getIconHeight();
+
+            int x = random.nextInt(Math.max(1, panelWidth - imageWidth));
+            int y = random.nextInt(Math.max(1, panelHeight - imageHeight));
+
+            creatureImg.setPosition(x, y);
+        }
+        updateCreaturePanel();
+    }
+
+    public void addCreature(CreatureImg creatureImg) {
+        creatureImgs.add(creatureImg);
+        if (isInitialized) {
+            int panelWidth = creaturePanel.getWidth();
+            int panelHeight = creaturePanel.getHeight();
+            int imageWidth = creatureImg.getImageIcon().getIconWidth();
+            int imageHeight = creatureImg.getImageIcon().getIconHeight();
+
+            int x = 4;
+            int y = 4;
+
+            creatureImg.setPosition(x, y);
+            updateCreaturePanel();
+        }
+    }
 
     public void removeCreature(CreatureImg creatureImg) {
         creatureImgs.remove(creatureImg);

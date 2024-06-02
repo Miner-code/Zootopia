@@ -1,26 +1,22 @@
 package IHM.UI.Buttons;
 
-import IHM.UI.ZooGridElement.EnclosureIHM;
-import Zoo.Enclosure.Enclosure;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
-public class ButtonClear extends JButton {
-
-    public ButtonClear(Enclosure enclosure) {
+public class ButtonTransfer extends JButton {
+    public ButtonTransfer() {
         // Charger l'image originale
-        ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-up.png")));
+        ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-close-up.png")));
 
         // Redimensionner l'image originale à la taille souhaitée
         Image scaledImage = originalIcon.getImage().getScaledInstance(72, 72, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         // Charger l'image enfoncée (clic gauche enfoncé)
-        ImageIcon pressedIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-down.png")));
+        ImageIcon pressedIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-close-down.png")));
 
         // Redimensionner l'image originale à la taille souhaitée
         Image scaledPressedImage = pressedIcon.getImage().getScaledInstance(72, 72, Image.SCALE_SMOOTH);
@@ -35,7 +31,7 @@ public class ButtonClear extends JButton {
             @Override
             public void mousePressed(MouseEvent e) {
                 setIcon(scaledPressedIcon); // Changer l'image du bouton lors du clic gauche enfoncé
-                Enclosure.cleanEnclosure(enclosure);
+                JOptionPane.showMessageDialog(null, "Clicked on: ");
             }
             public void mouseReleased(MouseEvent e) {
                 setIcon(scaledIcon); // Changer l'image du bouton lors du clic gauche enfoncé
