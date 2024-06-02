@@ -74,46 +74,14 @@ public class Health extends Thread {
 
     }
 
-    public static void removeTheDisease(List<Creature> creatures,Scanner scanner) {
-        // Stocker les créatures malade
-        List<Creature> sickCreatures = new ArrayList<>();
 
-        // Afficher les créatures malades
-        System.out.println("Liste des créatures malades  :");
-        for (Creature creature : creatures) {
-            if(creature.getHealth().getSick() ==1){
-                System.out.println(creature.getName());
-                sickCreatures.add(creature);
-            }
-        }
-        // Si il y a au moins une créature malade
-        if(!sickCreatures.isEmpty()){
-            // Permettre à l'utilisateur de choisir quelle créature à endormir
-            System.out.print("Entrez le nom de la a guérir : ");
-            String creatureName = scanner.nextLine();
 
-            Creature selectedCreature = null;
-            // Vérifier que la créature rentré est dans le tableau des créature malades
-            for (Creature sickCreature : sickCreatures) {
-                if (sickCreature.getName().equals(creatureName)) {
-                    selectedCreature = sickCreature;
-                    break;
-                }else{
-                    System.out.println("La créature " + creatureName + " n'existe pas !");
-                }
-            }
-            if (selectedCreature != null) {
-                // Soigner la créature
-
-                disease(selectedCreature);
-            }
-        }else{
-            System.out.print("Aucune créature n'est disponible ");
-        }
-    }
 
     public static void disease(Creature creature){
         creature.getHealth().setSick(0);
         System.out.println("La créature " + creature.getName() + " a été soigné ");
+    }
+    public boolean isCritical() {
+        return this.health <= 0;
     }
 }

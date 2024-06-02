@@ -46,16 +46,7 @@ public class Hungry {
 
     }
 
-    public static void eatCreature(List<Creature> creatures,   Scanner scanner) {
-        Creature selectedCreature = Creature.searchCreature(creatures,scanner,"Liste des créatures disponibles :","Entrez le nom de la créature à nourrir : ");
-        if (selectedCreature != null) {
-            // Si une créature est trouvée, la nourrir
-            eat(selectedCreature);
-        } else {
-            // Si aucune créature n'est trouvée
-            System.out.println("Aucune créature trouvée avec le nom spécifié");
-        }
-    }
+
     public static void eat(Creature creature){
         if (creature.getName() != null){
             creature.getHungry().setEat(creature.getHungry().getEat() + 4);

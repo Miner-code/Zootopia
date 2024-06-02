@@ -57,6 +57,7 @@ public class MainPanel extends JPanel {
             }else{
                 type = "";
             }
+
             EnclosureIHM enclosureIHM = new EnclosureIHM(0, "Enclos" + i, sidePanel,type,creatures,enclosureIHMS);
             enclosureIHMS.add(enclosureIHM);
             gridPanel.add(enclosureIHM);

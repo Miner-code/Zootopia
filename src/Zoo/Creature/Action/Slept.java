@@ -93,43 +93,7 @@ public class Slept {
 
     }
 
-    public static void fallAsleep(List<Creature> creatures, Scanner scanner) {
-        // Stocker les créatures pouvant être endormi
-        List<Creature> noSleepCreatures = new ArrayList<>();
 
-        // Afficher les créatures qui ne dorment pas
-        System.out.println("Liste des créatures qui ne dorment pas :");
-        for (Creature creature : creatures) {
-            if(creature.getSlept().getCntTurnBeforeSleep() != creature.getSlept().getNeedSleep()){
-                System.out.println(creature.getName());
-                noSleepCreatures.add(creature);
-            }
-        }
-        if (!noSleepCreatures.isEmpty()) {
-            // Permettre à l'utilisateur de choisir quelle créature à endormir
-            System.out.print("Entrez le nom de la créature à endormir : ");
-            String creatureName = scanner.nextLine();
-
-
-            Creature selectedCreature = null;
-
-            // Chercher la créature sélectionnée dans le tableau des créatures disponible
-            for (Creature noSleepCreature : noSleepCreatures) {
-                if (noSleepCreature.getName().equals(creatureName)) {
-                    selectedCreature = noSleepCreature;
-                    break;
-                }else{
-                    System.out.println("La créature " + creatureName + " n'existe pas !");
-                }
-            }
-            // Si la créature existe
-            if (selectedCreature != null) {
-              sleep(selectedCreature);
-            }
-        }else{
-            System.out.print("Aucune créature n'est disponible ");
-        }
-    }
     public static void sleep(Creature creature){
         // Faire dormir la créature
         creature.getSlept().setCntTurnBeforeSleep(creature.getSlept().getNeedSleep());

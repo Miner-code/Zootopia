@@ -9,6 +9,8 @@ import Zoo.Enclosure.Enclosure;
 import Zoo.Life.Life;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -97,68 +99,24 @@ public abstract  class Creature extends Life  {
                 ;
     }
 
-    public static Creature searchCreature(List<Creature> creatures, Scanner scanner, String message1, String message2){
-        System.out.println(message1);
-        for (Creature creature : creatures) {
-            System.out.println(creature.getName());
-        }
-
-        // Permettre à l'utilisateur de choisir qu'elle créature sélectionner
-        System.out.print(message2);
-
-        String creatureName = scanner.nextLine();//scanner.nextLine()
-        System.out.println(creatureName);
-        // Chercher la créature dans la liste des créatures
-
-        Creature selectedCreature = null;
-        for (Creature creature : creatures) {
-            System.out.println(creature.getName());
-            if (creature.getName().equalsIgnoreCase(creatureName)) {
-                selectedCreature = creature;
-                break;
-                // Arrêter la recherche dès que la créature est trouvée
-            }
-        }
-        if (selectedCreature != null) {
-            return selectedCreature;
-        } else {
-            System.out.println("Aucune créature trouvée avec le nom spécifié");
-            return null;
-        }
-
-    }
 
     public static void die(Creature creature, List<Creature> creatures) {
-        System.out.println("La créature " + creature.getName() + " est morte" );
-        creatures.remove(creature);
-    }
+        System.out.println("La créature " + creature.getName() + " est morte");
+        String speciesCreature = creature.getSpecies().toLowerCase();
 
-    public static void seeCreature(List<Creature> creatures, Scanner scanner) {
-        Creature selectedCreature = searchCreature(creatures,scanner,"Liste des créature dans votre zoo:","Entrez le nom de la créature que vous voulez voir : ");
-        if (selectedCreature != null){
-            System.out.println(selectedCreature.getClass().getTypeName().getClass().getTypeName().getClass().getSimpleName());
-            System.out.println(selectedCreature.toString());
+        if (speciesCreature.equals("dragon") || speciesCreature.equals("phoenix") || speciesCreature.equals("nymph")) {
+            creature.setAge(0);
+            creature.getHealth().setHealth(5);
+            System.out.println("La créature " + creature.getName() + " renait");
+        } else {
+            creatures.remove(creature);
         }
-
     }
 
-    //public static void newCreature(List<Creature> creatures, Scanner scanner, List<EnclosureIHM> enclosureIHMS) {
-    //    EnclosureIHM enclosureIHMSelected = Enclosure.searchEnclosureWithFreeSpace(enclosureIHMS,scanner);
-    //    if (enclosureIHMSelected == null) {
-    //        System.out.println("Aucun enclos n'a été trouvé");
-    //    }else{
-    //        System.out.println(enclosureIHMSelected.getEnclosure().toString());
-    //
-    //        System.out.println("Entre le nom de la créature");
-    //        String creatureName = scanner.nextLine();
-    //        System.out.println("Entre l'espèce (Unicorn, Werewolf, Nymph, Dragon, Phoenix, Megalodon, Kraken, Mermaid):");
-    //
-    //        String species = scanner.nextLine();
-    //
-    //
-    //    }
-    //
-    //}
+    public static boolean creatureShouldDie(Creature creature) {
+        return creature.getHealth().isCritical();
+    }
+
 
     public static void addCreature(String name,String species, List<Creature> creatures, Enclosure enclosure,List<EnclosureIHM> enclosureIHMS){
         Creature newCreature = null;
@@ -174,13 +132,12 @@ public abstract  class Creature extends Life  {
             default -> System.out.println("L'espèce n'existe pas.");
         }
 
-        System.out.println(newCreature);
-        System.out.println(creatures);
         if (newCreature != null) {
             System.out.println(newCreature.getName() + " a bien été ajouté");
             creatures.add(newCreature);
             Enclosure.makeTransfer(newCreature, null, enclosure);
             EnclosureIHM.addCreatureImgToEnclosure(enclosureIHMS);
+
         } else {
             System.out.println("Un problème est survenu à la création de la créature");
         }

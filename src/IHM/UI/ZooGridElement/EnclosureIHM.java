@@ -17,6 +17,8 @@ import Zoo.Enclosure.Aquarium;
 import Zoo.Enclosure.Aviary;
 import Zoo.Enclosure.Enclosure;
 
+import static Zoo.Widget.Widget.RandomNumberGenerator.generateRandomNumber;
+
 public class EnclosureIHM extends JPanel {
     private final List<CreatureImg> creatureImgs;
     private final JPanel creaturePanel;
@@ -38,11 +40,11 @@ public class EnclosureIHM extends JPanel {
         ImagePanel imagePanel = null;
         switch (type.toLowerCase()){
             case "aquarium":
-                this.enclosure = new Aquarium(name);
+                this.enclosure = new Aquarium(name,(int)generateRandomNumber(2,8),(int)generateRandomNumber(1,5));
                 imagePanel = new ImagePanel("/IHM/Content/Images/enclosure-water.png");
                 break;
             case "aviary":
-                this.enclosure = new Aviary(name);
+                this.enclosure = new Aviary(name,(int)generateRandomNumber(5,15));
                 imagePanel = new ImagePanel("/IHM/Content/Images/enclosure-aviary.png");
                 break;
             default:
@@ -86,11 +88,20 @@ public class EnclosureIHM extends JPanel {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println("Voici les détailles de l'enclos " + enclosureName);
-                sidePanel.updateInfo(enclosure.getName(),enclosure.getLevel(), creatures, enclosure,enclosureIHMS);
-                System.out.println("Saleté : " + enclosure.getCleanliness());
-                System.out.println("Level : " + enclosure.getLevel() );
-                System.out.println("Créature présent : " + enclosure.getCreaturesPresent().size() +" / " + enclosure.getMaxCreatures()  );
+
+                if (enclosure.getClass().getSimpleName().toLowerCase().equals("aquarium")) {
+                    // Si c'est un aquarium, afficher ses caractéristiques
+                    sidePanel.updateInfo(enclosure.getName(), enclosure.getLevel(), creatures, enclosure, enclosureIHMS);
+                    enclosure.displayCharacteristics();
+                } else if(enclosure.getClass().getSimpleName().toLowerCase().equals("aviary")){
+                    sidePanel.updateInfo(enclosure.getName(), enclosure.getLevel(), creatures, enclosure, enclosureIHMS);
+                    enclosure.displayCharacteristics();
+                }else {
+                    // Sinon, afficher les caractéristiques de l'enclos par défaut
+
+                    enclosure.displayCharacteristics();
+                    sidePanel.updateInfo(enclosure.getName(), enclosure.getLevel(), creatures, enclosure, enclosureIHMS);
+                }
             }
         });
 
@@ -165,7 +176,7 @@ public class EnclosureIHM extends JPanel {
         }
     }
     public static void addCreatureImgToEnclosure(List<EnclosureIHM> enclosureIHMS){
-        System.out.println(enclosureIHMS);
+
         for (EnclosureIHM enclosureIHM: enclosureIHMS){
             if(enclosureIHM.getEnclosure().getCreaturesPresent().size() != 0){
                 for (int i = 0; i < enclosureIHM.getEnclosure().getCreaturesPresent().size(); i++) {
