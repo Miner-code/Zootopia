@@ -2,10 +2,7 @@ package IHM.UI.Panels;
 
 import IHM.Content.Drawers.ImagePanel;
 import IHM.MainGamePanel;
-import IHM.UI.Buttons.ButtonClear;
-import IHM.UI.Buttons.ButtonClose;
-import IHM.UI.Buttons.ButtonTransfer;
-import IHM.UI.Buttons.ButtonUpgrade;
+import IHM.UI.Buttons.*;
 import IHM.UI.ZooElement.CreatureImg;
 import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Action.Health;
@@ -32,6 +29,7 @@ public class SidePanel extends JPanel {
     private JButton cleanButton;
     private JButton upgradeButton;
     private JButton closeButton;
+    private JButton addCreatureButton;
     private JPanel buttonPanel;
     private JTextArea consoleTextArea;
 
@@ -135,19 +133,21 @@ public class SidePanel extends JPanel {
             }
         });
 
+
+
         PrintStream consoleStream = new PrintStream(new TextAreaOutputStream(consoleTextArea));
         System.setOut(consoleStream);
         System.setErr(consoleStream);
     }
 
-    public void updateInfo(String name, int level, List<Creature> creatures, Enclosure enclosure) {
+    public void updateInfo(String name, int level, List<Creature> creatures, Enclosure enclosure, List<EnclosureIHM> enclosureIHMS) {
         SwingUtilities.invokeLater(() -> {
             enclosureNameLabel.setText(name);
             levelLabel.setText("Level: " + level);
 
             creaturesListPanel.removeAll();
             buttonPanel.removeAll();
-            for (Creature creature : creatures) {
+            for (Creature creature : enclosure.getCreaturesPresent()) {
                 JPanel creaturePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
                 creaturePanel.setOpaque(false);
 
@@ -216,6 +216,15 @@ public class SidePanel extends JPanel {
 
             buttonPanel.add(new ButtonClear(enclosure));
             buttonPanel.add(new ButtonUpgrade(enclosure));
+
+            addCreatureButton = new ButtonAddCreature(enclosure,creatures,enclosureIHMS);
+            buttonPanel.add(addCreatureButton);
+
+            if(enclosure.getCreaturesPresent().size() == enclosure.getMaxCreatures() ){
+                addCreatureButton.setEnabled(false);
+            }else{
+                addCreatureButton.setEnabled(true);
+            }
 
             creaturesListPanel.revalidate();
             creaturesListPanel.repaint();

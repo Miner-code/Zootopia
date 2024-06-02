@@ -20,7 +20,7 @@ public class Enclosure {
     private final List<Creature> creaturesPresent;
     private int numberOfCreaturesPresent;
 
-    public Enclosure(String name) {
+    public Enclosure(String name, String type) {
         this.name = name;
         this.size = 50;
         this.level = 1;
@@ -66,6 +66,7 @@ public class Enclosure {
     public void setMaxCreatures(int maxCreatures) {
         this.maxCreatures = maxCreatures;
     }
+
     public int getNumberOfCreaturesPresent() {
         return numberOfCreaturesPresent;
     }
@@ -245,18 +246,20 @@ public class Enclosure {
 
         Creature creatureSelected = Creature.searchCreature(creaturePresent,scanner,"Choisir une créature dans l'enclos","Entrez le nom de la créature à déplacer");
         EnclosureIHM enclosureIHMSelected = Enclosure.searchEnclosureWithFreeSpace(enclosureIHMS,scanner);
-        makeTransfer(creatureSelected,enclosureIHM,enclosureIHMSelected);
+        //makeTransfer(creatureSelected,enclosureIHM,enclosureIHMSelected);
     }
 
-    public static void makeTransfer(Creature creature, EnclosureIHM enclosureIHMSource,EnclosureIHM enclosureIHMDestination){
+    public static void makeTransfer(Creature creature, EnclosureIHM enclosureIHMSource,Enclosure enclosureDestination){
         // Si l'enclos source n'est pas null cela veux dire que on fais un transfert d'un enclos a vers b
         if (enclosureIHMSource != null){
             enclosureIHMSource.getEnclosure().removeCreature(creature);
-            enclosureIHMDestination.getEnclosure().getCreaturesPresent().add(creature);
+            enclosureDestination.getCreaturesPresent().add(creature);
         }// Si l'enclos est null alors on ajoute juste une créature a l'enclos de destination
         else{
-            enclosureIHMDestination.getEnclosure().getCreaturesPresent().add(creature);
+            enclosureDestination.getCreaturesPresent().add(creature);
         }
+
+
     }
 
 }

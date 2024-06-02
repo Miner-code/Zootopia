@@ -18,4 +18,5 @@ public class Dragon extends Creature {
     public Type getType() {
         return type;
     }
+
 }

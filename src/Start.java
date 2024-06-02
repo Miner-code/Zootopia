@@ -1,13 +1,13 @@
 import IHM.MainGamePanel;
 import IHM.UI.Panels.SidePanel;
+import IHM.UI.ZooElement.CreatureImg;
+import IHM.UI.ZooElement.CreatureType;
 import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Creature;
 import Zoo.Creature.Action.Health;
 import Zoo.Creature.Action.Hungry;
 import Zoo.Creature.Action.Slept;
-import Zoo.Creature.Species.Dragon;
-import Zoo.Creature.Species.Kraken;
-import Zoo.Creature.Species.Megalodon;
+import Zoo.Creature.Species.*;
 import Zoo.Creature.Type.*;
 
 import Zoo.Enclosure.Enclosure;
@@ -22,9 +22,9 @@ public class Start {
 
         List<Creature> arrayCreatures = new ArrayList<>();
 
-        arrayCreatures.add(new Kraken("Loukas", true, 1, 10, 40, new Hungry(5), new Slept(5, 5), new Health(10)));
-        arrayCreatures.add(new Dragon("Draco", true, 1, 15, 500, new Hungry(7), new Slept(8, 6), new Health(100)));
-        arrayCreatures.add(new Megalodon("Mega", true, 1, 20, 30000, new Hungry(10), new Slept(6, 4), new Health(80)));
+        arrayCreatures.add(new Werewolf("Loukas", true, 1, 10, 40, new Hungry(5), new Slept(5, 5), new Health(10)));
+        arrayCreatures.add(new Unicorn("Draco", true, 1, 15, 500, new Hungry(7), new Slept(8, 6), new Health(100)));
+        arrayCreatures.add(new Mermaid("Mega", true, 1, 20, 30000, new Hungry(10), new Slept(6, 4), new Health(80)));
 
         List<EnclosureIHM> arrayEnclosure = new ArrayList<>();
 
@@ -33,6 +33,8 @@ public class Start {
 
         Scanner scanner = new Scanner(System.in);
 
+
+        EnclosureIHM.addCreatureImgToEnclosure(arrayEnclosure);
         int i = 0;
 
         while (i < i + 1) {
@@ -64,9 +66,9 @@ public class Start {
                     Creature.seeCreature(arrayCreatures,scanner);
                 }
                 // Créer une créature
-                case "nc" -> {
-                    Creature.newCreature(arrayCreatures,scanner,arrayEnclosure);
-                }
+                //case "nc" -> {
+                //    Creature.newCreature(arrayCreatures,scanner,arrayEnclosure);
+                //}
                 // Rechercher un enclos parmis la liste d'enclos
                 case "enclos" -> {
                    Enclosure.seeEnclosure(arrayEnclosure,scanner);

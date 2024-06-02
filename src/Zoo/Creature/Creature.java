@@ -53,7 +53,9 @@ public abstract  class Creature extends Life  {
         return weight;
     }
 
-
+    public String getSpecies() {
+        return species;
+    }
 
     public void setSize(double size) {
         this.size = size;
@@ -140,37 +142,49 @@ public abstract  class Creature extends Life  {
 
     }
 
-    public static void newCreature(List<Creature> creatures, Scanner scanner, List<EnclosureIHM> enclosureIHMS) {
-        EnclosureIHM enclosureIHMSelected = Enclosure.searchEnclosureWithFreeSpace(enclosureIHMS,scanner);
-        if (enclosureIHMSelected == null) {
-            System.out.println("Aucun enclos n'a été trouvé");
-        }else{
-            System.out.println(enclosureIHMSelected.getEnclosure().toString());
+    //public static void newCreature(List<Creature> creatures, Scanner scanner, List<EnclosureIHM> enclosureIHMS) {
+    //    EnclosureIHM enclosureIHMSelected = Enclosure.searchEnclosureWithFreeSpace(enclosureIHMS,scanner);
+    //    if (enclosureIHMSelected == null) {
+    //        System.out.println("Aucun enclos n'a été trouvé");
+    //    }else{
+    //        System.out.println(enclosureIHMSelected.getEnclosure().toString());
+    //
+    //        System.out.println("Entre le nom de la créature");
+    //        String creatureName = scanner.nextLine();
+    //        System.out.println("Entre l'espèce (Unicorn, Werewolf, Nymph, Dragon, Phoenix, Megalodon, Kraken, Mermaid):");
+    //
+    //        String species = scanner.nextLine();
+    //
+    //
+    //    }
+    //
+    //}
 
-            System.out.println("Entre le nom de la créature");
-            String creatureName = scanner.nextLine();
-            System.out.println("Entre l'espèce (Unicorn, Werewolf, Nymph, Dragon, Phoenix, Megalodon, Kraken, Mermaid):");
-            Creature newCreature = null;
-            String species = scanner.nextLine();
-            switch (species.toLowerCase()) {
-                case "unicorn" -> newCreature = new Unicorn(creatureName, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150),new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-                case "werewolf" -> newCreature = new Werewolf(creatureName, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-                case "nymph" -> newCreature = new Nymph(creatureName, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-                case "dragon" -> newCreature = new Dragon(creatureName, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-                case "phoenix" -> newCreature = new Phoenix(creatureName, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-                case "megalodon" -> newCreature = new Megalodon(creatureName, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-                case "kraken" -> newCreature = new Kraken(creatureName, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-                case "mermaid" -> newCreature = new Mermaid(creatureName, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-                default -> System.out.println("L'espèce n'existe pas.");
-            }
-            if (newCreature != null){
-                System.out.println(newCreature.getName() + " a bien été ajouté");
-                creatures.add(newCreature);
-                Enclosure.addCreatureToEnclosure(newCreature,enclosureIHMSelected);
-            }else{
-                System.out.println("Un problème est survenu a la création de la créature");
-            }
+    public static void addCreature(String name,String species, List<Creature> creatures, Enclosure enclosure,List<EnclosureIHM> enclosureIHMS){
+        Creature newCreature = null;
+        switch (species.toLowerCase()) {
+            case "unicorn" -> newCreature = new Unicorn(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150),new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "werewolf" -> newCreature = new Werewolf(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "nymph" -> newCreature = new Nymph(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "dragon" -> newCreature = new Dragon(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "phoenix" -> newCreature = new Phoenix(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "megalodon" -> newCreature = new Megalodon(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "kraken" -> newCreature = new Kraken(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "mermaid" -> newCreature = new Mermaid(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            default -> System.out.println("L'espèce n'existe pas.");
         }
+
+        System.out.println(newCreature);
+        System.out.println(creatures);
+        if (newCreature != null) {
+            System.out.println(newCreature.getName() + " a bien été ajouté");
+            creatures.add(newCreature);
+            Enclosure.makeTransfer(newCreature, null, enclosure);
+            EnclosureIHM.addCreatureImgToEnclosure(enclosureIHMS);
+        } else {
+            System.out.println("Un problème est survenu à la création de la créature");
+        }
+
 
     }
 

@@ -49,8 +49,15 @@ public class MainPanel extends JPanel {
 
         // Ajouter 4 enclos a IHM et créer  4instance EnclosureIMH qui appellera enclosur
         for (int i = 1; i <= 12; i++) {
-
-            EnclosureIHM enclosureIHM = new EnclosureIHM(0, "Enclos" + i, sidePanel);
+            String type = null;
+            if (i >= 9 ){
+                type = "aquarium";
+            }else if(i >= 5){
+                type = "aviary";
+            }else{
+                type = "";
+            }
+            EnclosureIHM enclosureIHM = new EnclosureIHM(0, "Enclos" + i, sidePanel,type,creatures,enclosureIHMS);
             enclosureIHMS.add(enclosureIHM);
             gridPanel.add(enclosureIHM);
 
@@ -58,7 +65,7 @@ public class MainPanel extends JPanel {
             if (i-1 < creatures.size() && creatures.get(i-1) != null) {
                 Creature creature = creatures.get(i-1);
                 // Transfère la créature à l'enclos
-                Enclosure.makeTransfer(creature, null, enclosureIHM);
+                Enclosure.makeTransfer(creature, null, enclosureIHM.getEnclosure());
             }
 
 
