@@ -36,7 +36,6 @@ public class ButtonSleep extends JButton {
             public void mousePressed(MouseEvent e) {
                 setIcon(scaledPressedIcon); // Change the button image when the left click is pressed
                 Slept.sleep(creature); // Put the creature to sleep
-                System.out.println(creature.getName() + " is sleeping."); // Debugging statement
             }
 
             @Override

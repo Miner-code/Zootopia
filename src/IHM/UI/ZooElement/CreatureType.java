@@ -51,4 +51,8 @@ public enum CreatureType {
                 return null;
         }
     }
+
+    public String getImagePath() {
+        return imagePath;
+    }
 }

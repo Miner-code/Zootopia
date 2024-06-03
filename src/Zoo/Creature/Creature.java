@@ -136,6 +136,8 @@ public abstract  class Creature extends Life  {
             System.out.println(newCreature.getName() + " a bien été ajouté");
             creatures.add(newCreature);
             Enclosure.makeTransfer(newCreature, null, enclosure);
+
+
             EnclosureIHM.addCreatureImgToEnclosure(enclosureIHMS);
 
         } else {
