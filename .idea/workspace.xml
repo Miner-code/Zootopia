@@ -10,14 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_05_2024_11_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_05_2024_11_54__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2024_14_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_04_2024_14_03__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/Buttons/ButtonSleep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/Buttons/ButtonSleep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/Panels/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/Panels/SidePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/ZooElement/CreatureType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/ZooElement/CreatureType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/EnclosureIHM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/EnclosureIHM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
