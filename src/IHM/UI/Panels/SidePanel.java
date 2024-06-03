@@ -3,18 +3,12 @@ package IHM.UI.Panels;
 import IHM.Content.Drawers.ImagePanel;
 import IHM.MainGamePanel;
 import IHM.UI.Buttons.*;
-import IHM.UI.ZooElement.CreatureImg;
 import IHM.UI.ZooGridElement.EnclosureIHM;
-import Zoo.Creature.Action.Health;
-import Zoo.Creature.Action.Hungry;
-import Zoo.Creature.Action.Slept;
 import Zoo.Creature.Creature;
 import Zoo.Enclosure.Enclosure;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.PrintStream;
@@ -25,9 +19,7 @@ public class SidePanel extends JPanel {
     private JLabel enclosureNameLabel;
     private JLabel levelLabel;
     private JPanel creaturesListPanel;
-    private JPanel dynamicButtonPanel; // Panel pour les boutons dynamiques
-    private JButton cleanButton;
-    private JButton upgradeButton;
+    private JPanel dynamicButtonPanel;
     private JButton closeButton;
     private JButton addCreatureButton;
     private JPanel buttonPanel;
@@ -119,21 +111,16 @@ public class SidePanel extends JPanel {
 
         closeButton = new ButtonClose();
         buttonPanel.add(closeButton);
-        closeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                enclosureNameLabel.setText("");
-                levelLabel.setText("");
-                creaturesListPanel.removeAll();
-                creaturesListPanel.revalidate();
-                creaturesListPanel.repaint();
-                buttonPanel.removeAll();
-                buttonPanel.add(closeButton); // Ajouter à nouveau le bouton de fermeture
-                enclosureSelected = false;
-            }
+        closeButton.addActionListener(e -> {
+            enclosureNameLabel.setText("");
+            levelLabel.setText("");
+            creaturesListPanel.removeAll();
+            creaturesListPanel.revalidate();
+            creaturesListPanel.repaint();
+            buttonPanel.removeAll();
+            buttonPanel.add(closeButton);
+            enclosureSelected = false;
         });
-
-
 
         PrintStream consoleStream = new PrintStream(new TextAreaOutputStream(consoleTextArea));
         System.setOut(consoleStream);
@@ -147,12 +134,14 @@ public class SidePanel extends JPanel {
 
             creaturesListPanel.removeAll();
             buttonPanel.removeAll();
+            buttonPanel.add(closeButton);
+
             for (Creature creature : enclosure.getCreaturesPresent()) {
                 JPanel creaturePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
                 creaturePanel.setOpaque(false);
 
                 JLabel creatureImageLabel = new JLabel(creature.getName());
-                JLabel creatureNameLabel = new JLabel(creature.getClass().getTypeName());
+                JLabel creatureNameLabel = new JLabel(creature.getClass().getSimpleName());
                 creatureNameLabel.setFont(new Font("Arial", Font.PLAIN, 18));
                 creatureNameLabel.setForeground(Color.WHITE);
 
@@ -162,37 +151,20 @@ public class SidePanel extends JPanel {
                 creatureNameLabel.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
+                        ButtonInfo infoButton = new ButtonInfo(creature);
+                        ButtonEat feedButton = new ButtonEat(creature);
+                        ButtonSleep sleepButton = new ButtonSleep(creature);
+                        ButtonHeal diseaseButton = new ButtonHeal(creature);
 
-                        JButton infoButton = new JButton("Info");
-                        infoButton.addActionListener(event -> {
-                            JOptionPane.showMessageDialog(null, creature.toString(), "Voici les informations de " + creature.getName(), JOptionPane.INFORMATION_MESSAGE);
-                        });
-
-                        JButton feedButton = new JButton("Feed");
-                        feedButton.addActionListener(event -> {
-                            Hungry.eat(creature);
-                        });
-
-                        JButton sleepButton = new JButton("Dormir");
-                        sleepButton.addActionListener(event -> {
-                            Slept.sleep(creature);
-                        });
-
-                        JButton diseaseButton = new JButton("Soigner");
-                        diseaseButton.addActionListener(event -> {
-                            Health.disease(creature);
-                        });
-
-
-                        if(creature.getSlept().getCntTurnBeforeSleep() == creature.getSlept().getNeedSleep()){
-                             sleepButton.setEnabled(false);
-                         }else{
+                        if (creature.getSlept().getCntTurnBeforeSleep() == creature.getSlept().getNeedSleep()) {
+                            sleepButton.setEnabled(false);
+                        } else {
                             sleepButton.setEnabled(true);
                         }
 
-                        if(creature.getHealth().getSick() == 0 ){
+                        if (creature.getHealth().getSick() == 0) {
                             diseaseButton.setEnabled(false);
-                        }else{
+                        } else {
                             diseaseButton.setEnabled(true);
                         }
 
@@ -217,12 +189,12 @@ public class SidePanel extends JPanel {
             buttonPanel.add(new ButtonClear(enclosure));
             buttonPanel.add(new ButtonUpgrade(enclosure));
 
-            addCreatureButton = new ButtonAddCreature(enclosure,creatures,enclosureIHMS);
+            addCreatureButton = new ButtonAddCreature(enclosure, creatures, enclosureIHMS);
             buttonPanel.add(addCreatureButton);
 
-            if(enclosure.getCreaturesPresent().size() == enclosure.getMaxCreatures() ){
+            if (enclosure.getCreaturesPresent().size() == enclosure.getMaxCreatures()) {
                 addCreatureButton.setEnabled(false);
-            }else{
+            } else {
                 addCreatureButton.setEnabled(true);
             }
 

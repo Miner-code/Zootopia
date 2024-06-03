@@ -1,0 +1,50 @@
+
+
+Version:	3.50
+CmdLine:	C:\Users\hugov\IdeaProjects\Zootopia\Zootopia.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\hugov\IdeaProjects\Zootopia\.
+Requires JDK:	Yes
+Requires 64-Bit: Yes
+Java min ver:	1.022.000
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\php-8.3.0;C:\composer;%NVM_HOME%;%NVM_SYMLINK%;C:\Users\hugov\scoop\shims;C:\Users\hugov\AppData\Local\Microsoft\WindowsApps;C:\Users\hugov\AppData\Local\Programs\Microsoft VS Code\bin;C:\php-8.3.0;C:\composer;C:\Users\hugov\AppData\Roaming\npm;C:\Users\hugov\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Java\jre-1.8\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\php-8.3.0;C:\composer;%NVM_HOME%;%NVM_SYMLINK%;C:\Users\hugov\scoop\shims;C:\Users\hugov\AppData\Local\Microsoft\WindowsApps;C:\Users\hugov\AppData\Local\Programs\Microsoft VS Code\bin;C:\php-8.3.0;C:\composer;C:\Users\hugov\AppData\Roaming\npm;C:\Users\hugov\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Java\jre-1.8\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\Common Files\Oracle\Java\java8path\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\php-8.3.0\bin\javaw.exe (not found)
+Check launcher:	C:\composer\bin\javaw.exe (not found)
+Check launcher:	C:\Users\hugov\IdeaProjects\Zootopia\%NVM_HOME%\bin\javaw.exe (not found)
+Check launcher:	C:\Users\hugov\IdeaProjects\Zootopia\%NVM_SYMLINK%\bin\javaw.exe (not found)
+Check launcher:	C:\Users\hugov\scoop\shims\bin\javaw.exe (not found)
+Check launcher:	C:\Users\hugov\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\hugov\AppData\Local\Programs\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\php-8.3.0\bin\javaw.exe (not found)
+Check launcher:	C:\composer\bin\javaw.exe (not found)
+Check launcher:	C:\Users\hugov\AppData\Roaming\npm\bin\javaw.exe (not found)
+Check launcher:	C:\Users\hugov\AppData\Roaming\nvm\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\nodejs\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jre-1.8\bin\javaw.exe (OK)
+Check javac:	C:\Program Files\Java\jre-1.8\bin\javac.exe (not found)
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\22.0.1
+Version string: 1.022.000_001 / 64-Bit (OK)
+Check launcher:	C:\Program Files\Java\jdk-22\bin\javaw.exe (OK)
+Check javac:	C:\Program Files\Java\jdk-22\bin\javac.exe (OK)
+Match:		1.022.000_001
+Runtime used:	1.022.000_001 (64-bit)
+Launcher:	C:\Program Files\Java\jdk-22\bin\javaw.exe
+Launcher args:	-jar "C:\Users\hugov\IdeaProjects\Zootopia\Zootopia.exe"
+Args length:	56/32768 chars
+Exit code:	0

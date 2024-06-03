@@ -66,7 +66,7 @@ public class ButtonAddCreature extends JButton {
                         break;
                     }
                     default -> {
-                        String[] options = {"Wirewolf", "Unicorn","Nymph"};
+                        String[] options = {"Werewolf", "Unicorn","Nymph"};
                         int choice = JOptionPane.showOptionDialog(
                                 null,
                                 "Choisir l'espèce",
