@@ -50,7 +50,7 @@ public class Health extends Thread {
                     // Mettre la crature malade
                     creature.getHealth().setSick(1);
                     // Afficher que la créature est malade
-                    System.out.println("La créature " + creature.getName() + " est tombé malade");
+                    System.out.println("\n[ALERTE] La créature " + creature.getName() + " est tombé malade\n");
                 }
             }// Si la crature est déjà malade alors appeler la funciton qui lui enleve des hp
             else{
@@ -79,7 +79,7 @@ public class Health extends Thread {
 
     public static void disease(Creature creature){
         creature.getHealth().setSick(0);
-        System.out.println("La créature " + creature.getName() + " a été soigné ");
+        System.out.println("[#] La créature " + creature.getName() + " a été soigné ");
     }
     public boolean isCritical() {
         return this.health <= 0;

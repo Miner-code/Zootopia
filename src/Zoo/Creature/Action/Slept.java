@@ -71,7 +71,7 @@ public class Slept {
             if (creature.getSlept().getTimeSleeping() == creature.getSlept().getSleepDuration()){
 
                 // Afficher que le créature se réveille
-                System.out.println(creature.getName() + " se réveille");
+                System.out.println("[*] " + creature.getName() + " se réveille");
 
                 // Remettre les compteurs à 0
                 creature.getSlept().setTimeSleeping(0);
@@ -80,7 +80,7 @@ public class Slept {
             }//  Si le nombre de tour avant de faire dormir la créature est égale au nombre de tour avant que la créature est besoin de dormir
             else if(creature.getSlept().getCntTurnBeforeSleep() == creature.getSlept().getNeedSleep() ){
                 // Afficher que la créature dort encore plus le temps restant
-                System.out.println(creature.getName() + " dort, elle se réveillera  dans :" + (creature.getSlept().getSleepDuration() - creature.getSlept().getTimeSleeping()));
+                System.out.println("[*] " + creature.getName() + " dort, elle se réveillera  dans :" + (creature.getSlept().getSleepDuration() - creature.getSlept().getTimeSleeping()));
                 creature.getSlept().setTimeSleeping(creature.getSlept().getTimeSleeping() + 1 );
 
             }// Sinon afficher quand la créature aura besoin de dormir
@@ -99,7 +99,7 @@ public class Slept {
         creature.getSlept().setCntTurnBeforeSleep(creature.getSlept().getNeedSleep());
         // Choisir la durée du sommeille
         creature.getSlept().setTimeSleeping(creature.getSlept().getSleepDuration() - 2);
-        System.out.println("La créature " + creature.getName() + " a été endormie pour 2 tours ");
+        System.out.println("[#] La créature " + creature.getName() + " a été endormie pour 2 tours ");
     }
 
 }

@@ -22,6 +22,12 @@ public class Turn {
     }
 
     public void takeTurn(List<Creature> creatures, List<EnclosureIHM> enclosureIHMs) {
+
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n---------------------------------------");
+        System.out.println("Début du nouveau jour !");
+        System.out.println("---------------------------------------\n\n");
+
+
         List<Creature> creaturesToRemove = new ArrayList<>();
 
         for (Creature creature : creatures) {
@@ -44,7 +50,5 @@ public class Turn {
         for (EnclosureIHM enclosureIHM : enclosureIHMs) {
             enclosureIHM.getEnclosure().maintenance(enclosureIHM);
         }
-
-        System.out.println("Fin Tour");
     }
 }

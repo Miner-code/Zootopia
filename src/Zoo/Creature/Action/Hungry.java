@@ -37,7 +37,7 @@ public class Hungry {
         if (creature.getName() != null){
             creature.getHungry().setEat(creature.getHungry().getEat() - 1);
             if (creature.getHungry().getEat() <= 0) {
-                System.out.println(creature.getName() + " a faim");
+                System.out.println("\n[ALERTE] " + creature.getName() + " a faim\n");
                 removeHP(creature,creatures);
                 return;
             }
@@ -50,7 +50,7 @@ public class Hungry {
     public static void eat(Creature creature){
         if (creature.getName() != null){
             creature.getHungry().setEat(creature.getHungry().getEat() + 4);
-            System.out.println(creature.getName() + " a correctement été nourri");
+            System.out.println("[#] " + creature.getName() + " a correctement été nourri");
         }
     }
 
