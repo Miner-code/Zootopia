@@ -89,18 +89,18 @@ public class Enclosure {
     }
 
     public void displayCharacteristics() {
-        System.out.println("Enclos : " + this.name);
-        System.out.println("Créature présent : " + creaturesPresent.size() + " / " + maxCreatures);
-        System.out.println("Cleanliness: " + this.cleanliness + "%");
+        System.out.println("[ENCLOS] " + this.name);
+        System.out.println("[|] Créature présent : " + creaturesPresent.size() + " / " + maxCreatures);
+        System.out.println("[|] Cleanliness: " + this.cleanliness + "%");
     }
 
     public static void levelUp(Enclosure enclosure) {
         if (enclosure.getLevel() < 3) {
             enclosure.setLevel(enclosure.getLevel() + 1);
             enclosure.setMaxCreatures(enclosure.getMaxCreatures() + 1);
-            System.out.println("L'enclos pas au level " + enclosure.getLevel() + " et augmente sa capacité à " + enclosure.getMaxCreatures() + "!");
+            System.out.println("[#] L'enclos passe au level " + enclosure.getLevel() + " et augmente sa capacité à " + enclosure.getMaxCreatures() + "!");
         } else {
-            System.out.println("L'enclos est au niveau maximal");
+            System.out.println("\n[Erreur] L'enclos est au niveau maximal\n");
         }
     }
 
@@ -108,7 +108,7 @@ public class Enclosure {
         cleanliness -= 10;
         if (cleanliness <= 0) {
             cleanliness = 0;
-            System.out.println(enclosureIHMS.getEnclosure().getName() + " à besoin d'être nettoyé");
+            System.out.println("\n[ALERTE]" + enclosureIHMS.getEnclosure().getName() + " à besoin d'être nettoyé\n");
         }
     }
 
@@ -125,7 +125,7 @@ public class Enclosure {
 
     public static void cleanEnclosure(Enclosure enclosure) {
         enclosure.setCleanliness(100);
-        System.out.println(enclosure.getName() + " est nettoyé ");
+        System.out.println("[#] " + enclosure.getName() + " est nettoyé ");
     }
 
 

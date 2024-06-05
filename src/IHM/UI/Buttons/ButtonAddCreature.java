@@ -21,90 +21,94 @@ public class ButtonAddCreature extends JButton {
         setBorderPainted(false);
         setContentAreaFilled(false);
 
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                JDialog dialog = new JDialog((Frame) null, "Create New Creature", true);
-                dialog.setLayout(new GridLayout(0, 2));
+        if (enclosure.getCreatures().size() != enclosure.getMaxCreatures()) {
+            addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    JDialog dialog = new JDialog((Frame) null, "Create New Creature", true);
+                    dialog.setLayout(new GridLayout(0, 2));
 
-                JLabel nameLabel = new JLabel("Name:");
-                JTextField nameField = new JTextField();
+                    JLabel nameLabel = new JLabel("Name:");
+                    JTextField nameField = new JTextField();
 
-                dialog.add(nameLabel);
-                dialog.add(nameField);
+                    dialog.add(nameLabel);
+                    dialog.add(nameField);
 
-                String species = "";
-                switch (enclosure.getClass().getSimpleName().toLowerCase()){
-                    case "aviary" -> {
-                        String[] options = {"Dragon", "Phoenix"};
-                        int choice = JOptionPane.showOptionDialog(
-                                null,
-                                "Choisir l'espèce",
-                                "Vol",
-                                JOptionPane.DEFAULT_OPTION,
-                                JOptionPane.INFORMATION_MESSAGE,
-                                null,
-                                options,
-                                options[0]
-                        );
-                        species = options[choice];
-                        break;
+                    String species = "";
+                    switch (enclosure.getClass().getSimpleName().toLowerCase()){
+                        case "aviary" -> {
+                            String[] options = {"Dragon", "Phoenix"};
+                            int choice = JOptionPane.showOptionDialog(
+                                    null,
+                                    "Choisir l'espèce",
+                                    "Vol",
+                                    JOptionPane.DEFAULT_OPTION,
+                                    JOptionPane.INFORMATION_MESSAGE,
+                                    null,
+                                    options,
+                                    options[0]
+                            );
+                            species = options[choice];
+                            break;
+                        }
+                        case "aquarium" -> {
+                            String[] options = {"Kraken", "Megalodon","Mermaid"};
+                            int choice = JOptionPane.showOptionDialog(
+                                    null,
+                                    "Choisir l'espèce",
+                                    "Eau",
+                                    JOptionPane.DEFAULT_OPTION,
+                                    JOptionPane.INFORMATION_MESSAGE,
+                                    null,
+                                    options,
+                                    options[0]
+                            );
+                            species = options[choice];
+                            break;
+                        }
+                        default -> {
+                            String[] options = {"Werewolf", "Unicorn","Nymph"};
+                            int choice = JOptionPane.showOptionDialog(
+                                    null,
+                                    "Choisir l'espèce",
+                                    "Terre",
+                                    JOptionPane.DEFAULT_OPTION,
+                                    JOptionPane.INFORMATION_MESSAGE,
+                                    null,
+                                    options,
+                                    options[0]
+                            );
+                            species = options[choice];
+                            break;
+                        }
                     }
-                    case "aquarium" -> {
-                        String[] options = {"Kraken", "Megalodon","Mermaid"};
-                        int choice = JOptionPane.showOptionDialog(
-                                null,
-                                "Choisir l'espèce",
-                                "Eau",
-                                JOptionPane.DEFAULT_OPTION,
-                                JOptionPane.INFORMATION_MESSAGE,
-                                null,
-                                options,
-                                options[0]
-                        );
-                        species = options[choice];
-                        break;
-                    }
-                    default -> {
-                        String[] options = {"Werewolf", "Unicorn","Nymph"};
-                        int choice = JOptionPane.showOptionDialog(
-                                null,
-                                "Choisir l'espèce",
-                                "Terre",
-                                JOptionPane.DEFAULT_OPTION,
-                                JOptionPane.INFORMATION_MESSAGE,
-                                null,
-                                options,
-                                options[0]
-                        );
-                        species = options[choice];
-                        break;
-                    }
+
+
+                    JButton okButton = new JButton("OK");
+                    JButton cancelButton = new JButton("Cancel");
+
+                    dialog.add(okButton);
+                    dialog.add(cancelButton);
+
+                    String finalSpecies = species;
+                    okButton.addActionListener(event -> {
+                        String name = nameField.getText();
+
+                        Creature.addCreature(name,finalSpecies,creatures,enclosure,enclosureIHMS);
+                        dialog.dispose();
+                    });
+
+                    cancelButton.addActionListener(event -> {
+                        dialog.dispose();
+                    });
+
+                    dialog.pack();
+                    dialog.setLocationRelativeTo(null);
+                    dialog.setVisible(true);
                 }
+            });
+        }
 
 
-                JButton okButton = new JButton("OK");
-                JButton cancelButton = new JButton("Cancel");
-
-                dialog.add(okButton);
-                dialog.add(cancelButton);
-
-                String finalSpecies = species;
-                okButton.addActionListener(event -> {
-                    String name = nameField.getText();
-                    
-                    Creature.addCreature(name,finalSpecies,creatures,enclosure,enclosureIHMS);
-                    dialog.dispose();
-                });
-
-                cancelButton.addActionListener(event -> {
-                    dialog.dispose();
-                });
-
-                dialog.pack();
-                dialog.setLocationRelativeTo(null);
-                dialog.setVisible(true);
-            }
-        });
     }
 }

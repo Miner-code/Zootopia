@@ -32,11 +32,9 @@ public class ButtonClose extends JButton {
             @Override
             public void mousePressed(MouseEvent e) {
                 setIcon(scaledPressedIcon); // Changer l'image du bouton lors du clic gauche enfoncé
-                System.out.println("Pressed market button");
             }
             public void mouseReleased(MouseEvent e) {
                 setIcon(scaledIcon); // Changer l'image du bouton lors du clic gauche enfoncé
-                System.out.println("Pressed market button");
             }
         });
     }

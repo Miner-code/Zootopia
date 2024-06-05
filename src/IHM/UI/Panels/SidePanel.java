@@ -4,11 +4,16 @@ import IHM.Content.Drawers.ImagePanel;
 import IHM.MainGamePanel;
 import IHM.UI.Buttons.*;
 import IHM.UI.ZooGridElement.EnclosureIHM;
+import Zoo.Creature.Action.Health;
+import Zoo.Creature.Action.Hungry;
+import Zoo.Creature.Action.Slept;
 import Zoo.Creature.Creature;
 import Zoo.Enclosure.Enclosure;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.PrintStream;
@@ -70,12 +75,16 @@ public class SidePanel extends JPanel {
         labelPanel.add(enclosureNameLabel, BorderLayout.WEST);
         labelPanel.add(levelLabel, BorderLayout.EAST);
 
-        infoPanel.add(labelPanel, BorderLayout.NORTH);
+        dynamicButtonPanel = new JPanel();
+        dynamicButtonPanel.setOpaque(false);
+        infoPanel.add(dynamicButtonPanel, BorderLayout.NORTH);
+
+        infoPanel.add(labelPanel, BorderLayout.CENTER);
 
         creaturesListPanel = new JPanel();
         creaturesListPanel.setLayout(new BoxLayout(creaturesListPanel, BoxLayout.Y_AXIS));
         creaturesListPanel.setOpaque(false);
-        infoPanel.add(new JScrollPane(creaturesListPanel), BorderLayout.CENTER);
+        infoPanel.add(new JScrollPane(creaturesListPanel), BorderLayout.SOUTH);
 
         buttonPanel = new JPanel(new FlowLayout());
         buttonPanel.setOpaque(false);
@@ -117,6 +126,9 @@ public class SidePanel extends JPanel {
             creaturesListPanel.removeAll();
             creaturesListPanel.revalidate();
             creaturesListPanel.repaint();
+            dynamicButtonPanel.removeAll(); // Vider les boutons dynamiques
+            dynamicButtonPanel.revalidate();
+            dynamicButtonPanel.repaint();
             buttonPanel.removeAll();
             buttonPanel.add(closeButton);
             enclosureSelected = false;
@@ -133,6 +145,7 @@ public class SidePanel extends JPanel {
             levelLabel.setText("Level: " + level);
 
             creaturesListPanel.removeAll();
+            dynamicButtonPanel.removeAll();
             buttonPanel.removeAll();
             buttonPanel.add(closeButton);
             for (Creature creature : enclosure.getCreaturesPresent()) {
@@ -146,14 +159,34 @@ public class SidePanel extends JPanel {
 
                 creaturePanel.add(creatureImageLabel);
                 creaturePanel.add(creatureNameLabel);
-              ;
+
                 creatureNameLabel.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-                        ButtonInfo infoButton = new ButtonInfo(creature);
-                        ButtonEat feedButton = new ButtonEat(creature);
-                        ButtonSleep sleepButton = new ButtonSleep(creature);
-                        ButtonHeal diseaseButton = new ButtonHeal(creature);
+                        JButton infoButton = new JButton("Info");
+                        infoButton.addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent e) {
+                                JOptionPane.showMessageDialog(null, creature.toString(), "Voici les informations de " + creature.getName(), JOptionPane.INFORMATION_MESSAGE);
+                            }
+                        });
+                        JButton feedButton = new JButton("Nourrir"); // Ajouter l'icône de votre choix
+                        feedButton.addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent e) {
+                                Hungry.eat(creature); // Feed the creature
+                            }
+                        });
+                        JButton sleepButton = new JButton("Endormir"); // Ajouter l'icône de votre choix
+                        sleepButton.addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent e) {
+                                Slept.sleep(creature); // Put the creature to sleep
+                            }
+                        });
+                        JButton diseaseButton = new JButton("Soigner"); // Ajouter l'icône de votre choix
+                        diseaseButton.addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent e) {
+                                Health.disease(creature); // Heal the creature
+                            }
+                        });
                         ButtonTransfer transferButton = new ButtonTransfer(creature, enclosure, enclosureIHMS);
 
                         if (creature.getSlept().getCntTurnBeforeSleep() == creature.getSlept().getNeedSleep()) {
@@ -169,18 +202,16 @@ public class SidePanel extends JPanel {
                         }
 
                         if (dynamicButtonPanel != null) {
-                            buttonPanel.remove(dynamicButtonPanel);
+                            dynamicButtonPanel.removeAll();
                         }
-                        dynamicButtonPanel = new JPanel();
                         dynamicButtonPanel.add(infoButton);
                         dynamicButtonPanel.add(feedButton);
                         dynamicButtonPanel.add(sleepButton);
                         dynamicButtonPanel.add(diseaseButton);
                         dynamicButtonPanel.add(transferButton);
 
-                        buttonPanel.add(dynamicButtonPanel);
-                        buttonPanel.revalidate();
-                        buttonPanel.repaint();
+                        dynamicButtonPanel.revalidate();
+                        dynamicButtonPanel.repaint();
                     }
                 });
 

@@ -15,15 +15,15 @@ import java.util.Objects;
 public class ButtonTransfer extends JButton {
 
     public ButtonTransfer(Creature creature, Enclosure sourceEnclosure,List<EnclosureIHM> enclosureIHMs) {
-        super("Transfer");
-        ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-up.png")));
+        super("");
+        ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-transfer-up.png")));
 
         // Resize the original image to the desired size
         Image scaledImage = originalIcon.getImage().getScaledInstance(72, 72, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         // Load the pressed image (left click pressed)
-        ImageIcon pressedIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-down.png")));
+        ImageIcon pressedIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-transfer-down.png")));
 
         // Resize the pressed image to the desired size
         Image scaledPressedImage = pressedIcon.getImage().getScaledInstance(72, 72, Image.SCALE_SMOOTH);
