@@ -6,7 +6,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
+/**
+ * The type Button transfer.
+ */
 public class ButtonTransfer extends JButton {
+    /**
+     * Instantiates a new Button transfer.
+     */
     public ButtonTransfer() {
         // Charger l'image originale
         ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-close-up.png")));

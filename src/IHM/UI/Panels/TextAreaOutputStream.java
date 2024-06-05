@@ -4,9 +4,17 @@ import javax.swing.*;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+ * The type Text area output stream.
+ */
 public class TextAreaOutputStream extends OutputStream {
     private final JTextArea textArea;
 
+    /**
+     * Instantiates a new Text area output stream.
+     *
+     * @param textArea the text area
+     */
     public TextAreaOutputStream(JTextArea textArea) {
         this.textArea = textArea;
     }

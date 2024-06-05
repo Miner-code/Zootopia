@@ -19,6 +19,9 @@ import Zoo.Enclosure.Enclosure;
 
 import static Zoo.Widget.Widget.RandomNumberGenerator.generateRandomNumber;
 
+/**
+ * The type Enclosure ihm.
+ */
 public class EnclosureIHM extends JPanel {
     private final List<CreatureImg> creatureImgs;
     private final JPanel creaturePanel;
@@ -29,6 +32,16 @@ public class EnclosureIHM extends JPanel {
     private final Enclosure enclosure;
     private Random random;
 
+    /**
+     * Instantiates a new Enclosure ihm.
+     *
+     * @param level         the level
+     * @param name          the name
+     * @param sidePanel     the side panel
+     * @param type          the type
+     * @param creatures     the creatures
+     * @param enclosureIHMS the enclosure ihms
+     */
     public EnclosureIHM(Integer level, String name,SidePanel sidePanel,String type,List<Creature> creatures,List<EnclosureIHM> enclosureIHMS) {//, SidePanel sidePanel
         this.currentLevel = new MutableInteger(level);
         this.enclosureName = name;
@@ -115,6 +128,12 @@ public class EnclosureIHM extends JPanel {
         //    }
         //});
     }
+
+    /**
+     * Get enclosure enclosure.
+     *
+     * @return the enclosure
+     */
     public Enclosure getEnclosure(){
         return enclosure;
     }
@@ -133,6 +152,11 @@ public class EnclosureIHM extends JPanel {
         updateCreaturePanel();
     }
 
+    /**
+     * Add creature img.
+     *
+     * @param creatureImg the creature img
+     */
     public void addCreatureImg(CreatureImg creatureImg) {
         System.out.println(creatureImg.getType().getImagePath());
         creatureImgs.add(creatureImg);
@@ -151,6 +175,11 @@ public class EnclosureIHM extends JPanel {
     }
 
 
+    /**
+     * Remove creature.
+     *
+     * @param creatureImg the creature img
+     */
     public void removeCreature(CreatureImg creatureImg) {
         creatureImgs.remove(creatureImg);
         updateCreaturePanel();
@@ -164,18 +193,37 @@ public class EnclosureIHM extends JPanel {
     private static class MutableInteger {
         private int value;
 
+        /**
+         * Instantiates a new Mutable integer.
+         *
+         * @param value the value
+         */
         public MutableInteger(int value) {
             this.value = value;
         }
 
+        /**
+         * Gets value.
+         *
+         * @return the value
+         */
         public int getValue() {
             return value;
         }
 
+        /**
+         * Increment.
+         */
         public void increment() {
             value++;
         }
     }
+
+    /**
+     * Add creature img to enclosure.
+     *
+     * @param enclosureIHMS the enclosure ihms
+     */
     public static void addCreatureImgToEnclosure(List<EnclosureIHM> enclosureIHMS){
         System.out.println("_____________________");
         for (EnclosureIHM enclosureIHM: enclosureIHMS){

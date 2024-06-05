@@ -7,9 +7,17 @@ import java.io.IOException;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 
+/**
+ * The type Image panel.
+ */
 public class ImagePanel extends JPanel {
     private BufferedImage backgroundImage;
 
+    /**
+     * Instantiates a new Image panel.
+     *
+     * @param imagePath the image path
+     */
     public ImagePanel(String imagePath) {
         try {
             backgroundImage = ImageIO.read(Objects.requireNonNull(getClass().getResource(imagePath))); // Charge l'image depuis le chemin spécifié

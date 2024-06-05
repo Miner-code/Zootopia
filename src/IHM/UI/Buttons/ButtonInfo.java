@@ -8,8 +8,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
+/**
+ * The type Button info.
+ */
 public class ButtonInfo extends JButton {
 
+    /**
+     * Instantiates a new Button info.
+     *
+     * @param creature the creature
+     */
     public ButtonInfo(Creature creature) {
         // Load the original image
         ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-up.png")));

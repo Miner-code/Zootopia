@@ -9,8 +9,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
+/**
+ * The type Button heal.
+ */
 public class ButtonHeal extends JButton {
 
+    /**
+     * Instantiates a new Button heal.
+     *
+     * @param creature the creature
+     */
     public ButtonHeal(Creature creature) {
         // Load the original image
         ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-up.png")));

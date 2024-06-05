@@ -9,8 +9,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
+/**
+ * The type Button clear.
+ */
 public class ButtonClear extends JButton {
 
+    /**
+     * Instantiates a new Button clear.
+     *
+     * @param enclosure the enclosure
+     */
     public ButtonClear(Enclosure enclosure) {
         // Charger l'image originale
         ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-up.png")));

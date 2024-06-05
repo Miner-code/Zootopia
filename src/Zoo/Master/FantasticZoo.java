@@ -2,11 +2,30 @@ package Zoo.Master;
 
 import Zoo.Enclosure.Enclosure;
 
+/**
+ * The type Fantastic zoo keeper.
+ */
 class FantasticZooKeeper {
+    /**
+     * The Name.
+     */
     String name;
+    /**
+     * The Sex.
+     */
     String sex;
+    /**
+     * The Age.
+     */
     int age;
 
+    /**
+     * Instantiates a new Fantastic zoo keeper.
+     *
+     * @param name the name
+     * @param sex  the sex
+     * @param age  the age
+     */
     public FantasticZooKeeper(String name, String sex, int age) {
         this.name = name;
         this.sex = sex;

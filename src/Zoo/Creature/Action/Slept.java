@@ -6,12 +6,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The type Slept.
+ */
 public class Slept {
+    /**
+     * The Cnt turn before sleep.
+     */
     public int cntTurnBeforeSleep;
+    /**
+     * The Need sleep.
+     */
     public int needSleep;
+    /**
+     * The Sleep duration.
+     */
     public int sleepDuration;
+    /**
+     * The Time sleeping.
+     */
     public int timeSleeping;
 
+    /**
+     * Instantiates a new Slept.
+     *
+     * @param sleepDuration the sleep duration
+     * @param needSleep     the need sleep
+     */
     public Slept(int sleepDuration,int needSleep) {
         this.cntTurnBeforeSleep = 0;
         this.needSleep = needSleep;
@@ -19,34 +40,74 @@ public class Slept {
         this.timeSleeping = 0;
     }
 
+    /**
+     * Gets time sleeping.
+     *
+     * @return the time sleeping
+     */
     public int getTimeSleeping() {
         return timeSleeping;
     }
 
+    /**
+     * Gets sleep duration.
+     *
+     * @return the sleep duration
+     */
     public int getSleepDuration() {
         return sleepDuration;
     }
 
+    /**
+     * Gets cnt turn before sleep.
+     *
+     * @return the cnt turn before sleep
+     */
     public int getCntTurnBeforeSleep() {
         return cntTurnBeforeSleep;
     }
 
+    /**
+     * Gets need sleep.
+     *
+     * @return the need sleep
+     */
     public int getNeedSleep() {
         return needSleep;
     }
 
+    /**
+     * Sets need sleep.
+     *
+     * @param needSleep the need sleep
+     */
     public void setNeedSleep(int needSleep) {
         this.needSleep = needSleep;
     }
 
+    /**
+     * Sets cnt turn before sleep.
+     *
+     * @param cntTurnBeforeSleep the cnt turn before sleep
+     */
     public void setCntTurnBeforeSleep(int cntTurnBeforeSleep) {
         this.cntTurnBeforeSleep = cntTurnBeforeSleep;
     }
 
+    /**
+     * Sets time sleeping.
+     *
+     * @param timeSleeping the time sleeping
+     */
     public void setTimeSleeping(int timeSleeping) {
         this.timeSleeping = timeSleeping;
     }
 
+    /**
+     * Sets sleep duration.
+     *
+     * @param sleepDuration the sleep duration
+     */
     public void setSleepDuration(int sleepDuration) {
         this.sleepDuration = sleepDuration;
     }
@@ -61,6 +122,11 @@ public class Slept {
                 '}';
     }
 
+    /**
+     * Make slept.
+     *
+     * @param creature the creature
+     */
     public static void makeSlept(Creature creature) {
         // Vérifier si la créature existe
         if(creature.getName() != null){
@@ -94,6 +160,11 @@ public class Slept {
     }
 
 
+    /**
+     * Sleep.
+     *
+     * @param creature the creature
+     */
     public static void sleep(Creature creature){
         // Faire dormir la créature
         creature.getSlept().setCntTurnBeforeSleep(creature.getSlept().getNeedSleep());

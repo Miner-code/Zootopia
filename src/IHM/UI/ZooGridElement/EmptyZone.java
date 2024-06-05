@@ -5,7 +5,13 @@ import IHM.Content.Drawers.ImagePanel;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The type Empty zone.
+ */
 public class EmptyZone extends JPanel {
+    /**
+     * Instantiates a new Empty zone.
+     */
     public EmptyZone() {
         setLayout(new BorderLayout()); // Utiliser BorderLayout pour contenir l'image et les informations
         ImagePanel imagePanel = new ImagePanel("/IHM/Content/Images/empty-zone-bg.png"); // Charger l'image d'arrière-plan

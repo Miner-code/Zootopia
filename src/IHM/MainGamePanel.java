@@ -8,10 +8,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * The type Main game panel.
+ */
 public class MainGamePanel extends JFrame {
 
     private SidePanel sidePanel;
 
+    /**
+     * Instantiates a new Main game panel.
+     *
+     * @param arrayCreatures the array creatures
+     * @param enclosureIHMS  the enclosure ihms
+     */
     public MainGamePanel(List<Creature> arrayCreatures, List<EnclosureIHM> enclosureIHMS) {
         setTitle("ZooTopia");
 

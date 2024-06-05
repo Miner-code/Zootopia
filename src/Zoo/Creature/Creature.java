@@ -17,13 +17,44 @@ import java.util.Scanner;
 import static Zoo.Widget.Widget.RandomNumberGenerator.generateRandomBoolean;
 import static Zoo.Widget.Widget.RandomNumberGenerator.generateRandomNumber;
 
+/**
+ * The type Creature.
+ */
 public abstract  class Creature extends Life  {
+    /**
+     * The Size.
+     */
     public double size;
+    /**
+     * The Weight.
+     */
     public double weight;
+    /**
+     * The Hungry.
+     */
     public Hungry hungry;
+    /**
+     * The Slept.
+     */
     public Slept slept;
+    /**
+     * The Health.
+     */
     public Health health;
 
+    /**
+     * Instantiates a new Creature.
+     *
+     * @param name    the name
+     * @param sex     the sex
+     * @param age     the age
+     * @param species the species
+     * @param size    the size
+     * @param weight  the weight
+     * @param hungry  the hungry
+     * @param slept   the slept
+     * @param health  the health
+     */
     public Creature(String name, boolean sex, double age, String species, double size, double weight, Hungry hungry, Slept slept, Health health) {
         super(name, sex, age, species);
         this.size = size;
@@ -32,37 +63,83 @@ public abstract  class Creature extends Life  {
         this.slept = slept;
         this.health = health;
     }
+
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public abstract Type getType();
 
+    /**
+     * Gets hungry.
+     *
+     * @return the hungry
+     */
     public Hungry getHungry() {
         return hungry;
     }
 
+    /**
+     * Gets slept.
+     *
+     * @return the slept
+     */
     public Slept getSlept() {
         return slept;
     }
 
+    /**
+     * Gets health.
+     *
+     * @return the health
+     */
     public Health getHealth() {
         return health;
     }
 
 
+    /**
+     * Gets size.
+     *
+     * @return the size
+     */
     public double getSize() {
         return size;
     }
 
+    /**
+     * Gets weight.
+     *
+     * @return the weight
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * Gets species.
+     *
+     * @return the species
+     */
     public String getSpecies() {
         return species;
     }
 
+    /**
+     * Sets size.
+     *
+     * @param size the size
+     */
     public void setSize(double size) {
         this.size = size;
     }
 
+    /**
+     * Sets weight.
+     *
+     * @param weight the weight
+     */
     public void setWeight(double weight) {
         this.weight = weight;
     }
@@ -100,6 +177,12 @@ public abstract  class Creature extends Life  {
     }
 
 
+    /**
+     * Die.
+     *
+     * @param creature  the creature
+     * @param creatures the creatures
+     */
     public static void die(Creature creature, List<Creature> creatures) {
         System.out.println("La créature " + creature.getName() + " est morte");
         String speciesCreature = creature.getSpecies().toLowerCase();
@@ -113,11 +196,26 @@ public abstract  class Creature extends Life  {
         }
     }
 
+    /**
+     * Creature should die boolean.
+     *
+     * @param creature the creature
+     * @return the boolean
+     */
     public static boolean creatureShouldDie(Creature creature) {
         return creature.getHealth().isCritical();
     }
 
 
+    /**
+     * Add creature.
+     *
+     * @param name          the name
+     * @param species       the species
+     * @param creatures     the creatures
+     * @param enclosure     the enclosure
+     * @param enclosureIHMS the enclosure ihms
+     */
     public static void addCreature(String name,String species, List<Creature> creatures, Enclosure enclosure,List<EnclosureIHM> enclosureIHMS){
         Creature newCreature = null;
         switch (species.toLowerCase()) {

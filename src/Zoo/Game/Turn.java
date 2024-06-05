@@ -15,12 +15,27 @@ import Zoo.Life.Life;
 
 import static Zoo.Creature.Creature.die;
 
+/**
+ * The type Turn.
+ */
 public class Turn {
 
+    /**
+     * Instantiates a new Turn.
+     *
+     * @param creatures     the creatures
+     * @param enclosureIHMS the enclosure ihms
+     */
     public Turn(List<Creature> creatures, List<EnclosureIHM> enclosureIHMS){
         this.takeTurn(creatures,enclosureIHMS);
     }
 
+    /**
+     * Take turn.
+     *
+     * @param creatures     the creatures
+     * @param enclosureIHMs the enclosure ih ms
+     */
     public void takeTurn(List<Creature> creatures, List<EnclosureIHM> enclosureIHMs) {
         List<Creature> creaturesToRemove = new ArrayList<>();
 
