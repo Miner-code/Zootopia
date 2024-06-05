@@ -22,12 +22,7 @@ public class Enclosure {
     private final List<Creature> creaturesPresent;
     private int numberOfCreaturesPresent;
 
-    /**
-     * Instantiates a new Enclosure.
-     *
-     * @param name the name
-     * @param type the type
-     */
+
     public Enclosure(String name, String type) {
         this.name = name;
         this.size = 50;
@@ -39,83 +34,47 @@ public class Enclosure {
         this.numberOfCreaturesPresent = 0;
     }
 
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
+
     public String getName() {
         return name;
     }
 
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
+
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * Gets size.
-     *
-     * @return the size
-     */
+
     public int getSize() {
         return size;
     }
 
-    /**
-     * Gets level.
-     *
-     * @return the level
-     */
+
     public int getLevel() {
         return level;
     }
 
-    /**
-     * Sets level.
-     *
-     * @param level the level
-     */
+
     public void setLevel(int level) {
         this.level = level;
     }
 
-    /**
-     * Gets cleanliness.
-     *
-     * @return the cleanliness
-     */
+
     public double getCleanliness() {
         return cleanliness;
     }
 
-    /**
-     * Sets cleanliness.
-     *
-     * @param cleanliness the cleanliness
-     */
+
     public void setCleanliness(double cleanliness) {
         this.cleanliness = cleanliness;
     }
 
-    /**
-     * Gets max creatures.
-     *
-     * @return the max creatures
-     */
+
     public int getMaxCreatures() {
         return maxCreatures;
     }
 
-    /**
-     * Sets max creatures.
-     *
-     * @param maxCreatures the max creatures
-     */
+
     public void setMaxCreatures(int maxCreatures) {
         this.maxCreatures = maxCreatures;
     }
@@ -134,38 +93,24 @@ public class Enclosure {
                 '}';
     }
 
-    /**
-     * Gets creatures.
-     *
-     * @return the creatures
-     */
+
     public List<Creature> getCreatures() {
         return this.creatures;
     }
 
-    /**
-     * Gets creatures present.
-     *
-     * @return the creatures present
-     */
+
     public List<Creature> getCreaturesPresent() {
         return creaturesPresent;
     }
 
-    /**
-     * Display characteristics.
-     */
+
     public void displayCharacteristics() {
         System.out.println("Enclos : " + this.name);
         System.out.println("Créature présent : " + creaturesPresent.size() + " / " + maxCreatures);
         System.out.println("Cleanliness: " + this.cleanliness + "%");
     }
 
-    /**
-     * Level up.
-     *
-     * @param enclosure the enclosure
-     */
+
     public static void levelUp(Enclosure enclosure) {
         if (enclosure.getLevel() < 3) {
             enclosure.setLevel(enclosure.getLevel() + 1);
@@ -176,11 +121,7 @@ public class Enclosure {
         }
     }
 
-    /**
-     * Maintenance.
-     *
-     * @param enclosureIHMS the enclosure ihms
-     */
+
     public void maintenance(EnclosureIHM enclosureIHMS) {
         cleanliness -= 10;
         if (cleanliness <= 0) {
@@ -190,12 +131,6 @@ public class Enclosure {
     }
 
 
-    /**
-     * Remove creature boolean.
-     *
-     * @param creature the creature
-     * @return the boolean
-     */
 
 
     public boolean removeCreature(Creature creature) {
@@ -210,11 +145,6 @@ public class Enclosure {
 
 
 
-    /**
-     * Clean enclosure.
-     *
-     * @param enclosure the enclosure
-     */
 
     public static void cleanEnclosure(Enclosure enclosure) {
 
@@ -224,13 +154,6 @@ public class Enclosure {
 
 
 
-    /**
-     * Make transfer.
-     *
-     * @param creature             the creature
-     * @param enclosureIHMSource   the enclosure ihm source
-     * @param enclosureDestination the enclosure destination
-     */
 
     public static void makeTransfer(Creature creature, Enclosure enclosureSource, Enclosure enclosureDestination) {
 
@@ -244,13 +167,7 @@ public class Enclosure {
         }
     }
 
-    /**
-     * Enclosures with free space list.
-     *
-     * @param enclosureIHMs the enclosure ih ms
-     * @param type          the type
-     * @return the list
-     */
+
     public static List<Enclosure> enclosuresWithFreeSpace(List<EnclosureIHM> enclosureIHMs,String type) {
 
         List<Enclosure> enclosureWithFreeSpace = new ArrayList<>();
