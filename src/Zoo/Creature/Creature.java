@@ -100,7 +100,7 @@ public abstract  class Creature extends Life  {
     }
 
 
-    public static void die(Creature creature, List<Creature> creatures) {
+    public static void die(Creature creature, List<Creature> creatures,EnclosureIHM enclosureIHM) {
         System.out.println("\n[ALERTE] La créature " + creature.getName() + " est morte|\n");
         String speciesCreature = creature.getSpecies().toLowerCase();
 
@@ -110,12 +110,12 @@ public abstract  class Creature extends Life  {
             System.out.println("\n[ALERTE] La créature " + creature.getName() + " renait\n");
         } else {
             creatures.remove(creature);
+            enclosureIHM.getEnclosure().getCreaturesPresent().remove(creature);
+
         }
     }
 
-    public static boolean creatureShouldDie(Creature creature) {
-        return creature.getHealth().isCritical();
-    }
+
 
 
     public static void addCreature(String name,String species, List<Creature> creatures, Enclosure enclosure,List<EnclosureIHM> enclosureIHMS){

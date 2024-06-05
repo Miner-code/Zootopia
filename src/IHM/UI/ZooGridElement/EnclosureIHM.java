@@ -173,7 +173,6 @@ public class EnclosureIHM extends JPanel {
         }
     }
     public static void addCreatureImgToEnclosure(List<EnclosureIHM> enclosureIHMS){
-
         for (EnclosureIHM enclosureIHM: enclosureIHMS){
             enclosureIHM.getCreatureImgs().clear();
             if(!enclosureIHM.getEnclosure().getCreaturesPresent().isEmpty()) {
@@ -184,9 +183,18 @@ public class EnclosureIHM extends JPanel {
             }
             enclosureIHM.repaint();
         }
+    }
+    public static void updateOneEnclosure(EnclosureIHM enclosureIHM){
 
+        enclosureIHM.getCreatureImgs().clear();
+        System.out.println(enclosureIHM.getEnclosure().getCreaturesPresent());
+        if(!enclosureIHM.getEnclosure().getCreaturesPresent().isEmpty()) {
+            for (int i = 0; i < enclosureIHM.getEnclosure().getCreaturesPresent().size(); i++) {
+                enclosureIHM.addCreatureImg(new CreatureImg(enclosureIHM.getEnclosure().getCreaturesPresent().get(i).getName(), CreatureType.getType(enclosureIHM.getEnclosure().getCreaturesPresent().get(i).getSpecies())));
+            }
 
-
+        enclosureIHM.repaint();
+        }
     }
 
 
