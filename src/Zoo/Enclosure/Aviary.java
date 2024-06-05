@@ -1,16 +1,17 @@
 package Zoo.Enclosure;
 
 public class Aviary extends Zoo.Enclosure.Enclosure {
-    double height;
+    int height;
 
-    public Aviary(String name, double area, int maxNumberOfCreatures, double height) {
-        super(name, area, maxNumberOfCreatures);
+    public Aviary(String name, int height) {
+        super(name,"aviary");
         this.height = height;
     }
 
     @Override
     public void displayCharacteristics() {
         super.displayCharacteristics();
-        System.out.println("Height: " + this.height);
+        System.out.println("Hauteur: " + this.height);
     }
+
 }

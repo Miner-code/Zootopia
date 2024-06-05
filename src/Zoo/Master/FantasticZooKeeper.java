@@ -19,25 +19,25 @@ class FantasticZoo {
         this.existingEnclosures = new ArrayList<>();
     }
 
-    void displayTotalCreatureCount() {
-        int totalCreatureCount = this.existingEnclosures.stream().mapToInt(enclosure -> enclosure.numberOfCreaturesPresent).sum();
-        System.out.println("Total number of creatures in the zoo: " + totalCreatureCount);
-    }
+   //oid displayTotalCreatureCount() {
+   //   int totalCreatureCount = this.existingEnclosures.stream().mapToInt(enclosure -> enclosure.numberOfCreaturesPresent).sum();
+   //   System.out.println("Total number of creatures in the zoo: " + totalCreatureCount);
+   //
 
-    void displayEnclosureCreatures() {
-        for (Enclosure enclosure : this.existingEnclosures) {
-            enclosure.displayCharacteristics();
-        }
-    }
+   //void displayEnclosureCreatures() {
+   //    for (Enclosure enclosure : this.existingEnclosures) {
+   //        enclosure.displayCharacteristics();
+   //    }
+   //}
 
-    void mainMethod() {
-        for (Enclosure enclosure : this.existingEnclosures) {
-            for (String creatureName : enclosure.creaturesPresent) {
-                Creature creature = null; // Placeholder to get the creature object corresponding to creatureName
-                // Randomly modify the state of the creature
-                // Randomly modify the state of the enclosure
-                // Call methods of the fantastic zookeeper based on the actions to perform
-            }
-        }
-    }
+   //void mainMethod() {
+   //    for (Enclosure enclosure : this.existingEnclosures) {
+   //        for (String creatureName : enclosure.creaturesPresent) {
+   //            Creature creature = null; // Placeholder to get the creature object corresponding to creatureName
+   //            // Randomly modify the state of the creature
+   //            // Randomly modify the state of the enclosure
+   //            // Call methods of the fantastic zookeeper based on the actions to perform
+   //        }
+   //    }
+   //}
 }

@@ -1,6 +1,6 @@
 package Zoo.Life;
 
-import Zoo.Creature.Action.Health;
+import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Creature;
 import Zoo.Creature.Species.Species;
 
@@ -10,9 +10,9 @@ public abstract class Life {
     public String name;
     public boolean sex;
     public double age;
-    public Species species;
+    public String species;
 
-    public Life(String name, boolean sex, double age, Species species) {
+    public Life(String name, boolean sex, double age, String species) {
         this.name = name;
         this.sex = sex;
         this.age = age;
@@ -36,9 +36,7 @@ public abstract class Life {
         return age;
     }
 
-    public Species getSpecies() {
-        return species;
-    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -54,13 +52,13 @@ public abstract class Life {
     }
 
 
-    public static void getOlder(Creature creature, List<Creature> creatures){
+    public static void getOlder(Creature creature, List<Creature> creatures, EnclosureIHM enclosureIHM){
         if(creature.getName() != null){
             creature.setAge(creature.getAge()+0.25);
             double chanceOfDying = ((creature.getAge() * creature.getAge()) / 10);
             double number = Math.random();
             if ((number * 100) < chanceOfDying) {
-                Creature.die(creature,creatures);
+                Creature.die(creature,creatures,enclosureIHM);
             }
         }
     }

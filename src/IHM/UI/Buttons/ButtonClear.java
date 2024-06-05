@@ -1,5 +1,8 @@
 package IHM.UI.Buttons;
 
+import IHM.UI.ZooGridElement.EnclosureIHM;
+import Zoo.Enclosure.Enclosure;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -8,7 +11,7 @@ import java.util.Objects;
 
 public class ButtonClear extends JButton {
 
-    public ButtonClear() {
+    public ButtonClear(Enclosure enclosure) {
         // Charger l'image originale
         ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-up.png")));
 
@@ -32,11 +35,11 @@ public class ButtonClear extends JButton {
             @Override
             public void mousePressed(MouseEvent e) {
                 setIcon(scaledPressedIcon); // Changer l'image du bouton lors du clic gauche enfoncé
-                System.out.println("Pressed market button");
+                Enclosure.cleanEnclosure(enclosure);
             }
             public void mouseReleased(MouseEvent e) {
                 setIcon(scaledIcon); // Changer l'image du bouton lors du clic gauche enfoncé
-                System.out.println("Pressed market button");
+
             }
         });
     }

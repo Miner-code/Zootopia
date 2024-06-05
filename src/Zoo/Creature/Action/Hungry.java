@@ -1,5 +1,6 @@
 package Zoo.Creature.Action;
 
+import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Creature;
 
 import java.util.Scanner;
@@ -33,12 +34,12 @@ public class Hungry {
                 '}';
     }
 
-    public static void makeHungry(Creature creature, List<Creature> creatures) {
+    public static void makeHungry(Creature creature, List<Creature> creatures, EnclosureIHM enclosureIHM) {
         if (creature.getName() != null){
             creature.getHungry().setEat(creature.getHungry().getEat() - 1);
             if (creature.getHungry().getEat() <= 0) {
-                System.out.println(creature.getName() + " a faim");
-                removeHP(creature,creatures);
+                System.out.println("\n[ALERTE] " + creature.getName() + " a faim\n");
+                removeHP(creature,creatures,enclosureIHM);
                 return;
             }
             //System.out.println(creature.getName() + " a " + creature.getHungry().getEat() + " de nourriture ");
@@ -46,17 +47,12 @@ public class Hungry {
 
     }
 
-    public static void eatCreature(List<Creature> creatures,   Scanner scanner) {
-        Creature selectedCreature = Creature.searchCreature(creatures,scanner,"Liste des créatures disponibles :","Entrez le nom de la créature à nourrir : ");
-        if (selectedCreature != null) {
-            // Si une créature est trouvée, la nourrir
-            selectedCreature.getHungry().setEat(selectedCreature.getHungry().getEat() + 4);
-            System.out.println(selectedCreature.getName() + " a correctement été nourri");
-        } else {
-            // Si aucune créature n'est trouvée
-            System.out.println("Aucune créature trouvée avec le nom spécifié");
+
+    public static void eat(Creature creature){
+        if (creature.getName() != null){
+            creature.getHungry().setEat(creature.getHungry().getEat() + 4);
+            System.out.println("[#] " + creature.getName() + " a correctement été nourri");
         }
     }
-
 
 }

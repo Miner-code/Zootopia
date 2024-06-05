@@ -1,28 +1,30 @@
 package Zoo.Creature;
+import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Action.Health;
 import Zoo.Creature.Action.Hungry;
 import Zoo.Creature.Action.Slept;
-import Zoo.Creature.Species.Dragon;
-import Zoo.Creature.Species.Kraken;
-import Zoo.Creature.Species.Species;
+import Zoo.Creature.Species.*;
 import Zoo.Creature.Type.Type;
-import Zoo.Creature.Widget.Widget;
+import Zoo.Enclosure.Enclosure;
 import Zoo.Life.Life;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import static Zoo.Creature.Widget.Widget.RandomNumberGenerator.generateRandomNumber;
+import static Zoo.Widget.Widget.RandomNumberGenerator.generateRandomBoolean;
+import static Zoo.Widget.Widget.RandomNumberGenerator.generateRandomNumber;
 
-public class Creature extends Life  {
+public abstract  class Creature extends Life  {
     public double size;
     public double weight;
     public Hungry hungry;
     public Slept slept;
     public Health health;
 
-    public Creature(String name, boolean sex, double age, Species species, double size, double weight, Hungry hungry, Slept slept, Health health) {
+    public Creature(String name, boolean sex, double age, String species, double size, double weight, Hungry hungry, Slept slept, Health health) {
         super(name, sex, age, species);
         this.size = size;
         this.weight = weight;
@@ -30,6 +32,7 @@ public class Creature extends Life  {
         this.slept = slept;
         this.health = health;
     }
+    public abstract Type getType();
 
     public Hungry getHungry() {
         return hungry;
@@ -52,7 +55,9 @@ public class Creature extends Life  {
         return weight;
     }
 
-
+    public String getSpecies() {
+        return species;
+    }
 
     public void setSize(double size) {
         this.size = size;
@@ -81,92 +86,66 @@ public class Creature extends Life  {
 
     @Override
     public String toString() {
-        return "Creature{" +
-                "size=" + size +
-                ", weight=" + weight +
-                ", hungry=" + hungry +
-                ", slept=" + slept +
-                ", health=" + health +
-                ", species=" + species +
-                ", age=" + age +
-                ", sex=" + sex +
-                ", name='" + name + '\'' +
-                '}';
+        return
+                "\n\tsize=" + size +
+                ", \n\tweight=" + weight +
+                ", \n\thungry=" + hungry +
+                ", \n\tslept=" + slept +
+                ", \n\thealth=" + health +
+                ", \n\tspecies=" + species +
+                ", \n\tage=" + age +
+                ", \n\tsex=" + sex +
+                ", \n\tname='" + name + '\''
+                ;
     }
 
-    public static Creature searchCreature(List<Creature> creatures, Scanner scanner, String message1, String message2){
-        System.out.println(message1);
-        for (Creature creature : creatures) {
-            System.out.println(creature.getName());
-        }
 
-        // Permettre à l'utilisateur de choisir quelle créature sélectionner
-        System.out.print(message2);
+    public static void die(Creature creature, List<Creature> creatures,EnclosureIHM enclosureIHM) {
+        System.out.println("\n[ALERTE] La créature " + creature.getName() + " est morte|\n");
+        String speciesCreature = creature.getSpecies().toLowerCase();
 
-        String creatureName = scanner.nextLine();//scanner.nextLine()
-        System.out.println(creatureName);
-        // Chercher la créature dans la liste des créatures
-
-        Creature selectedCreature = null;
-        for (Creature creature : creatures) {
-            System.out.println(creature.getName());
-            if (creature.getName().equalsIgnoreCase(creatureName)) {
-                selectedCreature = creature;
-                break;
-                // Arrêter la recherche dès que la créature est trouvée
-            }
-        }
-        if (selectedCreature != null) {
-            return selectedCreature;
+        if (speciesCreature.equals("dragon") || speciesCreature.equals("phoenix") || speciesCreature.equals("nymph")) {
+            creature.setAge(0);
+            creature.getHealth().setHealth(5);
+            System.out.println("\n[ALERTE] La créature " + creature.getName() + " renait\n");
         } else {
-            System.out.println("Aucune créature trouvée avec le nom spécifié");
-            return null;
+            creatures.remove(creature);
+            enclosureIHM.getEnclosure().getCreaturesPresent().remove(creature);
+
+        }
+    }
+
+
+
+
+    public static void addCreature(String name,String species, List<Creature> creatures, Enclosure enclosure,List<EnclosureIHM> enclosureIHMS){
+        Creature newCreature = null;
+        switch (species.toLowerCase()) {
+            case "unicorn" -> newCreature = new Unicorn(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150),new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "werewolf" -> newCreature = new Werewolf(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "nymph" -> newCreature = new Nymph(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "dragon" -> newCreature = new Dragon(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "phoenix" -> newCreature = new Phoenix(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "megalodon" -> newCreature = new Megalodon(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "kraken" -> newCreature = new Kraken(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            case "mermaid" -> newCreature = new Mermaid(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+            default -> System.out.println("\n[ERREUR] L'espèce n'existe pas.\n");
         }
 
-    }
-
-    public static void die(Creature creature, List<Creature> creatures) {
-        System.out.println("La créature " + creature.getName() + " est morte" );
-        creatures.remove(creature);
-    }
-
-    public static void seeCreature(List<Creature> creatures, Scanner scanner) {
-        Creature selectedCreature = searchCreature(creatures,scanner,"Liste des créature dans votre zoo:","Entrez le nom de la créature que vous voulez voir : ");
-        if (selectedCreature != null){
-            System.out.println(selectedCreature.toString());
-        }
-
-    }
-    public static void test(List<Creature> creatures,Scanner scanner){
-
-        System.out.println('B');
-    }
-    public static void newCreature(List<Creature> creatures, Scanner scanner) {
-        System.out.println("Entre le nom de la créature");
-        String creatureName = scanner.nextLine();
-        System.out.println("Entre l'espèce'");
-        String creatureSpecies = scanner.nextLine();
-        Species species = SpeciesFactory.createSpecies(creatureSpecies);
-        if (species != null) {
-            Creature newCreature = new Creature(creatureName, true, 1, species, generateRandomNumber(1,3), generateRandomNumber(20,100), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
+        if (newCreature != null) {
+            System.out.println("\n[INFO] " + newCreature.getName() + " a bien été ajouté\n");
             creatures.add(newCreature);
-            System.out.println("La créature a été ajoutée avec succès.");
+            Enclosure.makeTransfer(newCreature, null, enclosure);
+
+
+            EnclosureIHM.addCreatureImgToEnclosure(enclosureIHMS);
+
         } else {
-            System.out.println("Espèce inconnue.");
+            System.out.println("\n[ERREUR] Un problème est survenu à la création de la créature\n");
         }
+
+
     }
 
-    public class SpeciesFactory {
-        public static Species createSpecies(String speciesName) {
-            try {
-                // Assurez-vous que les classes des espèces sont dans le package correct
-                Class<?> clazz = Class.forName("Zoo.Creature.Species." + speciesName);
-                return (Species) clazz.getDeclaredConstructor().newInstance();
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-    }
 
 }
