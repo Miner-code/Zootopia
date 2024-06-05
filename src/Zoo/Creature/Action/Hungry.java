@@ -1,5 +1,6 @@
 package Zoo.Creature.Action;
 
+import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Creature;
 
 import java.util.Scanner;
@@ -33,12 +34,12 @@ public class Hungry {
                 '}';
     }
 
-    public static void makeHungry(Creature creature, List<Creature> creatures) {
+    public static void makeHungry(Creature creature, List<Creature> creatures, EnclosureIHM enclosureIHM) {
         if (creature.getName() != null){
             creature.getHungry().setEat(creature.getHungry().getEat() - 1);
             if (creature.getHungry().getEat() <= 0) {
                 System.out.println("\n[ALERTE] " + creature.getName() + " a faim\n");
-                removeHP(creature,creatures);
+                removeHP(creature,creatures,enclosureIHM);
                 return;
             }
             //System.out.println(creature.getName() + " a " + creature.getHungry().getEat() + " de nourriture ");
