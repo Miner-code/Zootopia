@@ -9,10 +9,10 @@ public enum CreatureType {
     UNICORN("/IHM/Content/Images/Creatures/unicorn.png"),
     WEREWOLF("/IHM/Content/Images/Creatures/werewolf.png"),
     MERMAID("/IHM/Content/Images/Creatures/mermaid.png"),
-    KRAKEN("/IHM/Content/Images/Creatures/mermaid.png"),
-    MEGALODON("/IHM/Content/Images/Creatures/mermaid.png"),
-    PHEONIX("/IHM/Content/Images/Creatures/mermaid.png"),
-    NYMPH("/IHM/Content/Images/Creatures/mermaid.png");
+    KRAKEN("/IHM/Content/Images/Creatures/kranen.png"),
+    MEGALODON("/IHM/Content/Images/Creatures/meaglodon.png"),
+    PHEONIX("/IHM/Content/Images/Creatures/phoenix.png"),
+    NYMPH("/IHM/Content/Images/Creatures/nymphe.png");
     private final String imagePath;
     private static final Random RANDOM = new Random();
 

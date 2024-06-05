@@ -136,8 +136,21 @@ public class Enclosure {
         else{
             enclosureDestination.getCreaturesPresent().add(creature);
         }
+    }
 
+    public static List<Enclosure> enclosuresWithFreeSpace(List<EnclosureIHM> enclosureIHMs,String type) {
 
+        List<Enclosure> enclosureWithFreeSpace = new ArrayList<>();
+        for (EnclosureIHM enclosureIHM : enclosureIHMs) {
+
+            if(enclosureIHM.getEnclosure().getCreaturesPresent().size() != enclosureIHM.getEnclosure().getMaxCreatures()){
+                if (enclosureIHM.getEnclosure().getClass().getSimpleName().equalsIgnoreCase(type)){
+
+                    enclosureWithFreeSpace.add(enclosureIHM.getEnclosure());
+                }
+            }
+        }
+        return enclosureWithFreeSpace;
     }
 
 }

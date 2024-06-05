@@ -45,6 +45,7 @@ public class Turn {
             enclosureIHM.getEnclosure().maintenance(enclosureIHM);
         }
 
-        System.out.println("Fin Tour");
+        System.out.println("\n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t ");
     }
 }
+

@@ -134,7 +134,8 @@ public class SidePanel extends JPanel {
 
             creaturesListPanel.removeAll();
             buttonPanel.removeAll();
-
+            System.out.println("_______");
+            System.out.println(Enclosure.enclosuresWithFreeSpace(enclosureIHMS,enclosure.getClass().getSimpleName()));
 
             for (Creature creature : enclosure.getCreaturesPresent()) {
                 JPanel creaturePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
