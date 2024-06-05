@@ -1,5 +1,6 @@
 package Zoo.Life;
 
+import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Creature;
 import Zoo.Creature.Species.Species;
 
@@ -114,19 +115,22 @@ public abstract class Life {
     }
 
 
+
     /**
      * Get older.
      *
      * @param creature  the creature
      * @param creatures the creatures
      */
-    public static void getOlder(Creature creature, List<Creature> creatures){
+
+    public static void getOlder(Creature creature, List<Creature> creatures, EnclosureIHM enclosureIHM){
+
         if(creature.getName() != null){
             creature.setAge(creature.getAge()+0.25);
             double chanceOfDying = ((creature.getAge() * creature.getAge()) / 10);
             double number = Math.random();
             if ((number * 100) < chanceOfDying) {
-                Creature.die(creature,creatures);
+                Creature.die(creature,creatures,enclosureIHM);
             }
         }
     }

@@ -151,8 +151,8 @@ public class SidePanel extends JPanel {
 
             creaturesListPanel.removeAll();
             buttonPanel.removeAll();
-            System.out.println("_______");
-            System.out.println(Enclosure.enclosuresWithFreeSpace(enclosureIHMS,enclosure.getClass().getSimpleName()));
+
+            buttonPanel.add(closeButton);
 
             for (Creature creature : enclosure.getCreaturesPresent()) {
                 JPanel creaturePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -165,7 +165,7 @@ public class SidePanel extends JPanel {
 
                 creaturePanel.add(creatureImageLabel);
                 creaturePanel.add(creatureNameLabel);
-
+              ;
                 creatureNameLabel.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
@@ -173,6 +173,7 @@ public class SidePanel extends JPanel {
                         ButtonEat feedButton = new ButtonEat(creature);
                         ButtonSleep sleepButton = new ButtonSleep(creature);
                         ButtonHeal diseaseButton = new ButtonHeal(creature);
+                        ButtonTransfer transferButton = new ButtonTransfer(creature, enclosure, enclosureIHMS);
 
                         if (creature.getSlept().getCntTurnBeforeSleep() == creature.getSlept().getNeedSleep()) {
                             sleepButton.setEnabled(false);
@@ -194,6 +195,7 @@ public class SidePanel extends JPanel {
                         dynamicButtonPanel.add(feedButton);
                         dynamicButtonPanel.add(sleepButton);
                         dynamicButtonPanel.add(diseaseButton);
+                        dynamicButtonPanel.add(transferButton);
 
                         buttonPanel.add(dynamicButtonPanel);
                         buttonPanel.revalidate();
@@ -210,7 +212,7 @@ public class SidePanel extends JPanel {
             addCreatureButton = new ButtonAddCreature(enclosure, creatures, enclosureIHMS);
             buttonPanel.add(addCreatureButton);
 
-            if (enclosure.getCreaturesPresent().size() == enclosure.getMaxCreatures()) {
+            if (enclosure.getCreatures().size() == enclosure.getMaxCreatures()) {
                 addCreatureButton.setEnabled(false);
             } else {
                 addCreatureButton.setEnabled(true);

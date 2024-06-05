@@ -183,28 +183,24 @@ public abstract  class Creature extends Life  {
      * @param creature  the creature
      * @param creatures the creatures
      */
-    public static void die(Creature creature, List<Creature> creatures) {
-        System.out.println("La créature " + creature.getName() + " est morte");
+
+    public static void die(Creature creature, List<Creature> creatures,EnclosureIHM enclosureIHM) {
+        System.out.println("\n[ALERTE] La créature " + creature.getName() + " est morte|\n");
+
         String speciesCreature = creature.getSpecies().toLowerCase();
 
         if (speciesCreature.equals("dragon") || speciesCreature.equals("phoenix") || speciesCreature.equals("nymph")) {
             creature.setAge(0);
             creature.getHealth().setHealth(5);
-            System.out.println("La créature " + creature.getName() + " renait");
+            System.out.println("\n[ALERTE] La créature " + creature.getName() + " renait\n");
         } else {
             creatures.remove(creature);
+            enclosureIHM.getEnclosure().getCreaturesPresent().remove(creature);
+
         }
     }
 
-    /**
-     * Creature should die boolean.
-     *
-     * @param creature the creature
-     * @return the boolean
-     */
-    public static boolean creatureShouldDie(Creature creature) {
-        return creature.getHealth().isCritical();
-    }
+
 
 
     /**
@@ -227,11 +223,11 @@ public abstract  class Creature extends Life  {
             case "megalodon" -> newCreature = new Megalodon(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
             case "kraken" -> newCreature = new Kraken(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
             case "mermaid" -> newCreature = new Mermaid(name, generateRandomBoolean(), 1, generateRandomNumber(1,5), generateRandomNumber(15,150), new Hungry((int) generateRandomNumber(4,10)), new Slept((int) generateRandomNumber(4,10), (int) generateRandomNumber(4,10)), new Health((int) generateRandomNumber(5,12)));
-            default -> System.out.println("L'espèce n'existe pas.");
+            default -> System.out.println("\n[ERREUR] L'espèce n'existe pas.\n");
         }
 
         if (newCreature != null) {
-            System.out.println(newCreature.getName() + " a bien été ajouté");
+            System.out.println("\n[INFO] " + newCreature.getName() + " a bien été ajouté\n");
             creatures.add(newCreature);
             Enclosure.makeTransfer(newCreature, null, enclosure);
 
@@ -239,7 +235,7 @@ public abstract  class Creature extends Life  {
             EnclosureIHM.addCreatureImgToEnclosure(enclosureIHMS);
 
         } else {
-            System.out.println("Un problème est survenu à la création de la créature");
+            System.out.println("\n[ERREUR] Un problème est survenu à la création de la créature\n");
         }
 
 

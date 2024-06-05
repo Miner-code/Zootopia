@@ -5,6 +5,8 @@ import Zoo.Creature.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SequencedCollection;
+import java.util.stream.Collectors;
 
 
 /**
@@ -119,7 +121,6 @@ public class Enclosure {
     }
 
 
-
     public String toString() {
         return "Enclosure{" +
                 "name='" + name + '\'' +
@@ -156,7 +157,7 @@ public class Enclosure {
      */
     public void displayCharacteristics() {
         System.out.println("Enclos : " + this.name);
-        System.out.println("Créature présent : " + creaturesPresent.size() +" / " + maxCreatures  );
+        System.out.println("Créature présent : " + creaturesPresent.size() + " / " + maxCreatures);
         System.out.println("Cleanliness: " + this.cleanliness + "%");
     }
 
@@ -167,8 +168,8 @@ public class Enclosure {
      */
     public static void levelUp(Enclosure enclosure) {
         if (enclosure.getLevel() < 3) {
-            enclosure.setLevel(enclosure.getLevel()+1);
-            enclosure.setMaxCreatures(enclosure.getMaxCreatures()+1);
+            enclosure.setLevel(enclosure.getLevel() + 1);
+            enclosure.setMaxCreatures(enclosure.getMaxCreatures() + 1);
             System.out.println("L'enclos pas au level " + enclosure.getLevel() + " et augmente sa capacité à " + enclosure.getMaxCreatures() + "!");
         } else {
             System.out.println("L'enclos est au niveau maximal");
@@ -188,14 +189,17 @@ public class Enclosure {
         }
     }
 
+
     /**
      * Remove creature boolean.
      *
      * @param creature the creature
      * @return the boolean
      */
+
+
     public boolean removeCreature(Creature creature) {
-        if (creature != null){
+        if (creature != null) {
             creaturesPresent.remove(creature);
             return true;
         }
@@ -205,15 +209,19 @@ public class Enclosure {
     }
 
 
+
     /**
      * Clean enclosure.
      *
      * @param enclosure the enclosure
      */
-    public static  void cleanEnclosure(Enclosure enclosure) {
+
+    public static void cleanEnclosure(Enclosure enclosure) {
+
         enclosure.setCleanliness(100);
         System.out.println(enclosure.getName() + " est nettoyé ");
     }
+
 
 
     /**
@@ -223,13 +231,15 @@ public class Enclosure {
      * @param enclosureIHMSource   the enclosure ihm source
      * @param enclosureDestination the enclosure destination
      */
-    public static void makeTransfer(Creature creature, EnclosureIHM enclosureIHMSource,Enclosure enclosureDestination){
+
+    public static void makeTransfer(Creature creature, Enclosure enclosureSource, Enclosure enclosureDestination) {
+
         // Si l'enclos source n'est pas null cela veux dire que on fais un transfert d'un enclos a vers b
-        if (enclosureIHMSource != null){
-            enclosureIHMSource.getEnclosure().removeCreature(creature);
+        if (enclosureSource != null) {
+            enclosureSource.removeCreature(creature);
             enclosureDestination.getCreaturesPresent().add(creature);
         }// Si l'enclos est null alors on ajoute juste une créature a l'enclos de destination
-        else{
+        else {
             enclosureDestination.getCreaturesPresent().add(creature);
         }
     }
@@ -256,4 +266,20 @@ public class Enclosure {
         return enclosureWithFreeSpace;
     }
 
+
+    public static List<Enclosure> enclosuresWithFreeSpace(List<EnclosureIHM> enclosureIHMs, String type) {
+
+        List<Enclosure> enclosureWithFreeSpace = new ArrayList<>();
+        for (EnclosureIHM enclosureIHM : enclosureIHMs) {
+
+
+            if (enclosureIHM.getEnclosure().getCreaturesPresent().size() != enclosureIHM.getEnclosure().getMaxCreatures()) {
+                if (enclosureIHM.getEnclosure().getClass().getSimpleName().equalsIgnoreCase(type)) {
+
+                    enclosureWithFreeSpace.add(enclosureIHM.getEnclosure());
+                }
+            }
+        }
+        return enclosureWithFreeSpace;
+    }
 }

@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 import IHM.Content.Drawers.ImagePanel;
@@ -32,6 +33,7 @@ public class EnclosureIHM extends JPanel {
     private final Enclosure enclosure;
     private Random random;
 
+
     /**
      * Instantiates a new Enclosure ihm.
      *
@@ -43,6 +45,11 @@ public class EnclosureIHM extends JPanel {
      * @param enclosureIHMS the enclosure ihms
      */
     public EnclosureIHM(Integer level, String name,SidePanel sidePanel,String type,List<Creature> creatures,List<EnclosureIHM> enclosureIHMS) {//, SidePanel sidePanel
+
+    public List<CreatureImg> getCreatureImgs() {
+        return creatureImgs;
+    }
+
         this.currentLevel = new MutableInteger(level);
         this.enclosureName = name;
         this.sidePanel = sidePanel;
@@ -118,15 +125,6 @@ public class EnclosureIHM extends JPanel {
             }
         });
 
-        //addComponentListener(new ComponentAdapter() {
-        //    @Override
-        //    public void componentResized(ComponentEvent e) {
-        //        if (!isInitialized) {
-        //            isInitialized = true;
-        //            initializeCreatures();
-        //        }
-        //    }
-        //});
     }
 
     /**
@@ -158,7 +156,7 @@ public class EnclosureIHM extends JPanel {
      * @param creatureImg the creature img
      */
     public void addCreatureImg(CreatureImg creatureImg) {
-        System.out.println(creatureImg.getType().getImagePath());
+
         creatureImgs.add(creatureImg);
         if (isInitialized) {
             int panelWidth = creaturePanel.getWidth();
@@ -175,12 +173,14 @@ public class EnclosureIHM extends JPanel {
     }
 
 
+
     /**
      * Remove creature.
      *
      * @param creatureImg the creature img
      */
     public void removeCreature(CreatureImg creatureImg) {
+
         creatureImgs.remove(creatureImg);
         updateCreaturePanel();
     }
@@ -225,20 +225,28 @@ public class EnclosureIHM extends JPanel {
      * @param enclosureIHMS the enclosure ihms
      */
     public static void addCreatureImgToEnclosure(List<EnclosureIHM> enclosureIHMS){
-        System.out.println("_____________________");
         for (EnclosureIHM enclosureIHM: enclosureIHMS){
-            System.out.println(enclosureIHM.getEnclosure().getCreaturesPresent().size());
-            if(enclosureIHM.getEnclosure().getCreaturesPresent().size() != 0){
+            enclosureIHM.getCreatureImgs().clear();
+            if(!enclosureIHM.getEnclosure().getCreaturesPresent().isEmpty()) {
                 for (int i = 0; i < enclosureIHM.getEnclosure().getCreaturesPresent().size(); i++) {
-                    System.out.println(enclosureIHM.getEnclosure().getCreaturesPresent().get(i).getSpecies());
-                    enclosureIHM.addCreatureImg(new CreatureImg("Creature ", CreatureType.getType(enclosureIHM.getEnclosure().getCreaturesPresent().get(i).getSpecies())));
+                    enclosureIHM.addCreatureImg(new CreatureImg(enclosureIHM.getEnclosure().getCreaturesPresent().get(i).getName(), CreatureType.getType(enclosureIHM.getEnclosure().getCreaturesPresent().get(i).getSpecies())));
                 }
+
             }
             enclosureIHM.repaint();
         }
+    }
+    public static void updateOneEnclosure(EnclosureIHM enclosureIHM){
 
+        enclosureIHM.getCreatureImgs().clear();
+        System.out.println(enclosureIHM.getEnclosure().getCreaturesPresent());
+        if(!enclosureIHM.getEnclosure().getCreaturesPresent().isEmpty()) {
+            for (int i = 0; i < enclosureIHM.getEnclosure().getCreaturesPresent().size(); i++) {
+                enclosureIHM.addCreatureImg(new CreatureImg(enclosureIHM.getEnclosure().getCreaturesPresent().get(i).getName(), CreatureType.getType(enclosureIHM.getEnclosure().getCreaturesPresent().get(i).getSpecies())));
+            }
 
-
+        enclosureIHM.repaint();
+        }
     }
 
 

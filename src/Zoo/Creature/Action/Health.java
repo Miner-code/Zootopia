@@ -1,4 +1,5 @@
 package Zoo.Creature.Action;
+import IHM.UI.ZooGridElement.EnclosureIHM;
 import Zoo.Creature.Creature;
 
 import java.util.ArrayList;
@@ -72,13 +73,16 @@ public class Health extends Thread {
                 '}';
     }
 
+
     /**
      * Gets sick.
      *
      * @param creature  the creature
      * @param creatures the creatures
      */
-    public static void getSick(Creature creature, List<Creature> creatures) {
+
+    public static void getSick(Creature creature, List<Creature> creatures, EnclosureIHM enclosureIHM) {
+
 
         // Si la créature existe
         if (creature.getName() != null){
@@ -90,15 +94,16 @@ public class Health extends Thread {
                     // Mettre la crature malade
                     creature.getHealth().setSick(1);
                     // Afficher que la créature est malade
-                    System.out.println("La créature " + creature.getName() + " est tombé malade");
+                    System.out.println("\n[ALERTE] La créature " + creature.getName() + " est tombé malade\n");
                 }
             }// Si la crature est déjà malade alors appeler la funciton qui lui enleve des hp
             else{
-                removeHP (creature,creatures);
+                removeHP (creature,creatures, enclosureIHM);
             }
         }
 
     }
+
 
     /**
      * Remove hp.
@@ -106,16 +111,17 @@ public class Health extends Thread {
      * @param creature  the creature
      * @param creatures the creatures
      */
-    public static void removeHP (Creature creature,List<Creature> creatures){
+
+    public static void removeHP (Creature creature,List<Creature> creatures, EnclosureIHM enclosureIHM){
         // Enlever un point de vie a la créature
         creature.getHealth().setHealth(creature.getHealth().getHealth()-1);
         // Si le nombre de hp de la créature est différent de 0 alors afficher le nombre d'hp restant
         if (creature.getHealth().getHealth() != 0){
-            //System.out.println("La créature " + creature.getName() + " a " + creature.getHealth().getHealth() + " point de vie" );
+            System.out.println("La créature " + creature.getName() + " a " + creature.getHealth().getHealth() + " point de vie" );
         }
         // Sinon appeler la function qui fait mourrir la créature
         else{
-            die(creature,creatures);
+            die(creature,creatures,enclosureIHM);
         }
 
     }
@@ -128,7 +134,7 @@ public class Health extends Thread {
      */
     public static void disease(Creature creature){
         creature.getHealth().setSick(0);
-        System.out.println("La créature " + creature.getName() + " a été soigné ");
+        System.out.println("[#] La créature " + creature.getName() + " a été soigné ");
     }
 
     /**
