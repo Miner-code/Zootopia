@@ -11,7 +11,17 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Button add creature.
+ */
 public class ButtonAddCreature extends JButton {
+    /**
+     * Instantiates a new Button add creature.
+     *
+     * @param enclosure     the enclosure
+     * @param creatures     the creatures
+     * @param enclosureIHMS the enclosure ihms
+     */
     public ButtonAddCreature(Enclosure enclosure, List<Creature> creatures, List<EnclosureIHM> enclosureIHMS) {
         ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button_addcreature.png")));
         Image scaledImage = originalIcon.getImage().getScaledInstance(72, 72, Image.SCALE_SMOOTH);

@@ -7,9 +7,17 @@ import java.io.IOException;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 
+/**
+ * The type Image button.
+ */
 public class ImageButton extends JButton {
     private BufferedImage buttonImage;
 
+    /**
+     * Instantiates a new Image button.
+     *
+     * @param imagePath the image path
+     */
     public ImageButton(String imagePath) {
         try {
             buttonImage = ImageIO.read(Objects.requireNonNull(getClass().getResource(imagePath)));

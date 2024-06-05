@@ -4,11 +4,27 @@ import Zoo.Creature.Creature;
 import Zoo.Creature.Species.*;
 
 
+/**
+ * The type Aquarium.
+ */
 public class Aquarium extends Enclosure {
 
+    /**
+     * The Basin depth.
+     */
     int basinDepth;
+    /**
+     * The Water salinity.
+     */
     int waterSalinity;
 
+    /**
+     * Instantiates a new Aquarium.
+     *
+     * @param name          the name
+     * @param basinDepth    the basin depth
+     * @param waterSalinity the water salinity
+     */
     public Aquarium(String name, int basinDepth, int waterSalinity) {
         super(name, "aquarium");
         this.basinDepth = basinDepth;

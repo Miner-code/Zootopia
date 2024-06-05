@@ -19,12 +19,22 @@ import Zoo.Game.Turn;
 import java.util.Random;
 
 
+/**
+ * The type Main panel.
+ */
 public class MainPanel extends JPanel {
 
     private SidePanel sidePanel;
     private Random random;
 
 
+    /**
+     * Instantiates a new Main panel.
+     *
+     * @param sidePanel     the side panel
+     * @param creatures     the creatures
+     * @param enclosureIHMS the enclosure ihms
+     */
     public MainPanel(SidePanel sidePanel, List<Creature> creatures, List<EnclosureIHM> enclosureIHMS) {
         this.sidePanel = sidePanel;
         this.random = new Random();
@@ -89,6 +99,13 @@ public class MainPanel extends JPanel {
         add(layeredPane, BorderLayout.CENTER);
     }
 
+    /**
+     * Add next turn j panel.
+     *
+     * @param creatures     the creatures
+     * @param enclosureIHMS the enclosure ihms
+     * @return the j panel
+     */
     public JPanel addNextTurn(List<Creature> creatures,List<EnclosureIHM> enclosureIHMS) {
         JPanel nextTurn = new JPanel(new BorderLayout());
         nextTurn.setBackground(Color.GRAY);

@@ -7,8 +7,27 @@ import Zoo.Creature.Creature;
 import Zoo.Creature.Type.Earthly;
 import Zoo.Creature.Type.Type;
 
+/**
+ * The type Werewolf.
+ */
 public class Werewolf extends Creature {
+    /**
+     * The Type.
+     */
     public Type type;
+
+    /**
+     * Instantiates a new Werewolf.
+     *
+     * @param name   the name
+     * @param sex    the sex
+     * @param age    the age
+     * @param size   the size
+     * @param weight the weight
+     * @param hungry the hungry
+     * @param slept  the slept
+     * @param health the health
+     */
     public Werewolf(String name, boolean sex, int age, double size, double weight, Hungry hungry, Slept slept, Health health) {
         super(name, sex, age, "Werewolf", size, weight,hungry, slept, health);
         this.type = new Earthly();

@@ -6,8 +6,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
+/**
+ * The type Button close.
+ */
 public class ButtonClose extends JButton {
 
+    /**
+     * Instantiates a new Button close.
+     */
     public ButtonClose() {
         // Charger l'image originale
         ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-close-up.png")));

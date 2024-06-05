@@ -8,27 +8,61 @@ import java.util.Scanner;
 
 import static Zoo.Creature.Creature.die;
 
+/**
+ * The type Health.
+ */
 public class Health extends Thread {
 
+    /**
+     * The Health.
+     */
     public int health;
 
+    /**
+     * The Sick.
+     */
     public int sick;
 
+    /**
+     * Instantiates a new Health.
+     *
+     * @param health the health
+     */
     public Health(int health) {
         this.health = health;
         this.sick = 0;
     }
 
+    /**
+     * Gets health.
+     *
+     * @return the health
+     */
     public int getHealth() {
         return health;
     }
 
+    /**
+     * Gets sick.
+     *
+     * @return the sick
+     */
     public int getSick() { return sick; }
 
+    /**
+     * Sets health.
+     *
+     * @param eat the eat
+     */
     public void setHealth(int eat) {
         this.health = eat;
     }
 
+    /**
+     * Sets sick.
+     *
+     * @param sick the sick
+     */
     public void setSick(int sick) { this.sick = sick; }
 
     @Override
@@ -39,7 +73,16 @@ public class Health extends Thread {
                 '}';
     }
 
+
+    /**
+     * Gets sick.
+     *
+     * @param creature  the creature
+     * @param creatures the creatures
+     */
+
     public static void getSick(Creature creature, List<Creature> creatures, EnclosureIHM enclosureIHM) {
+
 
         // Si la créature existe
         if (creature.getName() != null){
@@ -61,6 +104,14 @@ public class Health extends Thread {
 
     }
 
+
+    /**
+     * Remove hp.
+     *
+     * @param creature  the creature
+     * @param creatures the creatures
+     */
+
     public static void removeHP (Creature creature,List<Creature> creatures, EnclosureIHM enclosureIHM){
         // Enlever un point de vie a la créature
         creature.getHealth().setHealth(creature.getHealth().getHealth()-1);
@@ -76,12 +127,21 @@ public class Health extends Thread {
     }
 
 
-
-
+    /**
+     * Disease.
+     *
+     * @param creature the creature
+     */
     public static void disease(Creature creature){
         creature.getHealth().setSick(0);
         System.out.println("[#] La créature " + creature.getName() + " a été soigné ");
     }
+
+    /**
+     * Is critical boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCritical() {
         return this.health <= 0;
     }

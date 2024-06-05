@@ -8,15 +8,14 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="ChangeListManager">
-    <list default="true" id="48803ecc-8a40-43bc-b45b-b3def144200b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/EnclosureIHM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHM/UI/ZooGridElement/EnclosureIHM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Action/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Action/Health.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Action/Hungry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Action/Hungry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Creature/Creature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Game/Turn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zoo/Life/Life.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo/Life/Life.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,8 +132,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Start" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.StartGame" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +188,9 @@
       <workItem from="1717250479517" duration="42573000" />
       <workItem from="1717397656525" duration="2692000" />
       <workItem from="1717400833248" duration="950000" />
+
       <workItem from="1717418363470" duration="5315000" />
+
     </task>
     <servers />
   </component>

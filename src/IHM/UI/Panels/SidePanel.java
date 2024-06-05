@@ -14,6 +14,9 @@ import java.awt.event.MouseEvent;
 import java.io.PrintStream;
 import java.util.List;
 
+/**
+ * The type Side panel.
+ */
 public class SidePanel extends JPanel {
 
     private JLabel enclosureNameLabel;
@@ -29,6 +32,11 @@ public class SidePanel extends JPanel {
 
     private boolean enclosureSelected = false;
 
+    /**
+     * Instantiates a new Side panel.
+     *
+     * @param mainGamePanel the main game panel
+     */
     public SidePanel(MainGamePanel mainGamePanel) {
         this.mainGamePanel = mainGamePanel;
 
@@ -127,6 +135,15 @@ public class SidePanel extends JPanel {
         System.setErr(consoleStream);
     }
 
+    /**
+     * Update info.
+     *
+     * @param name          the name
+     * @param level         the level
+     * @param creatures     the creatures
+     * @param enclosure     the enclosure
+     * @param enclosureIHMS the enclosure ihms
+     */
     public void updateInfo(String name, int level, List<Creature> creatures, Enclosure enclosure, List<EnclosureIHM> enclosureIHMS) {
         SwingUtilities.invokeLater(() -> {
             enclosureNameLabel.setText(name);
@@ -134,7 +151,9 @@ public class SidePanel extends JPanel {
 
             creaturesListPanel.removeAll();
             buttonPanel.removeAll();
+
             buttonPanel.add(closeButton);
+
             for (Creature creature : enclosure.getCreaturesPresent()) {
                 JPanel creaturePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
                 creaturePanel.setOpaque(false);

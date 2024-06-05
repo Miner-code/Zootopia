@@ -12,11 +12,15 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Button transfer.
+ */
 public class ButtonTransfer extends JButton {
+
 
     public ButtonTransfer(Creature creature, Enclosure sourceEnclosure,List<EnclosureIHM> enclosureIHMs) {
         super("Transfer");
-        ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-clear-up.png")));
+        ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/IHM/Content/Images/Buttons/button-close-up.png")));
 
         // Resize the original image to the desired size
         Image scaledImage = originalIcon.getImage().getScaledInstance(72, 72, Image.SCALE_SMOOTH);

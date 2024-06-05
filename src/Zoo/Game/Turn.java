@@ -16,15 +16,29 @@ import Zoo.Life.Life;
 
 import static Zoo.Creature.Creature.die;
 
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * The type Turn.
+ */
 public class Turn {
+
+    /**
+     * Instantiates a new Turn.
+     *
+     * @param creatures     the creatures
+     * @param enclosureIHMS the enclosure ihms
+     */
 
     public Turn(List<Creature> creatures, List<EnclosureIHM> enclosureIHMs) {
         this.takeTurn(creatures, enclosureIHMs);
     }
 
+    /**
+     * Take turn.
+     *
+     * @param creatures     the creatures
+     * @param enclosureIHMs the enclosure ih ms
+     */
     public void takeTurn(List<Creature> creatures, List<EnclosureIHM> enclosureIHMs) {
 
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n---------------------------------------");
@@ -73,6 +87,11 @@ public class Turn {
 
         creatures.removeAll(creaturesToRemove);
 
+
+        System.out.println("\n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t \n\t ");
+
         EnclosureIHM.addCreatureImgToEnclosure(enclosureIHMs);
+
     }
 }
+

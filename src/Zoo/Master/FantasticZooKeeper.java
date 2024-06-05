@@ -6,12 +6,34 @@ import Zoo.Enclosure.Enclosure;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Fantastic zoo.
+ */
 class FantasticZoo {
+    /**
+     * The Name.
+     */
     String name;
+    /**
+     * The Fantastic zoo keeper.
+     */
     FantasticZooKeeper fantasticZooKeeper;
+    /**
+     * The Max number of enclosures.
+     */
     int maxNumberOfEnclosures;
+    /**
+     * The Existing enclosures.
+     */
     List<Enclosure> existingEnclosures;
 
+    /**
+     * Instantiates a new Fantastic zoo.
+     *
+     * @param name                  the name
+     * @param fantasticZooKeeper    the fantastic zoo keeper
+     * @param maxNumberOfEnclosures the max number of enclosures
+     */
     public FantasticZoo(String name, FantasticZooKeeper fantasticZooKeeper, int maxNumberOfEnclosures) {
         this.name = name;
         this.fantasticZooKeeper = fantasticZooKeeper;
